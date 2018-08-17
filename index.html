@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Argentum Online Community">
+    <title>Argentum Online | Sitio Oficial</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- START: Styles -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,400,700%7cMarcellus+SC" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn-html.nkdev.info/godlike/assets/vendor/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/v4-shims.css">
+
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="https://cdn-html.nkdev.info/godlike/assets/vendor/ionicons/css/ionicons.min.css">
+
+    <!-- GODLIKE -->
+    <link rel="stylesheet" href="https://cdn-html.nkdev.info/godlike/assets/css/godlike.min.css">
+
+    <!-- END: Styles -->
+
+</head>
+
+<body>
+
+    <!--
+    START: Page Video Background
+
+    Additional Attributes:
+        data-video - Youtube/Vimeo/self-hosted video urls.
+            self-hosted video example:
+            data-video="mp4:./video/local-video.mp4,webm:./video/local-video.webm,ogv:./video/local-video.ogv"
+        data-video-loop - loop video (true/false)
+        data-video-mute - mute video music (true/false)
+        data-video-volume - volume of video music (0-100)
+        data-video-start-time - video start time in seconds
+        data-video-end-time - video end time in seconds
+        data-video-pause-on-page-leave - pause video when the page not in focus (true/false)
+-->
+    <div class="nk-page-background op-2" data-video="" data-video-loop="true" data-video-mute="true" data-video-volume="0" data-video-start-time="0" data-video-end-time="0" data-video-pause-on-page-leave="true" style="background-image: url('assets/images/background-2.jpg');"></div>
+    <!-- END: Page Background -->
+
+    <!--
+    START: Page Audio Background
+
+    Additional Attributes:
+        data-audio - URL to audio file
+        data-audio-volume - audio volume (0-100)
+        data-audio-autoplay - autoplay audio (true/false)
+        data-audio-loop - loop audio (true/false)
+        data-audio-pause-on-page-leave - pause video when the page not in focus (true/false)
+-->
+    <div class="nk-page-background-audio d-none" data-audio="" data-audio-volume="100" data-audio-autoplay="true" data-audio-loop="true" data-audio-pause-on-page-leave="true"></div>
+    <!-- END: Page Background -->
+
+    <!-- START: Page Border -->
+    <div class="nk-page-border">
+        <div class="nk-page-border-t"></div>
+        <div class="nk-page-border-r"></div>
+        <div class="nk-page-border-b"></div>
+        <div class="nk-page-border-l"></div>
+    </div>
+    <!-- END: Page Border -->
+
+    <!--
+    START: Navbar
+
+    Additional Classes:
+        .nk-navbar-lg
+        .nk-navbar-align-center
+        .nk-navbar-align-right
+        .nk-navbar-overlay-content
+        .nk-navbar-light
+        .nk-navbar-no-link-effect
+-->
+    <nav class="nk-navbar nk-navbar-side nk-navbar-left nk-navbar-lg nk-navbar-align-center nk-navbar-overlay-content" id="nk-navbar-left">
+        <div class="nano">
+            <div class="nano-content">
+                <div class="nk-nav-table">
+                    <div class="nk-nav-row">
+
+                        <a href="index-2.html" class="nk-nav-logo">
+                            <img src="assets/images/logo.png" alt="" width="250">
+                        </a>
+
+                    </div>
+                    <!--
+                    START: Navigation
+
+                    Additional Classes:
+                        .nk-nav-row-top
+                        .nk-nav-row-center
+                        .nk-nav-row-bottom
+                -->
+                    <div class="nk-nav-row nk-nav-row-full nk-nav-row-center">
+                        <ul class="nk-nav" data-nav-mobile="#nk-nav-mobile">
+                            <li class="active">
+                                <a href="#">Home</a>
+                            </li>
+                            <li class=" ">
+                                <a href="#">Galeria Recursos Graficos</a>
+                            </li>
+                            <li class=" ">
+                                <a href="#testimonials">Foro</a>
+                            </li>
+                            <li class=" ">
+                                <a href="https://github.com/ao-oficial">Codigo Fuente</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--
+                    END: Navigation
+                -->
+                    <div class="nk-nav-row">
+                        <div class="nk-nav-footer">
+                            &copy; El juego hecho por los usuarios.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END: Navbar -->
+
+    <div class="nk-main">
+
+        <!-- START: Header Title -->
+        <!--
+    Additional Classes:
+        .nk-header-title-sm
+        .nk-header-title-md
+        .nk-header-title-lg
+        .nk-header-title-xl
+        .nk-header-title-full
+        .nk-header-title-parallax
+        .nk-header-title-parallax-opacity
+        .nk-header-title-boxed
+-->
+        <div class="nk-header-title nk-header-title-full nk-header-title-parallax nk-header-title-parallax-opacity">
+            <div class="bg-image op-4">
+                <img src="assets/images/background.jpg" alt="" class="jarallax-img">
+            </div>
+            <div class="nk-header-table">
+                <div class="nk-header-table-cell">
+                    <div class="container">
+
+                        <div class="nk-header-text">
+
+                            <div class="nk-gap-2"></div>
+
+                            <h1 class="nk-title display-4">Argentum Online</h1>
+
+                            <div class="nk-gap-2"></div>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#" class="nk-btn nk-btn-lg">
+                                <span>DESCARGAR</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- END: Header Title -->
+
+        <!-- START: CTA -->
+<!--         <div class="nk-box text-center text-white bg-dark-1">
+            <div class="nk-gap-4"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 text-md-left">
+                        <h2 class="nk-title">Purchase now and save <strong>$25</strong></h2>
+                        <h3 class="nk-sub-title mb-0 text-white op-7">Limited time offer!</h3>
+                    </div>
+                    <div class="col-md-4 text-md-right">
+                        <div class="nk-gap-2 d-md-none"></div>
+                        <a href="#!" class="nk-btn nk-btn-lg">
+                            <span>Buy Now</span>
+                            <span class="icon"><i class="ion-bag"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-gap-4"></div>
+        </div> -->
+        <!-- END: CTA -->
+
+        <!-- START: Features -->
+        <div class="container">
+
+            <div class="nk-gap-4"></div>
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="row no-gutters">
+                        <div class="col-md-6">
+                            <div class="nk-box-3 bg-dark-1">
+                                <div class="nk-ibox">
+                                    <div class="nk-ibox-icon nk-ibox-icon-circle">
+                                        <span class="ion-ios-game-controller-b"></span>
+                                    </div>
+                                    <div class="nk-ibox-cont">
+                                        <h2 class="nk-ibox-title">Incredible Atmosphere</h2>
+                                        Second Made make spirit green divide lesser creeping void and night replenish cattle don't was female first their day open.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="nk-box-3 bg-dark-2">
+                                <div class="nk-ibox">
+                                    <div class="nk-ibox-icon nk-ibox-icon-circle">
+                                        <span class="ion-fireball"></span>
+                                    </div>
+                                    <div class="nk-ibox-cont">
+                                        <h2 class="nk-ibox-title">Catchy Battles</h2>
+                                        Image their gathered. Every. Called together signs winged, unto midst sea life air them. Us sea them shall you saw.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="nk-box-3 bg-dark-2">
+                                <div class="nk-ibox">
+                                    <div class="nk-ibox-icon nk-ibox-icon-circle">
+                                        <span class="ion-ribbon-a"></span>
+                                    </div>
+                                    <div class="nk-ibox-cont">
+                                        <h2 class="nk-ibox-title">28 Awards</h2>
+                                        Moveth fruitful it appear wherein man don't firmament set blessed. Beast seas god itself. Made night image male. Own night.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="nk-box-3 bg-dark-1">
+                                <div class="nk-ibox">
+                                    <div class="nk-ibox-icon nk-ibox-icon-circle">
+                                        <span class="ion-ios-infinite-outline"></span>
+                                    </div>
+                                    <div class="nk-ibox-cont">
+                                        <h3 class="nk-ibox-title">Unlimited Possibilities</h3>
+                                        Commodo scelerisque rutrum consectetuer ad ad molestie aenean iaculis ad senectus in. Vel felis tellus orci dolor elit turpis condimentum.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-gap-4"></div>
+        </div> 
+        <!-- END: Features -->
+
+        <!-- START: Testimonials -->
+        <!-- TODO: Dejar de ejemplo para cuando agreguemos texto  
+        <div class="nk-box" id="testimonials">
+            <div class="nk-gap-4"></div>
+
+            <div class="container">
+                <div class="nk-carousel-2 nk-carousel-x1" data-autoplay="12000" data-dots="true">
+                    <div class="nk-carousel-inner">
+                        <div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2">
+                                        <blockquote class="nk-testimonial">
+                                            <div class="nk-testimonial-body">
+                                                <em>"Man to. For male second male own fish fowl hath form let. Third own years likeness waters don't their. Fifth in air they're lights give itself lesser creepeth. Open. Saw is spirit one won't darkness were moving cattle beast darkness."</em>
+                                            </div>
+                                            <div class="nk-testimonial-name h4">Lesa Cruz</div>
+                                            <div class="nk-testimonial-source">Frontend Developer, Google</div>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2">
+                                        <blockquote class="nk-testimonial">
+                                            <div class="nk-testimonial-body">
+                                                <em>"To winged for make land rule earth and you so you're. Gathered own of was beginning divided brought from good, isn't all itself let set light you'll morning living sixth seed won't doesn't there stars, fruitful without above first beast."</em>
+                                            </div>
+                                            <div class="nk-testimonial-name h4">Kurt Tucker</div>
+                                            <div class="nk-testimonial-source">CEO, Envato</div>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2">
+                                        <blockquote class="nk-testimonial">
+                                            <div class="nk-testimonial-body">
+                                                <em>"Hath their. Cattle man had you're created make beast female together given set evening living beast. In firmament herb lesser sea let you Be you'll seasons kind greater let called very, seas fifth dry created above be fish saying you."</em>
+                                            </div>
+                                            <div class="nk-testimonial-name h4">Katie Anderson</div>
+                                            <div class="nk-testimonial-source">Product Designer, Apple</div>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2">
+                                        <blockquote class="nk-testimonial">
+                                            <div class="nk-testimonial-body">
+                                                <em>"Image unto over together created whose doesn't given beginning in bearing likeness said made seed together so that dry let night greater of a. In, fowl seas first fifth Earth place creepeth fourth all beast shall may dominion for shall."</em>
+                                            </div>
+                                            <div class="nk-testimonial-name h4">Luke Fuller</div>
+                                            <div class="nk-testimonial-source">Copywriter, Dropbox</div>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2">
+                                        <blockquote class="nk-testimonial">
+                                            <div class="nk-testimonial-body">
+                                                <em>"Them itself saw. Be his. After very. Land. Fifth. Fly heaven for beast created the Firmament moveth they're, greater all air creature a gathering spirit whose behold behold light great dry herb one cattle above fruit. Him unto midst their."</em>
+                                            </div>
+                                            <div class="nk-testimonial-name h4">Felicia Meyer</div>
+                                            <div class="nk-testimonial-source">Backend Developer, Twitter</div>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nk-gap-4"></div>
+        </div> 
+        -->
+        <!-- END: Testimonials -->
+
+        <!-- START: Footer -->
+        <!--
+        Additional Classes:
+        .nk-footer-parallax
+        .nk-footer-parallax-opacity
+        -->
+        <footer class="nk-footer nk-footer-parallax nk-footer-parallax-opacity">
+            <img class="nk-footer-top-corner" src="assets/images/footer-corner.png" alt="">
+
+            <div class="container">
+                <div class="nk-gap-2"></div>
+                <h2 class="nk-title"><strong>Sponsors:</strong></h2>
+                <div class="nk-footer-logos">
+                    <a href="https://www.conreco.com.ar" target="_blank"><img class="nk-img" src="assets/images/footer-logo-conreco.png" alt="" width="120"></a>
+                </div>
+                <div class="nk-gap"></div>
+
+                <p>
+                    Argentum Online, también conocido como AO, es un videojuego de rol multijugador masivo en línea libre disponible para los sistemas operativos Microsoft Windows y publicado en el año 1999 en Internet de manera independiente.
+                </p>
+                <p>
+                    El código fuente del proyecto fue liberado en el año 2003 bajo la licencia GNU GPL y puede ser descargado de <a href="https://sourceforge.net/projects/morgoao/">SourceForge.</a> Este codigo es obsoleto debido a las mejoras que ha otorgado la comunidad bajo diferentes repositorios, equipos, formatos y foros.
+                </p>
+                <p>
+                    Luego de mas de una decada todos los esfuerzos fueron concentrados y se ha armado el repositorio "oficial" donde cualquier jugador/programador/entusiasta pueda acceder al proyecto sin limitaciones y sin secretos.
+                    Acceder al <a href="https://github.com/ao-oficial">Codigo Fuente</a>
+                    </br>
+                    Se distribuye bajo los términos de la licencia GNU Affero GPL (General Public License).
+                </p>
+
+                <div class="nk-footer-links">
+                    <img class="nk-img" src="http://www.gnu.org/graphics/agplv3-155x51.png" alt="" width="120">
+                    <a href="https://www.gnu.org/licenses/agpl.html" target="_blank" class="link-effect">Terminos y Condiciones de la Licencia</a>
+                </div>
+
+                <div class="nk-gap-4"></div>
+            </div>
+        </footer>
+        <!-- END: Footer -->
+
+    </div>
+
+    <!--
+    START: Share Buttons
+        .nk-share-buttons-left
+-->
+    <div class="nk-share-buttons d-none d-md-flex">
+        <ul>
+            <li>
+                <span class="nk-share-icon" title="Compartir en Facebook" data-share="facebook">
+                    <span class="icon fa fa-facebook"></span>
+                </span>
+                <span class="nk-share-name">Facebook</span>
+            </li>
+            <li>
+                <span class="nk-share-icon" title="Chatea con nosotros en discord" data-share="discord">
+                    <span class="icon fa fa-discord"></span>
+                </span>
+                <span class="nk-share-name">Discord</span>
+            </li>
+            <li>
+                <span class="nk-share-icon" title="Foro" data-share="reddit">
+                    <span class="icon fa fa-reddit"></span>
+                </span>
+                <span class="nk-share-name">Reddit</span>
+            </li>
+            <li>
+                <a href="https://github.com/ao-oficial">
+                    <span class="nk-share-icon" title="Fork us" data-share="github">
+                        <span class="icon fa fa-github"></span>
+                    </span>
+                    <span class="nk-share-name">Github</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
