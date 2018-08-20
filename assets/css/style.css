@@ -12993,7 +12993,6 @@ span.active>.nk-icon-toggle {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	overflow: scroll;
 	overflow-x: hidden;
 	outline: 0;
 	-webkit-overflow-scrolling: touch
