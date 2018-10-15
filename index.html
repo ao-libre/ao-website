@@ -31,6 +31,20 @@
 
     <!-- END: Styles -->
 
+    <script>
+      function httpGet(theUrl)
+      {
+          var xmlHttp = new XMLHttpRequest();
+          xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+          xmlHttp.send( null );
+          return xmlHttp.responseText;
+      }
+
+      var githubReponseClient = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-cliente/releases/latest"));
+      var githubReponseServer = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-server/releases/latest"));
+
+    </script>
+
 </head>
 
 <body>
@@ -182,9 +196,10 @@
 
                         <div class="nk-gap-2"></div>
 
-                        <a href="https://github.com/ao-libre/ao-cliente/archive/master.zip" class="nk-btn nk-btn-lg">
-                            <span>DESCARGAR JUEGO (CLIENTE)</span>
+                        <a id="clientDownload" href="#" class="nk-btn nk-btn-lg">
+                            <span>DESCARGAR JUEGO</span>
                         </a>
+
                         <h1 class="nk-title display-5"><span>ESTADO: <span> <span style="color:green">ONLINE<span></h1>
                         <h2>Estamos trabajando en mejoras y arreglo de bugs.</br> Unite a nuestra comunidad para poder ayudar a resolver estos problemas</h2>
 
@@ -209,6 +224,10 @@
 
                         <a href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/" target="_blank" class="nk-btn nk-btn-lg">
                             <span>MI PRIOPIO SERVER</span>
+                        </a>
+                        
+                        <a id="serverDownload" href="#" class="nk-btn nk-btn-lg">
+                            <span>DESCARGAR SERVER</span>
                         </a>
 
                         </br>
@@ -483,5 +502,10 @@
         </ul>
     </div>
 </body>
+
+<script>
+   document.getElementById("clientDownload").href = githubReponseClient.assets[0].browser_download_url;
+   document.getElementById("serverDownload").href = githubReponseServer.assets[0].browser_download_url;
+</script>
 
 </html>
