@@ -42,6 +42,7 @@
 
       var githubReponseClient = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-cliente/releases/latest"));
       var githubReponseServer = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-server/releases/latest"));
+      var githubReponseWorldEditor = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-worldeditor/releases/latest"));
 
     </script>
 
@@ -225,9 +226,19 @@
                         <a href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/" target="_blank" class="nk-btn nk-btn-lg">
                             <span>MI PRIOPIO SERVER</span>
                         </a>
-                        
+
                         <a id="serverDownload" href="#" class="nk-btn nk-btn-lg">
                             <span>DESCARGAR SERVER</span>
+                        </a>
+
+                        </br>
+                        </br>
+
+                        <h2>Crea tu mundo</h2>
+                        <p>¿Queres crear mapas para tu servidor de Argentum Online? World Editor es la herramienta que necesitas.</p>
+
+                        <a id="worldEditorDownload" href="#" class="nk-btn nk-btn-lg">
+                            <span>DESCARGAR WORLD EDITOR</span>
                         </a>
 
                         </br>
@@ -506,6 +517,7 @@
 <script>
    document.getElementById("clientDownload").href = githubReponseClient.assets[0].browser_download_url;
    document.getElementById("serverDownload").href = githubReponseServer.assets[0].browser_download_url;
+   document.getElementById("worldEditorDownload").href = githubReponseWorldEditor.assets[0].browser_download_url;
 </script>
 
 </html>
