@@ -40,7 +40,8 @@
           return xmlHttp.responseText;
       }
 
-      var githubReponseClient = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-cliente/releases/latest"));
+      //var githubReponseClient = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-cliente/releases/latest"));
+      var githubReponseAutoupdate = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-autoupdate/releases/latest"));
       var githubReponseServer = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-server/releases/latest"));
       var githubReponseWorldEditor = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-worldeditor/releases/latest"));
 
@@ -197,7 +198,7 @@
 
                         <div class="nk-gap-2"></div>
 
-                        <a id="clientDownload" href="#" class="nk-btn nk-btn-lg">
+                        <a id="autoupdateDownload" href="#" class="nk-btn nk-btn-lg">
                             <span>DESCARGAR JUEGO</span>
                         </a>
 
@@ -515,9 +516,10 @@
 </body>
 
 <script>
-   document.getElementById("clientDownload").href = githubReponseClient.assets[0].browser_download_url;
+   //document.getElementById("clientDownload").href = githubReponseClient.assets[0].browser_download_url;
    document.getElementById("serverDownload").href = githubReponseServer.assets[0].browser_download_url;
    document.getElementById("worldEditorDownload").href = githubReponseWorldEditor.assets[0].browser_download_url;
+   document.getElementById("autoupdateDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
 </script>
 
 </html>
