@@ -42,6 +42,12 @@
 
       //var githubReponseClient = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-cliente/releases/latest"));
       var githubReponseAutoupdate = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-autoupdate/releases/latest"));
+
+      var githubReponseAoJava = JSON.parse(httpGet("https://api.github.com/repos/guidota/ao-java/releases"));
+
+      var javaLinux = githubReponseAoJava[0].assets.find(x => x.name.includes('linux'));
+      var javaWindows = githubReponseAoJava[0].assets.find(x => x.name.includes('win'));
+      var javaOsx = githubReponseAoJava[0].assets.find(x => x.name.includes('app'));
     //   var githubReponseServer = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-server/releases/latest"));
     //   var githubReponseWorldEditor = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-worldeditor/releases/latest"));
 
@@ -242,17 +248,6 @@
                             <span>DESCARGAR WORLD EDITOR</span>
                         </a>
 
-                        </br>
-                        </br>
-
-                        <h2>Conceptos basicos de la comunidad</h2>
-                        <p>¿Cuales crees que son los pilares/valores/principios de Argentum Online?
-                        Creamos una encuesta para replantearnos desde la comunidad quienes somos.</p>
-
-                        <a href="https://goo.gl/forms/IGxQ6hiTSiO3PPcu2" target="_blank" class="nk-btn nk-btn-lg">
-                            <span>Completar Encuesta</span>
-                        </a>
-
                         <div class="nk-gap-2"></div>
 
                     </div>
@@ -319,7 +314,63 @@
                     </div>
                 </div>
             </div> -->
-            <div class="nk-gap-4"></div>
+        <!-- </div> -->
+
+                <!-- AO-JAVA -->
+        <div class="nk-header-title nk-header-title-full nk-header-title-parallax nk-header-title-parallax-opacity">
+            <div class="bg-image op-4">
+                <img src="assets/images/ao-java.png" alt="" class="jarallax-img">
+            </div>
+            <div class="nk-header-table">
+                <div class="nk-header-table-cell">
+                    <div class="container">
+
+                        <div class="nk-header-text">
+
+                            <div class="nk-gap-2"></div>
+
+                            <h1 class="nk-title display-4" style="color: gold">AO Java</h1>
+                            <p>
+                                Todos nos preguntamos si es posible un cambio de tecnología para este hermoso juego, y si este cambio tiene sentido...
+                            </p>
+                            <p>
+                                Personalmente creo que si, de hecho lo que hicieron algunos chicos de la comunidad con el AO Web creo que fue excelente.
+                            </p>
+
+                            <p>
+                                Pero esta vez quiero ir un poco más allá. (guidON.-)
+                            </p>
+
+                            <div class="nk-gap-2"></div>
+
+                            <a href="#" id="javaOsxDownload" class="nk-btn nk-btn-lg">
+                                <span><ion-icon name="logo-apple"></ion-icon> Mac</span>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#" id="javaLinuxDownload" class="nk-btn nk-btn-lg">
+                                <span><ion-icon name="logo-tux"></ion-icon> Linux</span>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#" id="javaWindowsDownload" class="nk-btn nk-btn-lg">
+                                <span><ion-icon name="logo-windows"></ion-icon> Windows</span>
+                            </a>
+
+                            </br>
+                            </br>
+                            </br>
+
+                            <a href="https://github.com/guidota/ao-java/" target="_blank" id="javaWindowsDownload" class="nk-btn nk-btn-lg">
+                                <span><ion-icon name="logo-github"></ion-icon> Codigo Fuente</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="nk-gap-4"></div> -->
+
+        </div>
         </div>
 
         <!-- END: Features -->
@@ -525,6 +576,9 @@
    document.getElementById("serverDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
    document.getElementById("worldEditorDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
    document.getElementById("autoupdateDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
+   document.getElementById("javaWindowsDownload").href = javaWindows.browser_download_url;
+   document.getElementById("javaOsxDownload").href = javaOsx.browser_download_url;
+   document.getElementById("javaLinuxDownload").href = javaOsx.browser_download_url;
 </script>
 
 </html>
