@@ -46,7 +46,8 @@
       var githubReponseAoJava = JSON.parse(httpGet("https://api.github.com/repos/guidota/ao-java/releases"));
 
       var javaLinux = githubReponseAoJava[0].assets.find(x => x.name.includes('linux'));
-      var javaWindows = githubReponseAoJava[0].assets.find(x => x.name.includes('win'));
+      var javaWindows32 = githubReponseAoJava[0].assets.find(x => x.name.includes('win-32'));
+      var javaWindows64 = githubReponseAoJava[0].assets.find(x => x.name.includes('win-64'));
       var javaOsx = githubReponseAoJava[0].assets.find(x => x.name.includes('app'));
     //   var githubReponseServer = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-server/releases/latest"));
     //   var githubReponseWorldEditor = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-worldeditor/releases/latest"));
@@ -351,8 +352,12 @@
                                 <span><ion-icon name="logo-tux"></ion-icon> Linux</span>
                             </a>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="#" id="javaWindowsDownload" class="nk-btn nk-btn-lg">
-                                <span><ion-icon name="logo-windows"></ion-icon> Windows</span>
+                            <a href="#" id="javaWindows32Download" class="nk-btn nk-btn-lg">
+                                <span><ion-icon name="logo-windows"></ion-icon> Windows 32 bits</span>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#" id="javaWindows64Download" class="nk-btn nk-btn-lg">
+                                <span><ion-icon name="logo-windows"></ion-icon> Windows 64 bits</span>
                             </a>
 
                             </br>
@@ -576,7 +581,8 @@
    document.getElementById("serverDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
    document.getElementById("worldEditorDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
    document.getElementById("autoupdateDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
-   document.getElementById("javaWindowsDownload").href = javaWindows.browser_download_url;
+   document.getElementById("javaWindows32Download").href = javaWindows32.browser_download_url;
+   document.getElementById("javaWindows64Download").href = javaWindows64.browser_download_url;
    document.getElementById("javaOsxDownload").href = javaOsx.browser_download_url;
    document.getElementById("javaLinuxDownload").href = javaLinux.browser_download_url;
 </script>
