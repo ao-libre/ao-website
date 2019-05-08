@@ -58,6 +58,7 @@
         var charfilesTopTenMoreHp = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenmorehp"));
         var charfilesTopTenCharKiller = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptencharkiller"));
         var charfilesTopTenNpcKiller = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptennpckiller"));
+        var charfilesLastUpdate = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/lastTimeUpdated"));
     </script>
 
 </head>
@@ -398,6 +399,8 @@
                 <div class="nk-info-box bg-main-3">
                     <h3>Ranking AO Clasico (Alkon)</h3>
                 </div>
+
+                <h4 id="charfilesLastUpdate"></h4>
 
                 <div class="row vertical-gap lg-gap">
                     <div class="col-md-6">
@@ -754,6 +757,16 @@
         document.getElementById("charfilesTopTenNpcKiller10").innerHTML = charfilesTopTenNpcKiller[9].NOMBRE + " -- " + charfilesTopTenNpcKiller[9].MUERTES_NPCSMUERTES;
     } else {
         document.getElementById("charfilesTopTenNpcKiller").innerHTML = "No hay informacion disponible en estos momentos"
+    }
+
+    if (charfilesLastUpdate) {
+        charfilesLastUpdate = new Date(charfilesLastUpdate[0].UPDATE_TIME);
+        var yyyymmdd = (charfilesLastUpdate.getMonth() + 1) + '/' + charfilesLastUpdate.getDate() + '/' +  charfilesLastUpdate.getFullYear();
+        var hourAndMinutes = charfilesLastUpdate.getHours() + ":" + charfilesLastUpdate.getMinutes()
+        var dateString = "Ultima actualizacion: " + yyyymmdd + " " + hourAndMinutes;
+        document.getElementById("charfilesLastUpdate").innerHTML = dateString
+    } else {
+        document.getElementById("charfilesLastUpdate").innerHTML = "No hay informacion disponible en estos momentos"
     }
 
 
