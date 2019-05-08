@@ -761,7 +761,7 @@
 
     if (charfilesLastUpdate) {
         charfilesLastUpdate = new Date(charfilesLastUpdate[0].UPDATE_TIME);
-        var yyyymmdd = (charfilesLastUpdate.getMonth() + 1) + '/' + charfilesLastUpdate.getDate() + '/' +  charfilesLastUpdate.getFullYear();
+        var yyyymmdd = charfilesLastUpdate.getDate() + '/' + (charfilesLastUpdate.getMonth() + 1) + '/' + charfilesLastUpdate.getFullYear();
         var hourAndMinutes = charfilesLastUpdate.getHours() + ":" + charfilesLastUpdate.getMinutes()
         var dateString = "Ultima actualizacion: " + yyyymmdd + " " + hourAndMinutes;
         document.getElementById("charfilesLastUpdate").innerHTML = dateString
