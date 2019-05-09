@@ -59,6 +59,7 @@
         var charfilesTopTenCharKiller = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptencharkiller"));
         var charfilesTopTenNpcKiller = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptennpckiller"));
         var charfilesLastUpdate = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/lastTimeUpdated"));
+        var charfilesCount = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/getCountChars"));
     </script>
 
 </head>
@@ -401,6 +402,7 @@
                 </div>
 
                 <h4 id="charfilesLastUpdate"></h4>
+                <h5 id="charfilesCount"></h5>
 
                 <div class="row vertical-gap lg-gap">
                     <div class="col-md-6">
@@ -788,10 +790,17 @@
         charfilesLastUpdate = new Date(charfilesLastUpdate[0].UPDATE_TIME);
         var yyyymmdd = charfilesLastUpdate.getDate() + '/' + (charfilesLastUpdate.getMonth() + 1) + '/' + charfilesLastUpdate.getFullYear();
         var hourAndMinutes = charfilesLastUpdate.getHours() + ":" + charfilesLastUpdate.getMinutes()
-        var dateString = "Ultima actualizacion: " + yyyymmdd + " " + hourAndMinutes;
+        var dateString = "Ultima actualizacion: " + yyyymmdd + " " + hourAndMinutes + "hs";
         document.getElementById("charfilesLastUpdate").innerHTML = dateString
     } else {
         document.getElementById("charfilesLastUpdate").innerHTML = "No hay informacion disponible en estos momentos"
+    }
+
+
+    if (charfilesCount) {
+        document.getElementById("charfilesCount").innerHTML = "Personajes creados con actividad reciente: " + charfilesCount[0].COUNT     
+    } else {
+        document.getElementById("charfilesCount").innerHTML = "No hay informacion disponible en estos momentos"
     }
 
 
