@@ -193,7 +193,14 @@
                         </a>
 
                         <h1 class="nk-title display-5"><span>ESTADO: <span> <span style="color:green">ONLINE<span></h1>
-                        <h4>Estamos trabajando en mejoras y arreglo de bugs.</br> Unite a nuestra comunidad para poder
+
+                        <h5 id="gmsAdmines"></h5>
+                        <h5 id="gmsDioses"></h5>
+                        <h5 id="gmsSemidioses"></h5>
+                        <h5 id="gmsConsejeros"></h5>
+                        <h5 id="gmsRolemasters"></h5>
+
+                        <h4>Estamos constantemente trabajando en mejoras y arreglo de bugs.</br> Unite a nuestra comunidad para poder
                             ayudar a resolver estos problemas</h4>
 
                         <div class="nk-gap-2"></div>
@@ -669,6 +676,46 @@
     var charfilesTopTenNpcKiller = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptennpckiller"));
     var charfilesLastUpdate = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/lastTimeUpdated"));
     var charfilesCount = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/getCountChars"));
+    var gameMasters= JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/getGameMasters"));
+
+    if (gameMasters) {
+        if (gameMasters.admines.length > 0) {
+            document.getElementById("gmsAdmines").innerHTML = "Admines: " + gameMasters.admines.toString();
+            document.getElementById("gmsAdmines").style.color = "green";
+        }
+
+        if (gameMasters.dioses.length > 0) {
+            document.getElementById("gmsDioses").innerHTML = "Dioses: " + gameMasters.dioses.toString();
+            document.getElementById("gmsDioses").style.color = "green";
+        } else {
+            document.getElementById("gmsDioses").innerHTML = "Se buscan personas para ocupar el puesto de Dioses";
+            document.getElementById("gmsDioses").style.color = "cyan";
+        }
+
+        if (gameMasters.semidioses.length > 0) {
+            document.getElementById("gmsSemidioses").innerHTML = "SemiDioses: " + gameMasters.semidioses.toString();
+            document.getElementById("gmsSemidioses").style.color = "green";
+        } else {
+            document.getElementById("gmsSemidioses").innerHTML = "Se buscan personas para ocupar el puesto de SemiDioses";
+            document.getElementById("gmsSemidioses").style.color = "cyan";
+        }
+
+        if (gameMasters.consejeros.length > 0) {
+            document.getElementById("gmsConsejeros").innerHTML = "Consejeros: " + gameMasters.consejeros.toString();
+            document.getElementById("gmsConsejeros").style.color = "green";
+        } else {
+            document.getElementById("gmsConsejeros").innerHTML = "Se buscan personas para ocupar el puesto de Consejeros";
+            document.getElementById("gmsConsejeros").style.color = "cyan";
+        }
+
+        if (gameMasters.rolemasters.length > 0) {
+            document.getElementById("gmsRolemasters").innerHTML = "Rolemasters: " + gameMasters.rolemasters.toString();
+            document.getElementById("gmsRolemasters").style.color = "green";
+        } else {
+            document.getElementById("gmsRolemasters").innerHTML = "Se buscan personas para ocupar el puesto de Rolemasters";
+            document.getElementById("gmsRolemasters").style.color = "cyan";
+        }
+    }
 
     if (charfilesTopTenLevel) {
         document.getElementById("charfilesTopTenLevel1").innerHTML = charfilesTopTenLevel[0].NOMBRE + " -- " + charfilesTopTenLevel[0].STATS_ELV;
@@ -681,7 +728,7 @@
         document.getElementById("charfilesTopTenLevel8").innerHTML = charfilesTopTenLevel[7].NOMBRE + " -- " + charfilesTopTenLevel[7].STATS_ELV;
         document.getElementById("charfilesTopTenLevel9").innerHTML = charfilesTopTenLevel[8].NOMBRE + " -- " + charfilesTopTenLevel[8].STATS_ELV;
         document.getElementById("charfilesTopTenLevel10").innerHTML = charfilesTopTenLevel[9].NOMBRE + " -- " + charfilesTopTenLevel[9].STATS_ELV;
-    }else {
+    } else {
         document.getElementById("charfilesTopTenLevel").innerHTML = "No hay informacion disponible en estos momentos"
     }
 
