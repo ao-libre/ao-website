@@ -39,27 +39,19 @@
             return xmlHttp.responseText;
         }
 
-        //var githubReponseClient = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-cliente/releases/latest"));
         var githubReponseAutoupdate = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-autoupdate/releases/latest"));
-
         var githubReponseAoJava = JSON.parse(httpGet("https://api.github.com/repos/guidota/ao-java/releases"));
 
         var javaLinux = githubReponseAoJava[0].assets.find(x => x.name.includes('linux'));
         var javaWindows32 = githubReponseAoJava[0].assets.find(x => x.name.includes('win-32'));
         var javaWindows64 = githubReponseAoJava[0].assets.find(x => x.name.includes('win-64'));
         var javaOsx = githubReponseAoJava[0].assets.find(x => x.name.includes('app'));
+
+        //   var githubReponseClient = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-cliente/releases/latest"));
         //   var githubReponseServer = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-server/releases/latest"));
         //   var githubReponseWorldEditor = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-worldeditor/releases/latest"));
 
-        //RANKINGS:
-        var charfilesTopTenLevel = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenlevel"));
-        var charfilesTopTenGold = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptengold"));
-        var charfilesTopTenMoreTimeOnline = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenmoretimeonline"));
-        var charfilesTopTenMoreHp = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenmorehp"));
-        var charfilesTopTenCharKiller = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptencharkiller"));
-        var charfilesTopTenNpcKiller = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptennpckiller"));
-        var charfilesLastUpdate = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/lastTimeUpdated"));
-        var charfilesCount = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/getCountChars"));
+
     </script>
 
 </head>
@@ -668,7 +660,16 @@
     document.getElementById("javaOsxDownload").href = javaOsx.browser_download_url;
     document.getElementById("javaLinuxDownload").href = javaLinux.browser_download_url;
 
-    //Rankings:
+    //RANKINGS:
+    var charfilesTopTenLevel = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenlevel"));
+    var charfilesTopTenGold = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptengold"));
+    var charfilesTopTenMoreTimeOnline = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenmoretimeonline"));
+    var charfilesTopTenMoreHp = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenmorehp"));
+    var charfilesTopTenCharKiller = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptencharkiller"));
+    var charfilesTopTenNpcKiller = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptennpckiller"));
+    var charfilesLastUpdate = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/lastTimeUpdated"));
+    var charfilesCount = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/getCountChars"));
+
     if (charfilesTopTenLevel) {
         document.getElementById("charfilesTopTenLevel1").innerHTML = charfilesTopTenLevel[0].NOMBRE + " -- " + charfilesTopTenLevel[0].STATS_ELV;
         document.getElementById("charfilesTopTenLevel2").innerHTML = charfilesTopTenLevel[1].NOMBRE + " -- " + charfilesTopTenLevel[1].STATS_ELV;
