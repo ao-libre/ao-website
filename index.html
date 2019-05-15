@@ -47,8 +47,9 @@
         var javaWindows64 = githubReponseAoJava[0].assets.find(x => x.name.includes('win-64'));
         var javaOsx = githubReponseAoJava[0].assets.find(x => x.name.includes('app'));
 
-        //   var githubReponseClient = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-cliente/releases/latest"));
-        //   var githubReponseServer = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-server/releases/latest"));
+        var githubReponseClient = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-cliente/releases/latest"));
+        var githubReponseServer = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-server/releases/latest"));
+
         //   var githubReponseWorldEditor = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-worldeditor/releases/latest"));
 
 
@@ -174,14 +175,12 @@
 
         <!-- START: Features -->
         <div class="container">
-
+            
             <div class="nk-gap-4"></div>
+
             <div class="nk-header-table-cell">
                 <div class="container">
-
                     <div class="nk-header-text">
-
-                        <div class="nk-gap-2"></div>
 
                         <h1 class="nk-title display-1"><span style="color:red">Argentum<span> <span
                                         style="color:blue">Online<span></h1>
@@ -200,8 +199,10 @@
                         <h5 id="gmsConsejeros"></h5>
                         <h5 id="gmsRolemasters"></h5>
 
-                        <h4>Estamos constantemente trabajando en mejoras y arreglo de bugs.</br> Unite a nuestra comunidad para poder
-                            ayudar a resolver estos problemas</h4>
+                        <h4>Estamos constantemente trabajando en mejoras y arreglo de bugs.</br> Unite a nuestra comunidad para poder ayudar a mejorar el juego</h4>
+
+                        <h6 id="clienteLastUpdate">dd</h6>
+                        <h6 id="serverLastUpdate">ff</h6>
 
                         <div class="nk-gap-2"></div>
 
@@ -663,6 +664,16 @@
     document.getElementById("worldEditorDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
     document.getElementById("autoupdateDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
 
+    var clientDateRelease = new Date(githubReponseClient.published_at)
+    var yyyymmddClientUpdate = clientDateRelease.getDate() + '/' + (clientDateRelease.getMonth() + 1) + '/' + clientDateRelease.getFullYear();
+    let clienteLastUpdateText = `Cliente - Version actual: ${githubReponseClient.name} - Lanzado el dia: ${yyyymmddClientUpdate}`
+    document.getElementById("clienteLastUpdate").innerHTML = clienteLastUpdateText;
+
+    var serverDateRelease = new Date(githubReponseServer.published_at)
+    var yyyymmddClientUpdate = serverDateRelease.getDate() + '/' + (serverDateRelease.getMonth() + 1) + '/' + serverDateRelease.getFullYear();
+    let serverLastUpdateText = `Server - Version actual: ${githubReponseServer.name} - Lanzado el dia: ${yyyymmddClientUpdate}`
+    document.getElementById("serverLastUpdate").innerHTML = serverLastUpdateText;
+
     //HAGO ESTO PARA EVITAR PROBLEMAS POR SI GUIDO NO SUBE LOS ASSETS DE ALGUNOS DE LOS S.O
     //POR QUE SE ROMPE LA PAGINA :@
     if (javaWindows32) {
@@ -866,13 +877,11 @@
         document.getElementById("charfilesLastUpdate").innerHTML = "No hay informacion disponible en estos momentos"
     }
 
-
     if (charfilesCount) {
         document.getElementById("charfilesCount").innerHTML = "Personajes creados con actividad reciente: " + charfilesCount[0].COUNT     
     } else {
         document.getElementById("charfilesCount").innerHTML = "No hay informacion disponible en estos momentos"
     }
-
 
 </script>
 

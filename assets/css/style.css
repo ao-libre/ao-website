@@ -606,7 +606,8 @@ h6 {
 
 .nk-title {
 	position: relative;
-	z-index: 1
+	z-index: 1;
+	text-shadow: 2px 0 0 #260f0f, -2px 0 0 #260f0f, 0 2px 0 #260f0f, 0 -2px 0 #260f0f, 1px 1px #260f0f, -1px -1px 0 #260f0f, 1px -1px 0 #260f0f, -1px 1px 0 #260f0f;
 }
 
 .nk-sub-title {
