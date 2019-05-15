@@ -662,10 +662,32 @@
     document.getElementById("serverDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
     document.getElementById("worldEditorDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
     document.getElementById("autoupdateDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
-    document.getElementById("javaWindows32Download").href = javaWindows32.browser_download_url;
-    document.getElementById("javaWindows64Download").href = javaWindows64.browser_download_url;
-    document.getElementById("javaOsxDownload").href = javaOsx.browser_download_url;
-    document.getElementById("javaLinuxDownload").href = javaLinux.browser_download_url;
+
+    //HAGO ESTO PARA EVITAR PROBLEMAS POR SI GUIDO NO SUBE LOS ASSETS DE ALGUNOS DE LOS S.O
+    //POR QUE SE ROMPE LA PAGINA :@
+    if (javaWindows32) {
+        document.getElementById("javaWindows32Download").href = javaWindows32.browser_download_url;
+    }else {
+        document.getElementById("javaWindows32Download").remove
+    }
+
+    if (javaWindows64) {
+        document.getElementById("javaWindows64Download").href = javaWindows64.browser_download_url;
+    }else {
+        document.getElementById("javaWindows64Download").remove
+    }
+
+    if (javaOsx) {
+        document.getElementById("javaOsxDownload").href = javaOsx.browser_download_url;
+    }else {
+        document.getElementById("javaOsxDownload").remove
+    }
+
+    if (javaLinux) {
+        document.getElementById("javaLinuxDownload").href = javaLinux.browser_download_url;
+    }else {
+        document.getElementById("javaLinuxDownload").remove
+    }
 
     //RANKINGS:
     var charfilesTopTenLevel = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenlevel"));
