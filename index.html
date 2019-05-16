@@ -185,28 +185,17 @@
                         <h1 class="nk-title display-1"><span style="color:red">Argentum<span> <span
                                         style="color:blue">Online<span></h1>
 
-                        <div class="nk-gap-2"></div>
-
                         <a id="autoupdateDownload" href="#" class="nk-btn nk-btn-lg">
-                            <span>DESCARGAR JUEGO</span>
+                            <ion-icon name="cloud-download"></ion-icon> DESCARGAR JUEGO
                         </a>
+                        
+                        <div class="nk-gap-1"></div>
 
                         <h1 class="nk-title display-5"><span>ESTADO: <span> <span style="color:green">ONLINE<span></h1>
 
-                        <h5 id="gmsAdmines"></h5>
-                        <h5 id="gmsDioses"></h5>
-                        <h5 id="gmsSemidioses"></h5>
-                        <h5 id="gmsConsejeros"></h5>
-                        <h5 id="gmsRolemasters"></h5>
+                        <h6 id="clienteLastUpdate"></h6>
+                        <h6 id="serverLastUpdate"></h6>
 
-                        <h4>Estamos constantemente trabajando en mejoras y arreglo de bugs.</br> Unite a nuestra comunidad para poder ayudar a mejorar el juego</h4>
-
-                        <h6 id="clienteLastUpdate">dd</h6>
-                        <h6 id="serverLastUpdate">ff</h6>
-
-                        <div class="nk-gap-2"></div>
-
-                        <div class="nk-gap-2"></div>
                         <h1>
                             <a href="https://www.reddit.com/r/argentumonlineoficial" target="_blank">
                                 <ion-icon name="logo-reddit"></ion-icon> Foro
@@ -225,6 +214,25 @@
                                     style="width: 200px"></img></a>
                         </h1>
 
+                        <h5 id="gmsAdmines"></h5>
+                        <h5 id="gmsDioses"></h5>
+                        <h5 id="gmsSemidioses"></h5>
+                        <h5 id="gmsConsejeros"></h5>
+                        <h5 id="gmsRolemasters"></h5>
+
+                        <span>Si pensas que algun Game Master esta brindando ventajas competitivas a alguien, podes ver todo su historial desde aqui</span>
+                        </br>
+                        <a href="#" onclick="window.open('logs.html')" class="nk-btn nk-btn-lg">
+                            <span>
+                                <ion-icon name="help-circle-outline"></ion-icon> Ver Logs/Historial de Game Masters
+                            </span>
+                        </a>
+                        </br>
+                        </br>
+
+                        <h4>Estamos constantemente trabajando en mejoras y arreglo de bugs.</br> Unite a nuestra comunidad para poder ayudar a mejorar el juego</h4>
+
+
 
                         </br>
 
@@ -234,11 +242,11 @@
 
                         <a href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/"
                             target="_blank" class="nk-btn nk-btn-lg">
-                            <span>MI PRIOPIO SERVER</span>
+                            <ion-icon name="cloud-download"></ion-icon> MI PRIOPIO SERVER
                         </a>
 
                         <a id="serverDownload" href="#" class="nk-btn nk-btn-lg">
-                            <span>DESCARGAR SERVER</span>
+                            <ion-icon name="cloud-download"></ion-icon> DESCARGAR SERVER
                         </a>
 
                         </br>
@@ -249,7 +257,7 @@
                             necesitas.</p>
 
                         <a id="worldEditorDownload" href="#" class="nk-btn nk-btn-lg">
-                            <span>DESCARGAR WORLD EDITOR</span>
+                            <ion-icon name="cloud-download"></ion-icon> DESCARGAR WORLD EDITOR
                         </a>
 
                         <div class="nk-gap-2"></div>
@@ -750,7 +758,7 @@
         }
     }
 
-    if (charfilesTopTenLevel) {
+    if (charfilesTopTenLevel && charfilesTopTenLevel.length === 10) {
         document.getElementById("charfilesTopTenLevel1").innerHTML = charfilesTopTenLevel[0].NOMBRE + " -- " + charfilesTopTenLevel[0].STATS_ELV;
         document.getElementById("charfilesTopTenLevel2").innerHTML = charfilesTopTenLevel[1].NOMBRE + " -- " + charfilesTopTenLevel[1].STATS_ELV;
         document.getElementById("charfilesTopTenLevel3").innerHTML = charfilesTopTenLevel[2].NOMBRE + " -- " + charfilesTopTenLevel[2].STATS_ELV;
@@ -765,7 +773,7 @@
         document.getElementById("charfilesTopTenLevel").innerHTML = "No hay informacion disponible en estos momentos"
     }
 
-    if (charfilesTopTenCharKiller) {
+    if (charfilesTopTenCharKiller && charfilesTopTenCharKiller.length === 10) {
         document.getElementById("charfilesTopTenCharKiller1").innerHTML = charfilesTopTenCharKiller[0].NOMBRE + " -- " + charfilesTopTenCharKiller[0].MUERTES_USERMUERTES;
         document.getElementById("charfilesTopTenCharKiller2").innerHTML = charfilesTopTenCharKiller[1].NOMBRE + " -- " + charfilesTopTenCharKiller[1].MUERTES_USERMUERTES;
         document.getElementById("charfilesTopTenCharKiller3").innerHTML = charfilesTopTenCharKiller[2].NOMBRE + " -- " + charfilesTopTenCharKiller[2].MUERTES_USERMUERTES;
@@ -778,11 +786,9 @@
         document.getElementById("charfilesTopTenCharKiller10").innerHTML = charfilesTopTenCharKiller[9].NOMBRE + " -- " + charfilesTopTenCharKiller[9].MUERTES_USERMUERTES;
     } else {
         document.getElementById("charfilesTopTenCharKiller").innerHTML = "No hay informacion disponible en estos momentos"
-
     }
 
-
-    if (charfilesTopTenGold) {
+    if (charfilesTopTenGold && charfilesTopTenGold.length === 10) {
         document.getElementById("charfilesTopTenGold1").innerHTML = charfilesTopTenGold[0].NOMBRE + " -- " + (Number(charfilesTopTenGold[0].STATS_GLD) + Number(charfilesTopTenGold[0].STATS_BANCO));
         document.getElementById("charfilesTopTenGold2").innerHTML = charfilesTopTenGold[1].NOMBRE + " -- " + (Number(charfilesTopTenGold[1].STATS_GLD) + Number(charfilesTopTenGold[1].STATS_BANCO));
         document.getElementById("charfilesTopTenGold3").innerHTML = charfilesTopTenGold[2].NOMBRE + " -- " + (Number(charfilesTopTenGold[2].STATS_GLD) + Number(charfilesTopTenGold[2].STATS_BANCO));
@@ -797,7 +803,7 @@
         document.getElementById("charfilesTopTenGold").innerHTML = "No hay informacion disponible en estos momentos"
     }
 
-    if (charfilesTopTenMoreHp) {
+    if (charfilesTopTenMoreHp && charfilesTopTenMoreHp.length === 10) {
         document.getElementById("charfilesTopTenMoreHp1").innerHTML = charfilesTopTenMoreHp[0].NOMBRE + " -- " + charfilesTopTenMoreHp[0].STATS_MAXHP;
         document.getElementById("charfilesTopTenMoreHp2").innerHTML = charfilesTopTenMoreHp[1].NOMBRE + " -- " + charfilesTopTenMoreHp[1].STATS_MAXHP;
         document.getElementById("charfilesTopTenMoreHp3").innerHTML = charfilesTopTenMoreHp[2].NOMBRE + " -- " + charfilesTopTenMoreHp[2].STATS_MAXHP;
@@ -812,8 +818,7 @@
         document.getElementById("charfilesTopTenMoreHp").innerHTML = "No hay informacion disponible en estos momentos"
     }
 
-    if (charfilesTopTenMoreTimeOnline) {
-
+    if (charfilesTopTenMoreTimeOnline && charfilesTopTenMoreTimeOnline.length === 10) {
         var date1 = new Date(null);
         var date2 = new Date(null);
         var date3 = new Date(null);
@@ -836,8 +841,6 @@
         date9.setSeconds(charfilesTopTenMoreTimeOnline[8].INIT_UPTIME)
         date10.setSeconds(charfilesTopTenMoreTimeOnline[9].INIT_UPTIME)
 
-
-
         document.getElementById("charfilesTopTenMoreTimeOnline1").innerHTML = charfilesTopTenMoreTimeOnline[0].NOMBRE + " -- " + date1.toISOString().substr(11, 8) + " hs";
         document.getElementById("charfilesTopTenMoreTimeOnline2").innerHTML = charfilesTopTenMoreTimeOnline[1].NOMBRE + " -- " + date2.toISOString().substr(11, 8) + " hs";
         document.getElementById("charfilesTopTenMoreTimeOnline3").innerHTML = charfilesTopTenMoreTimeOnline[2].NOMBRE + " -- " + date3.toISOString().substr(11, 8) + " hs";
@@ -852,7 +855,7 @@
         document.getElementById("charfilesTopTenMoreTimeOnline").innerHTML = "No hay informacion disponible en estos momentos"
     }
 
-    if (charfilesTopTenNpcKiller) {
+    if (charfilesTopTenNpcKiller && charfilesTopTenNpcKiller.length === 10) {
         document.getElementById("charfilesTopTenNpcKiller1").innerHTML = charfilesTopTenNpcKiller[0].NOMBRE + " -- " + charfilesTopTenNpcKiller[0].MUERTES_NPCSMUERTES;
         document.getElementById("charfilesTopTenNpcKiller2").innerHTML = charfilesTopTenNpcKiller[1].NOMBRE + " -- " + charfilesTopTenNpcKiller[1].MUERTES_NPCSMUERTES;
         document.getElementById("charfilesTopTenNpcKiller3").innerHTML = charfilesTopTenNpcKiller[2].NOMBRE + " -- " + charfilesTopTenNpcKiller[2].MUERTES_NPCSMUERTES;
