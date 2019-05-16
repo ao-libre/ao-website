@@ -870,7 +870,8 @@
     if (charfilesLastUpdate) {
         charfilesLastUpdate = new Date(charfilesLastUpdate[0].UPDATE_TIME);
         var yyyymmdd = charfilesLastUpdate.getDate() + '/' + (charfilesLastUpdate.getMonth() + 1) + '/' + charfilesLastUpdate.getFullYear();
-        var hourAndMinutes = charfilesLastUpdate.getHours() + ":" + charfilesLastUpdate.getMinutes()
+        var hourAndMinutes = (charfilesLastUpdate.getHours()<10?'0':'') + charfilesLastUpdate.getHours() + ":" + (charfilesLastUpdate.getMinutes()<10?'0':'') + charfilesLastUpdate.getMinutes()
+        
         var dateString = "Ultima actualizacion: " + yyyymmdd + " " + hourAndMinutes + "hs";
         document.getElementById("charfilesLastUpdate").innerHTML = dateString
     } else {
