@@ -34,7 +34,7 @@
     <script>
         function httpGet(theUrl) {
             var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET", theUrl, false); // false for synchronous request
+            xmlHttp.open("GET", theUrl, true); // false for synchronous request
             xmlHttp.send(null);
             return xmlHttp.responseText;
         }
@@ -188,7 +188,7 @@
                         <a id="autoupdateDownload" href="#" class="nk-btn nk-btn-lg">
                             <ion-icon name="cloud-download"></ion-icon> DESCARGAR JUEGO
                         </a>
-                        
+
                         <div class="nk-gap-1"></div>
 
                         <h1 class="nk-title display-5"><span>ESTADO: <span> <span style="color:green">ONLINE<span></h1>
@@ -214,25 +214,7 @@
                                     style="width: 200px"></img></a>
                         </h1>
 
-                        <h5 id="gmsAdmines"></h5>
-                        <h5 id="gmsDioses"></h5>
-                        <h5 id="gmsSemidioses"></h5>
-                        <h5 id="gmsConsejeros"></h5>
-                        <h5 id="gmsRolemasters"></h5>
-
-                        <span>Si pensas que algun Game Master esta brindando ventajas competitivas a alguien, podes ver todo su historial desde aqui</span>
-                        </br>
-                        <a href="#" onclick="window.open('logs.html')" class="nk-btn nk-btn-lg">
-                            <span>
-                                <ion-icon name="help-circle-outline"></ion-icon> Ver Logs/Historial de Game Masters
-                            </span>
-                        </a>
-                        </br>
-                        </br>
-
                         <h4>Estamos constantemente trabajando en mejoras y arreglo de bugs.</br> Unite a nuestra comunidad para poder ayudar a mejorar el juego</h4>
-
-
 
                         </br>
 
@@ -266,8 +248,8 @@
 
                 </div>
             </div>
-
-            <!-- <div class="row align-items-center">
+           
+            <div class="row align-items-center">
 
                 <div class="col-lg-8 offset-lg-2">
                     <div class="row no-gutters">
@@ -275,11 +257,16 @@
                             <div class="nk-box-3 bg-dark-1">
                                 <div class="nk-ibox">
                                     <div class="nk-ibox-icon nk-ibox-icon-circle">
-                                        <span class="ion-ios-game-controller-b"></span>
+                                        <ion-icon name="filing"></ion-icon>
                                     </div>
                                     <div class="nk-ibox-cont">
-                                        <h2 class="nk-ibox-title">Incredible Atmosphere</h2>
-                                        Second Made make spirit green divide lesser creeping void and night replenish cattle don't was female first their day open.
+                                        <h2 class="nk-ibox-title">Vos tenes el control</h2>
+                                        <span>Si pensas que algun Game Master esta brindando ventajas competitivas a alguien en nuestro servidor, podes ver todo su historial desde aqui</span>
+                                        <a href="#" onclick="window.open('logs-gms.html')" class="nk-btn nk-btn-lg">
+                                            <span>
+                                                <ion-icon name="help-circle-outline"></ion-icon> Ver historial GM's
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -288,12 +275,18 @@
                             <div class="nk-box-3 bg-dark-2">
                                 <div class="nk-ibox">
                                     <div class="nk-ibox-icon nk-ibox-icon-circle">
-                                        <span class="ion-fireball"></span>
+                                        <ion-icon name="code-working"></ion-icon>
                                     </div>
                                     <div class="nk-ibox-cont">
-                                        <h2 class="nk-ibox-title">Catchy Battles</h2>
-                                        Image their gathered. Every. Called together signs winged, unto midst sea life air them. Us sea them shall you saw.
+                                        <h2 class="nk-ibox-title">Programacion activa</h2>
+                                        <span>AO es un juego open-source y por ellos abrimos nuestros logs del server al publico para que puedan ver que errores hay en el servidor y poder ayudar a repararlos</span>
+                                        <a href="#" onclick="window.open('logs-errores.html')" class="nk-btn nk-btn-lg">
+                                            <span>
+                                                <ion-icon name="cog"></ion-icon> Ver Logs
+                                            </span>
+                                        </a>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -301,11 +294,16 @@
                             <div class="nk-box-3 bg-dark-2">
                                 <div class="nk-ibox">
                                     <div class="nk-ibox-icon nk-ibox-icon-circle">
-                                        <span class="ion-ribbon-a"></span>
+                                        <ion-icon name="clock"></ion-icon>
                                     </div>
                                     <div class="nk-ibox-cont">
-                                        <h2 class="nk-ibox-title">28 Awards</h2>
-                                        Moveth fruitful it appear wherein man don't firmament set blessed. Beast seas god itself. Made night image male. Own night.
+                                        <h2 class="nk-ibox-title">Minuto a minuto</h2>
+                                        <span>Aqui podras encontrar la actividad de absolutamente todos los usuarios en el servidor</span>
+                                        <a href="#" onclick="window.open('logs-desarrollo.html')" class="nk-btn nk-btn-lg">
+                                            <span>
+                                                <ion-icon name="cog"></ion-icon> Ver minuto a minuto
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -314,20 +312,48 @@
                             <div class="nk-box-3 bg-dark-1">
                                 <div class="nk-ibox">
                                     <div class="nk-ibox-icon nk-ibox-icon-circle">
-                                        <span class="ion-ios-infinite-outline"></span>
+                                        <ion-icon name="stats"></ion-icon>
                                     </div>
                                     <div class="nk-ibox-cont">
-                                        <h3 class="nk-ibox-title">Unlimited Possibilities</h3>
-                                        Commodo scelerisque rutrum consectetuer ad ad molestie aenean iaculis ad senectus in. Vel felis tellus orci dolor elit turpis condimentum.
+                                        <h2 class="nk-ibox-title">Estadisticas</h2>
+                                        <span>Cuanto tiempo tardaste en ser nivel 45? Aca podes compararte con el resto para ver si te falta mejorar</span>
+                                        <a href="#" onclick="window.open('logs-statistics.html')" class="nk-btn nk-btn-lg">
+                                            <span>
+                                                <ion-icon name="cog"></ion-icon> Ver Estadisticas
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> -->
-            <!-- </div> -->
+            </div> 
+
         </div>
+
+
+        <div class="nk-box bg-dark-1 text-white">
+            <div class="nk-gap-4"></div>
+            <div class="container">
+                <div class="text-left">
+                    <h3 class="nk-title-back">Equipo Activo</h3>
+                    <h2 class="nk-title h1">Te presentamos el staff del Server:</h2>
+                    <div class="nk-title-sep-icon">
+                        <ion-icon name="bonfire"></ion-icon>
+                    </div>
+
+
+                    <h5 id="gmsAdmines"></h5>
+                    <h5 id="gmsDioses"></h5>
+                    <h5 id="gmsSemidioses"></h5>
+                    <h5 id="gmsConsejeros"></h5>
+                    <h5 id="gmsRolemasters"></h5>
+
+                </div>
+            </div>
+            <div class="nk-gap-4"></div>
+        </div> 
 
         <!-- AO-JAVA -->
         <div class="nk-header-title nk-header-title-full nk-header-title-parallax nk-header-title-parallax-opacity">
@@ -722,39 +748,30 @@
     if (gameMasters) {
         if (gameMasters.admines.length > 0) {
             document.getElementById("gmsAdmines").innerHTML = "Admines: " + gameMasters.admines.toString();
-            document.getElementById("gmsAdmines").style.color = "green";
         }
 
         if (gameMasters.dioses.length > 0) {
             document.getElementById("gmsDioses").innerHTML = "Dioses: " + gameMasters.dioses.toString();
-            document.getElementById("gmsDioses").style.color = "green";
         } else {
             document.getElementById("gmsDioses").innerHTML = "Se buscan personas para ocupar el puesto de Dioses";
-            document.getElementById("gmsDioses").style.color = "cyan";
         }
 
         if (gameMasters.semidioses.length > 0) {
             document.getElementById("gmsSemidioses").innerHTML = "SemiDioses: " + gameMasters.semidioses.toString();
-            document.getElementById("gmsSemidioses").style.color = "green";
         } else {
             document.getElementById("gmsSemidioses").innerHTML = "Se buscan personas para ocupar el puesto de SemiDioses";
-            document.getElementById("gmsSemidioses").style.color = "cyan";
         }
 
         if (gameMasters.consejeros.length > 0) {
             document.getElementById("gmsConsejeros").innerHTML = "Consejeros: " + gameMasters.consejeros.toString();
-            document.getElementById("gmsConsejeros").style.color = "green";
         } else {
             document.getElementById("gmsConsejeros").innerHTML = "Se buscan personas para ocupar el puesto de Consejeros";
-            document.getElementById("gmsConsejeros").style.color = "cyan";
         }
 
         if (gameMasters.rolemasters.length > 0) {
             document.getElementById("gmsRolemasters").innerHTML = "Rolemasters: " + gameMasters.rolemasters.toString();
-            document.getElementById("gmsRolemasters").style.color = "green";
         } else {
             document.getElementById("gmsRolemasters").innerHTML = "Se buscan personas para ocupar el puesto de Rolemasters";
-            document.getElementById("gmsRolemasters").style.color = "cyan";
         }
     }
 

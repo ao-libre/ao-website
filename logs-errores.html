@@ -1,0 +1,89 @@
+<script>
+    function httpGet(theUrl) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", theUrl, false); // false for synchronous request
+        xmlHttp.send(null);
+        return xmlHttp.responseText;
+    }
+
+    var logs = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getErrorsLogs"));
+    var logsBackups = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getBackupLogs"));
+    var logsMain = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getMainLogs"));
+    var lastTimeUpdated = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getTimeLastUpdated"));
+</script>
+
+<body style="background: black;color: white; font: message-box;">
+    <h1>Aqui esta todo el log de errores del server Alkon</h1>
+    <h2>Si podes solucionar un bug manda Pull Request :) .</h2>
+    <h2>Archivos que se imprimen: Errores, Backup, Main de la carpeta Logs del server.</h2>
+    <h3 id="lastUpdate"></h3>
+    <div id="logs"></div>
+</body>
+
+<script>
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    lastTimeUpdated = new Date(lastTimeUpdated[0].UPDATE_TIME);
+    var yyyymmdd = lastTimeUpdated.getDate() + '/' + (lastTimeUpdated.getMonth() + 1) + '/' + lastTimeUpdated.getFullYear();
+    var hourAndMinutes = (lastTimeUpdated.getHours()<10?'0':'') + lastTimeUpdated.getHours() + ":" + (lastTimeUpdated.getMinutes()<10?'0':'') + lastTimeUpdated.getMinutes()
+        
+    var dateString = "Ultima actualizacion: " + yyyymmdd + " " + hourAndMinutes + "hs || Se actualiza en cada World Save";
+    document.getElementById("lastUpdate").innerHTML = dateString
+
+    var divLogsErrores = document.getElementById("logs");
+
+    logsMain.forEach((el) => {
+        //Cambio los salto de linea por breaks :)
+        el.log = el.log.replace(/\n/g, "<br />");
+        let colorText = getRandomColor();
+        var divError = document.createElement("div");
+        divError.style.color = colorText
+        
+        var h1Error = document.createElement("h4")
+        h1Error.innerHTML = el.filename;
+        h1Error.style.color = colorText
+
+        divError.innerHTML = el.log
+        divLogsErrores.appendChild(h1Error);
+        divLogsErrores.appendChild(divError);
+    });
+
+    logs.forEach((el) => {
+        //Cambio los salto de linea por breaks :)
+        el.log = el.log.replace(/\n/g, "<br />");
+        let colorText = getRandomColor();
+        var divError = document.createElement("div");
+        divError.style.color = colorText
+        
+        var h1Error = document.createElement("h4")
+        h1Error.innerHTML = el.filename;
+        h1Error.style.color = colorText
+
+        divError.innerHTML = el.log
+        divLogsErrores.appendChild(h1Error);
+        divLogsErrores.appendChild(divError);
+    });
+
+    logs.forEach((el) => {
+        //Cambio los salto de linea por breaks :)
+        el.log = el.log.replace(/\n/g, "<br />");
+        let colorText = getRandomColor();
+        var divError = document.createElement("div");
+        divError.style.color = colorText
+        
+        var h1Error = document.createElement("h4")
+        h1Error.innerHTML = el.filename;
+        h1Error.style.color = colorText
+
+        divError.innerHTML = el.log
+        divLogsErrores.appendChild(h1Error);
+        divLogsErrores.appendChild(divError);
+    });
+</script>
