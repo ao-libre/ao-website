@@ -1,15 +1,15 @@
 <script>
     function httpGet(theUrl) {
-        var xmlHttp = new XMLHttpRequest();
+        let xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", theUrl, false); // false for synchronous request
         xmlHttp.send(null);
         return xmlHttp.responseText;
     }
 
-    var logs = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getErrorsLogs"));
-    var logsBackups = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getBackupLogs"));
-    var logsMain = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getMainLogs"));
-    var lastTimeUpdated = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getTimeLastUpdated"));
+    let logs = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getErrorsLogs"));
+    let logsBackups = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getBackupsLogs"));
+    let logsMain = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getMainLogs"));
+    let lastTimeUpdated = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getTimeLastUpdated"));
 </script>
 
 <body style="background: black;color: white; font: message-box;">
@@ -22,68 +22,69 @@
 
 <script>
     function getRandomColor() {
-        var letters = '0123456789ABCDEF';
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
+        let letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
     }
 
     lastTimeUpdated = new Date(lastTimeUpdated[0].UPDATE_TIME);
-    var yyyymmdd = lastTimeUpdated.getDate() + '/' + (lastTimeUpdated.getMonth() + 1) + '/' + lastTimeUpdated.getFullYear();
-    var hourAndMinutes = (lastTimeUpdated.getHours()<10?'0':'') + lastTimeUpdated.getHours() + ":" + (lastTimeUpdated.getMinutes()<10?'0':'') + lastTimeUpdated.getMinutes()
+    let yyyymmdd = lastTimeUpdated.getDate() + '/' + (lastTimeUpdated.getMonth() + 1) + '/' + lastTimeUpdated.getFullYear();
+    let hourAndMinutes = (lastTimeUpdated.getHours()<10?'0':'') + lastTimeUpdated.getHours() + ":" + (lastTimeUpdated.getMinutes()<10?'0':'') + lastTimeUpdated.getMinutes()
         
-    var dateString = "Ultima actualizacion: " + yyyymmdd + " " + hourAndMinutes + "hs || Se actualiza en cada World Save";
+    let dateString = "Ultima actualizacion: " + yyyymmdd + " " + hourAndMinutes + "hs || Se actualiza en cada World Save";
     document.getElementById("lastUpdate").innerHTML = dateString
 
-    var divLogsErrores = document.getElementById("logs");
+    let divLogsErrores = document.getElementById("logs");
+
+    logs.forEach((el) => {
+        //Cambio los salto de linea por breaks :)
+        el.log = el.log.replace(/\n/g, "<br />");
+        let colorText = getRandomColor();
+        let divError = document.createElement("div");
+        divError.style.color = colorText
+        
+        let h1Error = document.createElement("h4")
+        h1Error.innerHTML = el.filename;
+        h1Error.style.color = colorText
+
+        divError.innerHTML = el.log
+        divLogsErrores.appendChild(h1Error);
+        divLogsErrores.appendChild(divError);
+    });
+
+    logsBackups.forEach((el) => {
+        //Cambio los salto de linea por breaks :)
+        el.log = el.log.replace(/\n/g, "<br />");
+        let colorText = getRandomColor();
+        let divError = document.createElement("div");
+        divBackup.style.color = colorText
+        
+        let h1Error = document.createElement("h4")
+        h1Error.innerHTML = el.filename;
+        h1Error.style.color = colorText
+
+        divBackup.innerHTML = el.log
+        divLogsErrores.appendChild(h1Error);
+        divLogsErrores.appendChild(divBackup);
+    });
 
     logsMain.forEach((el) => {
         //Cambio los salto de linea por breaks :)
         el.log = el.log.replace(/\n/g, "<br />");
         let colorText = getRandomColor();
-        var divError = document.createElement("div");
-        divError.style.color = colorText
+        let divMain = document.createElement("div");
+        divMain.style.color = colorText
         
-        var h1Error = document.createElement("h4")
+        let h1Error = document.createElement("h4")
         h1Error.innerHTML = el.filename;
         h1Error.style.color = colorText
 
-        divError.innerHTML = el.log
+        divMain.innerHTML = el.log
         divLogsErrores.appendChild(h1Error);
         divLogsErrores.appendChild(divError);
     });
 
-    logs.forEach((el) => {
-        //Cambio los salto de linea por breaks :)
-        el.log = el.log.replace(/\n/g, "<br />");
-        let colorText = getRandomColor();
-        var divError = document.createElement("div");
-        divError.style.color = colorText
-        
-        var h1Error = document.createElement("h4")
-        h1Error.innerHTML = el.filename;
-        h1Error.style.color = colorText
-
-        divError.innerHTML = el.log
-        divLogsErrores.appendChild(h1Error);
-        divLogsErrores.appendChild(divError);
-    });
-
-    logs.forEach((el) => {
-        //Cambio los salto de linea por breaks :)
-        el.log = el.log.replace(/\n/g, "<br />");
-        let colorText = getRandomColor();
-        var divError = document.createElement("div");
-        divError.style.color = colorText
-        
-        var h1Error = document.createElement("h4")
-        h1Error.innerHTML = el.filename;
-        h1Error.style.color = colorText
-
-        divError.innerHTML = el.log
-        divLogsErrores.appendChild(h1Error);
-        divLogsErrores.appendChild(divError);
-    });
 </script>
