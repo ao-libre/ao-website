@@ -174,7 +174,7 @@
     <div class="nk-main">
 
         <!-- START: Features -->
-        <div class="container">
+        <div class="nk-box">
             
             <div class="nk-gap-4"></div>
 
@@ -194,13 +194,65 @@
 
                         <div class="nk-gap-1"></div>
 
-
                         <h6 id="clienteLastUpdate"></h6>
                         <h6 id="serverLastUpdate"></h6>
 
-                        </br>
+                        <!-- START: Servers -->
+                        <div class="container">
+                            <div class="nk-gap-2"></div>
+                            <div class="row vertical-gap align-items-center">
+                                <div class="col-md-4">
+                                    <div class="nk-pricing">
+                                        <h3 class="nk-pricing-title">La Boda (Deatmatch)</h3>
 
-                        <div class="nk-gap-2"></div>
+                                        <div class="nk-pricing-price">
+                                            <img src="assets/images/server_deathmatch_laboda.jpg"/>
+                                        </div>
+                    
+                                        <ul class="nk-pricing-features">
+                                            <li>Nivel Inicial: 45</li>
+                                            <li>Oro Inicial: Casi Infinito</li>
+                                            <li>El casamiento no salio nada bien, por lo que la fiesta se convirtio en una arena de combate, una isla llena de NPC's vendedores para equiparte rapido e irte a agitar automaticamente, todos contra todos</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="nk-pricing bg-main-1 text-white">
+                                        <h3 class="nk-pricing-title">Alkon (Rol)</h3>
+                    
+                                        <div class="nk-pricing-price">
+                                            <img src="assets/images/server_alkon.jpg"/>
+                                        </div>
+                    
+                                        <ul class="nk-pricing-features">
+                                            <li>Multiplicador Experiencia: x5</li>
+                                            <li>Multiplicador Oro: x5</li>
+                                            <li>Multiplicador Recursos por Trabajo: x5</li>
+                                            <li>Los clasicos nunca mueren, por eso les traemos <b>Alkon</b>. Ullathorpe, Banderbill, Nix nuestros queridos hogares, Entrenar en Dungeon Verill, Navegar hasta lindos para comerciar, Ir a reclamar tu premio derrotando al Clan Pretoriano. Ser Alianza o Caos? Las aventuras que conoces y nuevas por descubrir estan aqui.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="nk-pricing">
+                                        <h3 class="nk-pricing-title">Escondrijo de Earost (Deathmatch)</h3>
+                    
+                                        <div class="nk-pricing-price">
+                                            <img src="assets/images/server_deathmatch_earost.jpg"/>
+                                        </div>
+                    
+                                        <ul class="nk-pricing-features">
+                                            <li>Nivel Inicial: 45</li>
+                                            <li>Oro Inicial: Casi Infinito</li>
+                                            <li>Entrando en el dungeon, todos los NPC's vendedores te estan esperando para equiparte, luego tendras que rapido a matar a todos, incluyendo NPC's poderosos, todos contra todos</li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nk-gap-4"></div>
+                            <div class="nk-gap-4"></div>
+                        </div>
+                        <!-- END: Servers -->
 
                     </div>
 
@@ -220,6 +272,7 @@
                                     <div class="nk-ibox-cont">
                                         <h2 class="nk-ibox-title">Vos tenes el control</h2>
                                         <span>Si pensas que algun Game Master esta brindando ventajas competitivas a alguien en nuestro servidor, podes ver todo su historial desde aqui</span>
+                                        </br>
                                         <a href="#" onclick="window.open('logs-gms.html')" class="nk-btn nk-btn-lg">
                                             <span>
                                                 <ion-icon name="help-circle-outline"></ion-icon> Ver historial GM's
@@ -290,158 +343,160 @@
 
         </div>
 
-                <!-- START: RANKINGS -->
-                <div class="nk-box" style="background: black">
 
-                    <div class="container">
-                        <div class="nk-info-box bg-main-3">
-                            <h3>Ranking AO Clasico (Alkon)</h3>
-                        </div>
-        
-                        <h4 id="charfilesLastUpdate"></h4>
-                        <h5 id="charfilesCount"></h5>
-        
-                        <div class="row vertical-gap lg-gap">
-                            <div class="col-md-6">
-                                <blockquote class="nk-testimonial-2">
-                                    <div class="nk-testimonial-photo"
-                                        style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
-                                    <div class="nk-testimonial-name h4">Mas usuarios matados</div>
-                                    <div class="nk-testimonial-body" id="charfilesTopTenCharKiller">
-                                        <ul>
-                                            <li id="charfilesTopTenCharKiller1"></li>
-                                            <li id="charfilesTopTenCharKiller2"></li>
-                                            <li id="charfilesTopTenCharKiller3"></li>
-                                            <li id="charfilesTopTenCharKiller4"></li>
-                                            <li id="charfilesTopTenCharKiller5"></li>
-                                            <li id="charfilesTopTenCharKiller6"></li>
-                                            <li id="charfilesTopTenCharKiller7"></li>
-                                            <li id="charfilesTopTenCharKiller8"></li>
-                                            <li id="charfilesTopTenCharKiller9"></li>
-                                            <li id="charfilesTopTenCharKiller10"></li>
-                                        </ul>
-                                    </div>
-                                </blockquote>
-                            </div>
-        
-                            <div class="col-md-6">
-                                <blockquote class="nk-testimonial-2">
-                                    <div class="nk-testimonial-photo"
-                                        style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
-                                    <div class="nk-testimonial-name h4">Nivel mas alto</div>
-                                    <div class="nk-testimonial-body" id="charfilesTopTenLevel">
-                                        <ul>
-                                            <li id="charfilesTopTenLevel1"></li>
-                                            <li id="charfilesTopTenLevel2"></li>
-                                            <li id="charfilesTopTenLevel3"></li>
-                                            <li id="charfilesTopTenLevel4"></li>
-                                            <li id="charfilesTopTenLevel5"></li>
-                                            <li id="charfilesTopTenLevel6"></li>
-                                            <li id="charfilesTopTenLevel7"></li>
-                                            <li id="charfilesTopTenLevel8"></li>
-                                            <li id="charfilesTopTenLevel9"></li>
-                                            <li id="charfilesTopTenLevel10"></li>
-                                        </ul>
-                                    </div>
-                                </blockquote>
-                            </div>
-        
-        
-                            <div class="col-md-6">
-                                <blockquote class="nk-testimonial-2">
-                                    <div class="nk-testimonial-photo"
-                                        style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
-                                    <div class="nk-testimonial-name h4">Mas NPCs matados</div>
-                                    <div class="nk-testimonial-body" id="charfilesTopTenNpcKiller">
-                                        <ul>
-                                            <li id="charfilesTopTenNpcKiller1"></li>
-                                            <li id="charfilesTopTenNpcKiller2"></li>
-                                            <li id="charfilesTopTenNpcKiller3"></li>
-                                            <li id="charfilesTopTenNpcKiller4"></li>
-                                            <li id="charfilesTopTenNpcKiller5"></li>
-                                            <li id="charfilesTopTenNpcKiller6"></li>
-                                            <li id="charfilesTopTenNpcKiller7"></li>
-                                            <li id="charfilesTopTenNpcKiller8"></li>
-                                            <li id="charfilesTopTenNpcKiller9"></li>
-                                            <li id="charfilesTopTenNpcKiller10"></li>
-                                        </ul>
-                                    </div>
-                                </blockquote>
-                            </div>
-        
-                            <div class="col-md-6">
-                                <blockquote class="nk-testimonial-2">
-                                    <div class="nk-testimonial-photo"
-                                        style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
-                                    <div class="nk-testimonial-name h4">Mas tiempo online</div>
-                                    <div class="nk-testimonial-body" id="charfilesTopTenMoreTimeOnline">
-                                        <ul>
-                                            <li id="charfilesTopTenMoreTimeOnline1"></li>
-                                            <li id="charfilesTopTenMoreTimeOnline2"></li>
-                                            <li id="charfilesTopTenMoreTimeOnline3"></li>
-                                            <li id="charfilesTopTenMoreTimeOnline4"></li>
-                                            <li id="charfilesTopTenMoreTimeOnline5"></li>
-                                            <li id="charfilesTopTenMoreTimeOnline6"></li>
-                                            <li id="charfilesTopTenMoreTimeOnline7"></li>
-                                            <li id="charfilesTopTenMoreTimeOnline8"></li>
-                                            <li id="charfilesTopTenMoreTimeOnline9"></li>
-                                            <li id="charfilesTopTenMoreTimeOnline10"></li>
-                                        </ul>
-                                    </div>
-                                </blockquote>
-                            </div>
-        
-                            <div class="col-md-6">
-                                <blockquote class="nk-testimonial-2">
-                                    <div class="nk-testimonial-photo"
-                                        style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
-                                    <div class="nk-testimonial-name h4">Personajes con mas HP</div>
-                                    <div class="nk-testimonial-body" id="charfilesTopTenMoreHp">
-                                        <ul>
-                                            <li id="charfilesTopTenMoreHp1"></li>
-                                            <li id="charfilesTopTenMoreHp2"></li>
-                                            <li id="charfilesTopTenMoreHp3"></li>
-                                            <li id="charfilesTopTenMoreHp4"></li>
-                                            <li id="charfilesTopTenMoreHp5"></li>
-                                            <li id="charfilesTopTenMoreHp6"></li>
-                                            <li id="charfilesTopTenMoreHp7"></li>
-                                            <li id="charfilesTopTenMoreHp8"></li>
-                                            <li id="charfilesTopTenMoreHp9"></li>
-                                            <li id="charfilesTopTenMoreHp10"></li>
-                                        </ul>
-                                    </div>
-                                </blockquote>
-                            </div>
-        
-        
-                            <div class="col-md-6">
-                                <blockquote class="nk-testimonial-2">
-                                    <div class="nk-testimonial-photo"
-                                        style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
-                                    <div class="nk-testimonial-name h4">Los mas ricos $$:</div>
-                                    <div class="nk-testimonial-body" id="charfilesTopTenGold">
-                                        <ul>
-                                            <li id="charfilesTopTenGold1"></li>
-                                            <li id="charfilesTopTenGold2"></li>
-                                            <li id="charfilesTopTenGold3"></li>
-                                            <li id="charfilesTopTenGold4"></li>
-                                            <li id="charfilesTopTenGold5"></li>
-                                            <li id="charfilesTopTenGold6"></li>
-                                            <li id="charfilesTopTenGold7"></li>
-                                            <li id="charfilesTopTenGold8"></li>
-                                            <li id="charfilesTopTenGold9"></li>
-                                            <li id="charfilesTopTenGold10"></li>
-                                        </ul>
-                                    </div>
-                                </blockquote>
-                            </div>
-        
-        
-                        </div>
-                    </div>
-        
+
+        <!-- START: RANKINGS -->
+        <div class="nk-box" style="background: black">
+
+            <div class="container">
+                <div class="nk-info-box bg-main-3">
+                    <h3>Ranking AO Clasico (Alkon)</h3>
                 </div>
-                <!-- END: RANKINGS -->
+
+                <h4 id="charfilesLastUpdate"></h4>
+                <h5 id="charfilesCount"></h5>
+
+                <div class="row vertical-gap lg-gap">
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Mas usuarios matados</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenCharKiller">
+                                <ul>
+                                    <li id="charfilesTopTenCharKiller1"></li>
+                                    <li id="charfilesTopTenCharKiller2"></li>
+                                    <li id="charfilesTopTenCharKiller3"></li>
+                                    <li id="charfilesTopTenCharKiller4"></li>
+                                    <li id="charfilesTopTenCharKiller5"></li>
+                                    <li id="charfilesTopTenCharKiller6"></li>
+                                    <li id="charfilesTopTenCharKiller7"></li>
+                                    <li id="charfilesTopTenCharKiller8"></li>
+                                    <li id="charfilesTopTenCharKiller9"></li>
+                                    <li id="charfilesTopTenCharKiller10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Nivel mas alto</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenLevel">
+                                <ul>
+                                    <li id="charfilesTopTenLevel1"></li>
+                                    <li id="charfilesTopTenLevel2"></li>
+                                    <li id="charfilesTopTenLevel3"></li>
+                                    <li id="charfilesTopTenLevel4"></li>
+                                    <li id="charfilesTopTenLevel5"></li>
+                                    <li id="charfilesTopTenLevel6"></li>
+                                    <li id="charfilesTopTenLevel7"></li>
+                                    <li id="charfilesTopTenLevel8"></li>
+                                    <li id="charfilesTopTenLevel9"></li>
+                                    <li id="charfilesTopTenLevel10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Mas NPCs matados</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenNpcKiller">
+                                <ul>
+                                    <li id="charfilesTopTenNpcKiller1"></li>
+                                    <li id="charfilesTopTenNpcKiller2"></li>
+                                    <li id="charfilesTopTenNpcKiller3"></li>
+                                    <li id="charfilesTopTenNpcKiller4"></li>
+                                    <li id="charfilesTopTenNpcKiller5"></li>
+                                    <li id="charfilesTopTenNpcKiller6"></li>
+                                    <li id="charfilesTopTenNpcKiller7"></li>
+                                    <li id="charfilesTopTenNpcKiller8"></li>
+                                    <li id="charfilesTopTenNpcKiller9"></li>
+                                    <li id="charfilesTopTenNpcKiller10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Mas tiempo online</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenMoreTimeOnline">
+                                <ul>
+                                    <li id="charfilesTopTenMoreTimeOnline1"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline2"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline3"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline4"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline5"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline6"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline7"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline8"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline9"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Personajes con mas HP</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenMoreHp">
+                                <ul>
+                                    <li id="charfilesTopTenMoreHp1"></li>
+                                    <li id="charfilesTopTenMoreHp2"></li>
+                                    <li id="charfilesTopTenMoreHp3"></li>
+                                    <li id="charfilesTopTenMoreHp4"></li>
+                                    <li id="charfilesTopTenMoreHp5"></li>
+                                    <li id="charfilesTopTenMoreHp6"></li>
+                                    <li id="charfilesTopTenMoreHp7"></li>
+                                    <li id="charfilesTopTenMoreHp8"></li>
+                                    <li id="charfilesTopTenMoreHp9"></li>
+                                    <li id="charfilesTopTenMoreHp10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Los mas ricos $$:</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenGold">
+                                <ul>
+                                    <li id="charfilesTopTenGold1"></li>
+                                    <li id="charfilesTopTenGold2"></li>
+                                    <li id="charfilesTopTenGold3"></li>
+                                    <li id="charfilesTopTenGold4"></li>
+                                    <li id="charfilesTopTenGold5"></li>
+                                    <li id="charfilesTopTenGold6"></li>
+                                    <li id="charfilesTopTenGold7"></li>
+                                    <li id="charfilesTopTenGold8"></li>
+                                    <li id="charfilesTopTenGold9"></li>
+                                    <li id="charfilesTopTenGold10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!-- END: RANKINGS -->
         
 
 
