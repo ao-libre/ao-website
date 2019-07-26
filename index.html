@@ -796,13 +796,13 @@
     var clientDateRelease = new Date(githubReponseClient.published_at)
     var yyyymmddClientUpdate = clientDateRelease.getDate() + '/' + (clientDateRelease.getMonth() + 1) + '/' + clientDateRelease.getFullYear();
     let clienteLastUpdateText = `Cliente - Version actual: ${githubReponseClient.name} - Ultima Actualizacion: ${yyyymmddClientUpdate}`
-    const changelogCliente = " - <a target='_blank' href='https://github.com/ao-libre/ao-cliente/blob/master/Changelog-client.txt'>Ver Changelog</a>"
+    const changelogCliente = " - <a target='_blank' href='https://github.com/ao-libre/ao-cliente/blob/master/Changelog-client.txt'>Changelog</a>"
     document.getElementById("clienteLastUpdate").innerHTML = clienteLastUpdateText + changelogCliente;
 
     var serverDateRelease = new Date(githubReponseServer.published_at)
     var yyyymmddClientUpdate = serverDateRelease.getDate() + '/' + (serverDateRelease.getMonth() + 1) + '/' + serverDateRelease.getFullYear();
     let serverLastUpdateText = `Server - Version actual: ${githubReponseServer.name} - Ultima Actualizacion: ${yyyymmddClientUpdate}`
-    const changelogServer = " - <a target='_blank' href='https://github.com/ao-libre/ao-server/blob/master/Changelog-server.txt'>Ver Changelog</a>"
+    const changelogServer = " - <a target='_blank' href='https://github.com/ao-libre/ao-server/blob/master/Changelog-server.txt'>Changelog</a>"
 
     document.getElementById("serverLastUpdate").innerHTML = serverLastUpdateText + changelogServer;
 
