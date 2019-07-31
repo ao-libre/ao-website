@@ -1,6 +1,11 @@
 {
     "HOME_SERVER_STATUS": "John",
     "HOME_CLIENT_VERSION_TEXT": "Cliente - Version actual:",
-    
+    "HOME_SERVER_VERSION_TEXT": "Server - Version actual:",
+    "HOME_PLAY_NOW_TEXT": "JUGAR AHORA!",
+    "HOME_ALKON_DESC": "Los clasicos nunca mueren, por eso les traemos Alkon. Ullathorpe, Banderbill, Nix nuestros queridos hogares, Entrenar en Dungeon Verill, Navegar hasta Lindos para comerciar, Ir a reclamar tu premio derrotando al Clan Pretoriano. Ser Ejercito Real o entregarte a la Legión Oscura.? Las aventuras que conoces y nuevas por descubrir estan aqui.",
+    "HOME_GOLD": "Multiplicador Oro",
+    "HOME_SERVER_VERSION_TEXT": "Server - Version actual:",
+
 
 }
