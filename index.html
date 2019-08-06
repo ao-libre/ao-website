@@ -933,39 +933,36 @@
         document.getElementById("charfilesTopTenMoreHp").innerHTML = "No hay informacion disponible en estos momentos"
     }
 
+    function getTimeParsedFromSeconds(seconds){
+        seconds = parseInt(seconds, 10);
+
+        var days = Math.floor(seconds / (3600*24));
+        seconds  -= days*3600*24;
+        var hrs   = Math.floor(seconds / 3600);
+        seconds  -= hrs*3600;
+        var mnts = Math.floor(seconds / 60);
+        seconds  -= mnts*60;
+
+
+        if  (days > 0) {
+            hrs = hrs + (days * 24)
+        }
+        
+        var stringParsed = hrs+":"+mnts+":"+seconds+" hs";
+        return stringParsed
+    }
+
     if (charfilesTopTenMoreTimeOnline && charfilesTopTenMoreTimeOnline.length === 10) {
-        var date1 = new Date(null);
-        var date2 = new Date(null);
-        var date3 = new Date(null);
-        var date4 = new Date(null);
-        var date5 = new Date(null);
-        var date6 = new Date(null);
-        var date7 = new Date(null);
-        var date8 = new Date(null);
-        var date9 = new Date(null);
-        var date10 = new Date(null);
-
-        date1.setSeconds(charfilesTopTenMoreTimeOnline[0].INIT_UPTIME)
-        date2.setSeconds(charfilesTopTenMoreTimeOnline[1].INIT_UPTIME)
-        date3.setSeconds(charfilesTopTenMoreTimeOnline[2].INIT_UPTIME)
-        date4.setSeconds(charfilesTopTenMoreTimeOnline[3].INIT_UPTIME)
-        date5.setSeconds(charfilesTopTenMoreTimeOnline[4].INIT_UPTIME)
-        date6.setSeconds(charfilesTopTenMoreTimeOnline[5].INIT_UPTIME)
-        date7.setSeconds(charfilesTopTenMoreTimeOnline[6].INIT_UPTIME)
-        date8.setSeconds(charfilesTopTenMoreTimeOnline[7].INIT_UPTIME)
-        date9.setSeconds(charfilesTopTenMoreTimeOnline[8].INIT_UPTIME)
-        date10.setSeconds(charfilesTopTenMoreTimeOnline[9].INIT_UPTIME)
-
-        document.getElementById("charfilesTopTenMoreTimeOnline1").innerHTML = charfilesTopTenMoreTimeOnline[0].NOMBRE + " -- " + date1.toISOString().substr(11, 8) + " hs";
-        document.getElementById("charfilesTopTenMoreTimeOnline2").innerHTML = charfilesTopTenMoreTimeOnline[1].NOMBRE + " -- " + date2.toISOString().substr(11, 8) + " hs";
-        document.getElementById("charfilesTopTenMoreTimeOnline3").innerHTML = charfilesTopTenMoreTimeOnline[2].NOMBRE + " -- " + date3.toISOString().substr(11, 8) + " hs";
-        document.getElementById("charfilesTopTenMoreTimeOnline4").innerHTML = charfilesTopTenMoreTimeOnline[3].NOMBRE + " -- " + date4.toISOString().substr(11, 8) + " hs";
-        document.getElementById("charfilesTopTenMoreTimeOnline5").innerHTML = charfilesTopTenMoreTimeOnline[4].NOMBRE + " -- " + date5.toISOString().substr(11, 8) + " hs";
-        document.getElementById("charfilesTopTenMoreTimeOnline6").innerHTML = charfilesTopTenMoreTimeOnline[5].NOMBRE + " -- " + date6.toISOString().substr(11, 8) + " hs";
-        document.getElementById("charfilesTopTenMoreTimeOnline7").innerHTML = charfilesTopTenMoreTimeOnline[6].NOMBRE + " -- " + date7.toISOString().substr(11, 8) + " hs";
-        document.getElementById("charfilesTopTenMoreTimeOnline8").innerHTML = charfilesTopTenMoreTimeOnline[7].NOMBRE + " -- " + date8.toISOString().substr(11, 8) + " hs";
-        document.getElementById("charfilesTopTenMoreTimeOnline9").innerHTML = charfilesTopTenMoreTimeOnline[8].NOMBRE + " -- " + date9.toISOString().substr(11, 8) + " hs";
-        document.getElementById("charfilesTopTenMoreTimeOnline10").innerHTML = charfilesTopTenMoreTimeOnline[9].NOMBRE + " -- " + date10.toISOString().substr(11, 8) + " hs";
+        document.getElementById("charfilesTopTenMoreTimeOnline1").innerHTML = charfilesTopTenMoreTimeOnline[0].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[0].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline2").innerHTML = charfilesTopTenMoreTimeOnline[1].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[1].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline3").innerHTML = charfilesTopTenMoreTimeOnline[2].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[2].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline4").innerHTML = charfilesTopTenMoreTimeOnline[3].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[3].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline5").innerHTML = charfilesTopTenMoreTimeOnline[4].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[4].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline6").innerHTML = charfilesTopTenMoreTimeOnline[5].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[5].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline7").innerHTML = charfilesTopTenMoreTimeOnline[6].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[6].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline8").innerHTML = charfilesTopTenMoreTimeOnline[7].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[7].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline9").innerHTML = charfilesTopTenMoreTimeOnline[8].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[8].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline10").innerHTML = charfilesTopTenMoreTimeOnline[9].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[9].INIT_UPTIME);
     } else {
         document.getElementById("charfilesTopTenMoreTimeOnline").innerHTML = "No hay informacion disponible en estos momentos"
     }
