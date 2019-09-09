@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Argentum Online Community">
+    <title>Argentum Online Libre</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- START: Styles -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,400,700%7cMarcellus+SC" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/v4-shims.css">
+
+    <!-- IonIcons -->
+    <!-- <link rel="stylesheet" href="assets/css/ionicons.min.css"> -->
+    <link href="https://unpkg.com/ionicons@4.3.0/dist/css/ionicons.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.3.0/dist/ionicons.js"></script>
+    <!-- GODLIKE -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- END: Styles -->
+
+    <script>
+        function httpGet(theUrl) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", theUrl, false); // false for synchronous request
+            xmlHttp.send(null);
+            return xmlHttp.responseText;
+        }
+
+        var githubReponseAutoupdate = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-autoupdate/releases/latest"));
+        var githubReponseAoJava = JSON.parse(httpGet("https://api.github.com/repos/guidota/ao-java/releases"));
+
+        var javaLinux = githubReponseAoJava[0].assets.find(x => x.name.includes('linux'));
+        var javaWindows32 = githubReponseAoJava[0].assets.find(x => x.name.includes('win-32'));
+        var javaWindows64 = githubReponseAoJava[0].assets.find(x => x.name.includes('win-64'));
+        var javaOsx = githubReponseAoJava[0].assets.find(x => x.name.includes('app'));
+
+        var githubReponseClient = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-cliente/releases/latest"));
+        var githubReponseServer = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-server/releases/latest"));
+
+        //   var githubReponseWorldEditor = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-worldeditor/releases/latest"));
+
+
+    </script>
+
+</head>
+
+<body>
+
+    <!--
+    START: Page Video Background
+
+    Additional Attributes:
+        data-video - Youtube/Vimeo/self-hosted video urls.
+            self-hosted video example:
+            data-video="mp4:./video/local-video.mp4,webm:./video/local-video.webm,ogv:./video/local-video.ogv"
+        data-video-loop - loop video (true/false)
+        data-video-mute - mute video music (true/false)
+        data-video-volume - volume of video music (0-100)
+        data-video-start-time - video start time in seconds
+        data-video-end-time - video end time in seconds
+        data-video-pause-on-page-leave - pause video when the page not in focus (true/false)
+-->
+    <div class="nk-page-background op-2" data-video="" data-video-loop="true" data-video-mute="true"
+        data-video-volume="0" data-video-start-time="0" data-video-end-time="0" data-video-pause-on-page-leave="true"
+        style="background-image: url('assets/images/background-2.jpg');"></div>
+    <!-- END: Page Background -->
+
+    <!--
+    START: Page Audio Background
+
+    Additional Attributes:
+        data-audio - URL to audio file
+        data-audio-volume - audio volume (0-100)
+        data-audio-autoplay - autoplay audio (true/false)
+        data-audio-loop - loop audio (true/false)
+        data-audio-pause-on-page-leave - pause video when the page not in focus (true/false)
+-->
+    <div class="nk-page-background-audio d-none" data-audio="" data-audio-volume="100" data-audio-autoplay="true"
+        data-audio-loop="true" data-audio-pause-on-page-leave="true"></div>
+    <!-- END: Page Background -->
+
+    <!-- START: Page Border -->
+    <div class="nk-page-border">
+        <div class="nk-page-border-t"></div>
+        <div class="nk-page-border-r"></div>
+        <div class="nk-page-border-b"></div>
+        <div class="nk-page-border-l"></div>
+    </div>
+    <!-- END: Page Border -->
+
+    <!--
+    START: Navbar
+
+    Additional Classes:
+        .nk-navbar-lg
+        .nk-navbar-align-center
+        .nk-navbar-align-right
+        .nk-navbar-overlay-content
+        .nk-navbar-light
+        .nk-navbar-no-link-effect
+-->
+    <nav class="nk-navbar nk-navbar-side nk-navbar-left nk-navbar-lg nk-navbar-align-center nk-navbar-overlay-content"
+        id="nk-navbar-left">
+        <div class="nano">
+            <div class="nano-content">
+                <div class="nk-nav-table">
+                    <div class="nk-nav-row">
+
+                        <a href="./" class="nk-nav-logo">
+                            <img src="assets/images/logo.png" alt="" width="250">
+                        </a>
+
+                    </div>
+                    <!--
+                    START: Navigation
+
+                    Additional Classes:
+                        .nk-nav-row-top
+                        .nk-nav-row-center
+                        .nk-nav-row-bottom
+                -->
+                    <div class="nk-nav-row nk-nav-row-full nk-nav-row-center">
+                        <ul class="nk-nav" data-nav-mobile="#nk-nav-mobile">
+                            <li class="active">
+                                <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="https://discord.gg/qCJPGbY" target="_blank">Chatea con nosotros (Discord)</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/ao-libre" target="_blank">Codigo Fuente</a>
+                            </li>
+                            <li>
+                                <a href="https://recursos.argentumonline.org" target="_blank">Galeria de Graficos</a>
+                            </li>
+                            <li>
+                                <a href="https://www.reddit.com/r/argentumonlineoficial" target="_blank">Foro</a>
+                            </li>
+                            <li>
+                                <a href="http://wiki.argentumonline.org/" target="_blank">Wiki</a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/argentumonlinelibre/" target="_blank">Facebook</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--
+                    END: Navigation
+                -->
+                    <div class="nk-nav-row">
+                        <div class="nk-nav-footer">
+                            &copy; El juego hecho por los usuarios.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END: Navbar -->
+
+    <div class="nk-main">
+
+        <!-- START: Features -->
+        <div class="nk-box">
+            
+            <div class="nk-gap-4"></div>
+
+            <div class="nk-header-table-cell">
+                <div class="container">
+                    <div class="nk-header-text">
+
+                        <h1 class="nk-title display-1"><span style="color:red">Argentum<span> <span
+                                        style="color:blue">Online<span></h1>
+
+                        <h1 class="nk-title display-5"><span>ESTADO SERVER: <span> <span style="color:green">ONLINE<span></h1>
+
+
+                        <a id="autoupdateDownload" href="#" class="nk-btn nk-btn-lg">
+                            <ion-icon name="cloud-download"></ion-icon> JUGAR AHORA!
+                        </a>
+
+                        <div class="nk-gap-1"></div>
+
+                        <h6 id="clienteLastUpdate"></h6>
+                        <h6 id="serverLastUpdate"></h6>
+
+                        <!-- START: Servers -->
+                        <div class="container">
+                            <div class="nk-gap-2"></div>
+                            <div class="row vertical-gap align-items-center">
+                                <div class="col-md-4">
+                                    <div class="nk-pricing">
+                                        <h3 class="nk-pricing-title">La Boda (Deatmatch)</h3>
+
+                                        <div class="nk-pricing-price">
+                                            <img src="assets/images/server_deathmatch_laboda.jpg"/>
+                                        </div>
+                    
+                                        <ul class="nk-pricing-features">
+                                            <li>Nivel Inicial: 45</li>
+                                            <li>Oro Inicial: Casi Infinito</li>
+                                            <li>El casamiento no salio nada bien, por lo que la fiesta se convirtio en una arena de combate, una isla llena de NPC's vendedores para equiparte rapido e irte a agitar automaticamente, todos contra todos</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="nk-pricing bg-main-1 text-white">
+                                        <h3 class="nk-pricing-title">Alkon (Rol)</h3>
+                    
+                                        <div class="nk-pricing-price">
+                                            <img src="assets/images/server_alkon.jpg"/>
+                                        </div>
+                    
+                                        <ul class="nk-pricing-features">
+                                            <li>Multiplicador Experiencia: x5</li>
+                                            <li>Multiplicador Oro: x5</li>
+                                            <li>Multiplicador Recursos por Trabajo: x5</li>
+                                            <li>Los clasicos nunca mueren, por eso les traemos <b>Alkon</b>. Ullathorpe, Banderbill, Nix nuestros queridos hogares, Entrenar en Dungeon Verill, Navegar hasta Lindos para comerciar, Ir a reclamar tu premio derrotando al Clan Pretoriano. Ser Ejercito Real o entregarte a la Legión Oscura.? Las aventuras que conoces y nuevas por descubrir estan aqui.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="nk-pricing">
+                                        <h3 class="nk-pricing-title">Escondrijo de Earost (Deathmatch)</h3>
+                    
+                                        <div class="nk-pricing-price">
+                                            <img src="assets/images/server_deathmatch_earost.jpg"/>
+                                        </div>
+                    
+                                        <ul class="nk-pricing-features">
+                                            <li>Nivel Inicial: 45</li>
+                                            <li>Oro Inicial: Casi Infinito</li>
+                                            <li>Entrando en el dungeon, todos los NPC's vendedores te estan esperando para equiparte, luego tendras que rapido a matar a todos, incluyendo NPC's poderosos, todos contra todos</li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nk-gap-4"></div>
+                            <div class="nk-gap-4"></div>
+                        </div>
+                        <!-- END: Servers -->
+
+                    </div>
+
+                </div>
+            </div>
+           
+            <div class="row align-items-center">
+
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="row no-gutters">
+                        <div class="col-md-6">
+                            <div class="nk-box-3 bg-dark-1">
+                                <div class="nk-ibox">
+                                    <div class="nk-ibox-icon nk-ibox-icon-circle">
+                                        <ion-icon name="filing"></ion-icon>
+                                    </div>
+                                    <div class="nk-ibox-cont">
+                                        <h2 class="nk-ibox-title">Vos tenes el control</h2>
+                                        <span>Si pensas que algun Game Master esta brindando ventajas competitivas a alguien en nuestro servidor, podes ver todo su historial desde aqui</span>
+                                        </br>
+                                        <a href="#" onclick="window.open('logs-gms.html')" class="nk-btn nk-btn-lg">
+                                            <span>
+                                                <ion-icon name="help-circle-outline"></ion-icon> Ver historial GM's
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="nk-box-3 bg-dark-2">
+                                <div class="nk-ibox">
+                                    <div class="nk-ibox-icon nk-ibox-icon-circle">
+                                        <ion-icon name="code-working"></ion-icon>
+                                    </div>
+                                    <div class="nk-ibox-cont">
+                                        <h2 class="nk-ibox-title">Programacion activa</h2>
+                                        <span>AO es un juego open-source y por ello abrimos nuestros logs del server al publico para que puedan ver que errores hay en el servidor y poder ayudar a repararlos</span>
+                                        </br>
+                                        <a href="#" onclick="window.open('logs-errores.html')" class="nk-btn nk-btn-lg">
+                                            <span>
+                                                <ion-icon name="cog"></ion-icon> Ver Logs
+                                            </span>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="nk-box-3 bg-dark-2">
+                                <div class="nk-ibox">
+                                    <div class="nk-ibox-icon nk-ibox-icon-circle">
+                                        <ion-icon name="clock"></ion-icon>
+                                    </div>
+                                    <div class="nk-ibox-cont">
+                                        <h2 class="nk-ibox-title">Minuto a minuto</h2>
+                                        <span>Aqui podras encontrar la actividad de absolutamente todos los usuarios en el servidor</span>
+                                        </br>
+                                        <a href="#" onclick="window.open('logs-desarrollo.html')" class="nk-btn nk-btn-lg">
+                                            <span>
+                                                <ion-icon name="cog"></ion-icon> Ver minuto a minuto
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="nk-box-3 bg-dark-1">
+                                <div class="nk-ibox">
+                                    <div class="nk-ibox-icon nk-ibox-icon-circle">
+                                        <ion-icon name="stats"></ion-icon>
+                                    </div>
+                                    <div class="nk-ibox-cont">
+                                        <h2 class="nk-ibox-title">Estadisticas</h2>
+                                        <span>Cuanto tiempo tardaste en ser nivel 45? Aca podes compararte con el resto para ver si te falta mejorar</span>
+                                        </br>
+                                        <a href="#" onclick="window.open('logs-statistics.html')" class="nk-btn nk-btn-lg">
+                                            <span>
+                                                <ion-icon name="cog"></ion-icon> Ver Estadisticas
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+
+
+
+        <!-- START: RANKINGS -->
+        <div class="nk-box" style="background: black">
+
+            <div class="container">
+                <div class="nk-info-box bg-main-3">
+                    <h3>Ranking AO Clasico (Alkon)</h3>
+                </div>
+
+                <h4 id="charfilesLastUpdate"></h4>
+                <h5 id="charfilesCount"></h5>
+
+                <div class="row vertical-gap lg-gap">
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Mas usuarios matados</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenCharKiller">
+                                <ul>
+                                    <li id="charfilesTopTenCharKiller1"></li>
+                                    <li id="charfilesTopTenCharKiller2"></li>
+                                    <li id="charfilesTopTenCharKiller3"></li>
+                                    <li id="charfilesTopTenCharKiller4"></li>
+                                    <li id="charfilesTopTenCharKiller5"></li>
+                                    <li id="charfilesTopTenCharKiller6"></li>
+                                    <li id="charfilesTopTenCharKiller7"></li>
+                                    <li id="charfilesTopTenCharKiller8"></li>
+                                    <li id="charfilesTopTenCharKiller9"></li>
+                                    <li id="charfilesTopTenCharKiller10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Nivel mas alto</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenLevel">
+                                <ul>
+                                    <li id="charfilesTopTenLevel1"></li>
+                                    <li id="charfilesTopTenLevel2"></li>
+                                    <li id="charfilesTopTenLevel3"></li>
+                                    <li id="charfilesTopTenLevel4"></li>
+                                    <li id="charfilesTopTenLevel5"></li>
+                                    <li id="charfilesTopTenLevel6"></li>
+                                    <li id="charfilesTopTenLevel7"></li>
+                                    <li id="charfilesTopTenLevel8"></li>
+                                    <li id="charfilesTopTenLevel9"></li>
+                                    <li id="charfilesTopTenLevel10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Mas NPCs matados</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenNpcKiller">
+                                <ul>
+                                    <li id="charfilesTopTenNpcKiller1"></li>
+                                    <li id="charfilesTopTenNpcKiller2"></li>
+                                    <li id="charfilesTopTenNpcKiller3"></li>
+                                    <li id="charfilesTopTenNpcKiller4"></li>
+                                    <li id="charfilesTopTenNpcKiller5"></li>
+                                    <li id="charfilesTopTenNpcKiller6"></li>
+                                    <li id="charfilesTopTenNpcKiller7"></li>
+                                    <li id="charfilesTopTenNpcKiller8"></li>
+                                    <li id="charfilesTopTenNpcKiller9"></li>
+                                    <li id="charfilesTopTenNpcKiller10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Mas tiempo online</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenMoreTimeOnline">
+                                <ul>
+                                    <li id="charfilesTopTenMoreTimeOnline1"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline2"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline3"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline4"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline5"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline6"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline7"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline8"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline9"></li>
+                                    <li id="charfilesTopTenMoreTimeOnline10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Personajes con mas HP</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenMoreHp">
+                                <ul>
+                                    <li id="charfilesTopTenMoreHp1"></li>
+                                    <li id="charfilesTopTenMoreHp2"></li>
+                                    <li id="charfilesTopTenMoreHp3"></li>
+                                    <li id="charfilesTopTenMoreHp4"></li>
+                                    <li id="charfilesTopTenMoreHp5"></li>
+                                    <li id="charfilesTopTenMoreHp6"></li>
+                                    <li id="charfilesTopTenMoreHp7"></li>
+                                    <li id="charfilesTopTenMoreHp8"></li>
+                                    <li id="charfilesTopTenMoreHp9"></li>
+                                    <li id="charfilesTopTenMoreHp10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <blockquote class="nk-testimonial-2">
+                            <div class="nk-testimonial-photo"
+                                style="background-image: url('assets/images/avatar-3-sm.jpg');"></div>
+                            <div class="nk-testimonial-name h4">Los mas ricos $$:</div>
+                            <div class="nk-testimonial-body" id="charfilesTopTenGold">
+                                <ul>
+                                    <li id="charfilesTopTenGold1"></li>
+                                    <li id="charfilesTopTenGold2"></li>
+                                    <li id="charfilesTopTenGold3"></li>
+                                    <li id="charfilesTopTenGold4"></li>
+                                    <li id="charfilesTopTenGold5"></li>
+                                    <li id="charfilesTopTenGold6"></li>
+                                    <li id="charfilesTopTenGold7"></li>
+                                    <li id="charfilesTopTenGold8"></li>
+                                    <li id="charfilesTopTenGold9"></li>
+                                    <li id="charfilesTopTenGold10"></li>
+                                </ul>
+                            </div>
+                        </blockquote>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!-- END: RANKINGS -->
+        
+
+
+        <div class="nk-box bg-dark-1 text-white">
+            <div class="nk-gap-4"></div>
+            <div class="container">
+                <div class="text-left">
+                    <h3 class="nk-title-back">Equipo Activo</h3>
+                    <h2 class="nk-title h1">Te presentamos el staff del Server:</h2>
+                    <div class="nk-title-sep-icon">
+                        <ion-icon name="bonfire"></ion-icon>
+                    </div>
+
+
+                    <h5 id="gmsAdmines"></h5>
+                    <h5 id="gmsDioses"></h5>
+                    <h5 id="gmsSemidioses"></h5>
+                    <h5 id="gmsConsejeros"></h5>
+                    <h5 id="gmsRolemasters"></h5>
+
+                </div>
+            </div>
+            <div class="nk-gap-4"></div>
+        </div> 
+
+        <!-- AO-JAVA -->
+        <div class="nk-header-title nk-header-title-full nk-header-title-parallax nk-header-title-parallax-opacity">
+            <div class="bg-image op-4">
+                <img src="assets/images/ao-java.png" alt="" class="jarallax-img">
+            </div>
+            <div class="nk-header-table">
+                <div class="nk-header-table-cell">
+                    <div class="container">
+
+                        <div class="nk-header-text">
+
+                            <h1 class="nk-title display-4" style="color: gold">AO Java</h1>
+                            <p>
+                                Todos nos preguntamos si es posible un cambio de tecnología para este hermoso juego, y
+                                si este cambio tiene sentido...
+                            </p>
+                            <p>
+                                Personalmente creo que si, de hecho lo que hicieron algunos chicos de la comunidad con
+                                el AO Web creo que fue excelente.
+                            </p>
+
+                            <p>
+                                Pero esta vez quiero ir un poco más allá. (guidON.-)
+                            </p>
+
+                            <div class="nk-gap-2"></div>
+
+                            <a href="#" id="javaOsxDownload" class="nk-btn nk-btn-lg">
+                                <span>
+                                    <ion-icon name="logo-apple"></ion-icon> Mac
+                                </span>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#" id="javaLinuxDownload" class="nk-btn nk-btn-lg">
+                                <span>
+                                    <ion-icon name="logo-tux"></ion-icon> Linux
+                                </span>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#" id="javaWindows32Download" class="nk-btn nk-btn-lg">
+                                <span>
+                                    <ion-icon name="logo-windows"></ion-icon> Windows 32 bits
+                                </span>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="#" id="javaWindows64Download" class="nk-btn nk-btn-lg">
+                                <span>
+                                    <ion-icon name="logo-windows"></ion-icon> Windows 64 bits
+                                </span>
+                            </a>
+
+                            </br>
+                            </br>
+                            </br>
+
+                            <a href="https://github.com/guidota/ao-java/" target="_blank" id="javaWindowsDownload"
+                                class="nk-btn nk-btn-lg">
+                                <span>
+                                    <ion-icon name="logo-github"></ion-icon> Codigo Fuente
+                                </span>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="nk-gap-4"></div> -->
+
+        </div>
+
+        <!-- START: MONTAR SERVER -->
+        <div class="nk-box text-center text-white bg-dark-1">
+            <div class="nk-gap-4"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 text-md-left">
+                        <h2 class="nk-title">Montar mi servidor</h2>
+                        <h3 class="nk-sub-title mb-0 text-white op-7">¿Queres tu propio server de Argentum Online? Es muy facil, aca te decimos como, solo 5
+                            minutos.</h3>
+                    </div>
+                    <div class="col-md-4 text-md-right">
+                        <div class="nk-gap-2 d-md-none"></div>
+                        <a href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/"
+                        target="_blank"  class="nk-btn nk-btn-x2 nk-btn-bg-white nk-btn-color-main-1">
+                            <span>MI PROPIO SERVER</span>
+                            <span class="icon"><i class="ion-ribbon-b"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-gap-4"></div>
+        </div>
+        <!-- END: MONTAR SERVER -->
+
+        <!-- START: WORLDEDITOR -->
+        <div class="nk-box text-center bg-main-1 text-white">
+            <div class="nk-gap-4"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 order-md-2 text-md-right">
+                        <h2 class="nk-title">Crea tu mundo</h2>
+                        <h3 class="nk-sub-title mb-0 text-white op-7">¿Queres crear mapas para tu servidor de Argentum Online? World Editor es la herramienta que
+                            necesitas.</h3>
+                    </div>
+                    <div class="col-md-4 text-md-left">
+                        <div class="nk-gap-2 d-md-none"></div>
+                        <a id="worldEditorDownload" href="#!" class="nk-btn nk-btn-x2">
+                            DESCARGAR WORLD EDITOR
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="nk-gap-4"></div>
+        </div>
+         <!-- END: WORLDEDITOR -->
+
+        <footer class="nk-footer nk-footer-parallax nk-footer-parallax-opacity">
+            <img class="nk-footer-top-corner" src="assets/images/footer-corner.png" alt="">
+
+            <div class="container">
+                <h4>
+                    Estamos constantemente trabajando en mejoras y arreglo de bugs.
+                    Unite a nuestra comunidad para poder ayudar a mejorar el juego
+                </h4> 
+                <div class="nk-gap-2"></div>
+                <h2 class="nk-title"><strong>Nos ayudan a estar online:</strong></h2>
+
+                <div class="nk-footer-logos">
+                    <a href="https://www.conreco.com.ar" target="_blank">
+                        <img class="nk-img" src="assets/images/footer-logo-conreco.png" alt="" width="200">
+                    </a>
+
+                    <!-- <a href="https://www.facebook.com/obalhost/" target="_blank">
+                        <img class="nk-img" src="assets/images/footer-logo-obal.png" alt="" width="200">
+                    </a> -->
+
+                    <a href="https://www.db4free.net/" target="_blank">
+                        <img class="nk-img" src="assets/images/footer-logo-db4free.png" alt="" width="200">
+                    </a>
+
+                    <a href="https://www.heroku.com" target="_blank">
+                        <img class="nk-img" src="assets/images/footer-logo-heroku.png" alt="" width="50">
+                    </a>
+
+                    <a href="https://www.github.com" target="_blank">
+                        <img class="nk-img" src="assets/images/footer-logo-github.png" alt="" width="100">
+                    </a>
+                </div>
+
+                <div class="nk-gap"></div>
+
+                <h3 class="nk-title"><strong>Donaciones:</strong></h3>
+                <p>
+                    <span> El principal objetivo del proyecto es que sea un espacio transparente para que se pueda compartir un juego que nos une a todos, el Argentum Online cada uno pone lo que puede ya sea programando, actualizando guias, reportando bugs, jugando en el server haciendo desde quests en solitario, creando tu clan o al hacer duelos con otros jugadores, ser game masters o simplemente ser parte de la comunidad en el chat.</span>
+                </p>
+                <p>
+                    <span>En nuestro servidor de Argentum Online no tenemos un mercado para comprar items por plata real ni lo tendremos ya que nunca fue un juego pensado para ser de la modalidad <b>pay-to-win</b>. Mantener el juego activo 24/7 sin embargo si requiere dinero.</span>
+                    <span>Si estas interesado en darnos una mano para mantener el juego funcionando hace <a target="_blank" href="https://www.reddit.com/r/argentumonlineoficial/comments/caj54g/donaciones/">CLICK AQUI</a>.</span>
+                </p>
+                
+                <div class="nk-gap"></div>
+
+                <h3 class="nk-title"><strong>Acerca de:</strong></h3>
+                <p>
+                    Argentum Online, también conocido como AO, es un videojuego de rol multijugador masivo en línea
+                    libre disponible para los sistemas operativos Microsoft Windows y publicado en el año 1999 en
+                    Internet de manera independiente.
+                </p>
+                <p>
+                    El código fuente del proyecto fue liberado en el año 2003 bajo la licencia GNU GPL y puede ser
+                    descargado de <a target="_blank" href="https://sourceforge.net/projects/morgoao/">SourceForge.</a> Este codigo es
+                    obsoleto debido a las mejoras que ha otorgado la comunidad bajo diferentes repositorios, equipos,
+                    formatos y foros.
+                </p>
+                <p>
+                    Luego de mas de una decada todos los esfuerzos fueron concentrados y se ha armado el repositorio
+                    "comunitario" donde cualquier jugador/programador/entusiasta pueda acceder al proyecto sin
+                    limitaciones y sin secretos.
+                    Acceder al <a target="_blank" href="https://github.com/ao-libre">Codigo Fuente</a>
+                    </br>
+                    Se distribuye bajo los términos de la licencia GNU Affero GPL (General Public License).
+                </p>
+
+                <div class="nk-footer-links">
+                    <img class="nk-img" src="http://www.gnu.org/graphics/agplv3-155x51.png" alt="" width="120">
+                    <a href="https://www.gnu.org/licenses/agpl.html" target="_blank" class="link-effect">Terminos y
+                        Condiciones de la Licencia</a>
+                </div>
+
+                <div class="nk-gap-4"></div>
+            </div>
+        </footer>
+        <!-- END: Footer -->
+
+    </div>
+
+    <!--
+    START: Share Buttons
+        .nk-share-buttons-left
+-->
+    <div class="nk-share-buttons d-none d-md-flex">
+        <ul>
+            <li>
+                <a href="https://discord.gg/qCJPGbY" target="_blank">
+                    <span class="nk-share-icon" title="Chatea con nosotros en discord" data-share="discord">
+                        <span class="icon fa fa-commenting-o"></span>
+                    </span>
+                    <span class="nk-share-name">Discord</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.reddit.com/r/argentumonlineoficial" target="_blank">
+                    <span class="nk-share-icon" title="Foro" data-share="reddit">
+                        <span class="icon fa fa-reddit"></span>
+                    </span>
+                    <span class="nk-share-name">Reddit</span>
+            </li>
+            <li>
+                <a href="https://github.com/ao-libre" target="_blank">
+                    <span class="nk-share-icon" title="Fork us" data-share="github">
+                        <span class="icon fa fa-github"></span>
+                    </span>
+                    <span class="nk-share-name">Github</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://wiki.argentumonline.org/" target="_blank">
+                    <span class="nk-share-icon" title="Manual del Juego" data-share="wikipedia">
+                        <span class="icon fa fa-book"></span>
+                    </span>
+                    <span class="nk-share-name">Wiki</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.facebook.com/argentumonlinelibre/" target="_blank">
+                    <span class="nk-share-icon" title="Me Gusta" data-share="facebook">
+                        <span class="icon fa fa-facebook"></span>
+                    </span>
+                    <span class="nk-share-name">Facebook</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/AOLibre" target="_blank">
+                    <span class="nk-share-icon" title="Twitter" data-share="twitter">
+                        <span class="icon fa fa-twitter"></span>
+                    </span>
+                    <span class="nk-share-name">Twitter</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/argentumonlinelibre/" target="_blank">
+                    <span class="nk-share-icon" title="instram" data-share="instram">
+                        <span class="icon fa fa-instagram"></span>
+                    </span>
+                    <span class="nk-share-name">Instagram</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    //document.getElementById("clientDownload").href = githubReponseClient.assets[0].browser_download_url;
+    // document.getElementById("serverDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
+    document.getElementById("worldEditorDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
+    document.getElementById("autoupdateDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
+
+    var clientDateRelease = new Date(githubReponseClient.published_at)
+    var yyyymmddClientUpdate = clientDateRelease.getDate() + '/' + (clientDateRelease.getMonth() + 1) + '/' + clientDateRelease.getFullYear();
+    let clienteLastUpdateText = `Cliente - Version actual: ${githubReponseClient.name} - Ultima Actualizacion: ${yyyymmddClientUpdate}`
+    const changelogCliente = " - <a target='_blank' href='https://github.com/ao-libre/ao-cliente/blob/master/Changelog-client.txt'>Ver Changelog</a>"
+    document.getElementById("clienteLastUpdate").innerHTML = clienteLastUpdateText + changelogCliente;
+
+    var serverDateRelease = new Date(githubReponseServer.published_at)
+    var yyyymmddClientUpdate = serverDateRelease.getDate() + '/' + (serverDateRelease.getMonth() + 1) + '/' + serverDateRelease.getFullYear();
+    let serverLastUpdateText = `Server - Version actual: ${githubReponseServer.name} - Ultima Actualizacion: ${yyyymmddClientUpdate}`
+    const changelogServer = " - <a target='_blank' href='https://github.com/ao-libre/ao-server/blob/master/Changelog-server.txt'>Ver Changelog</a>"
+
+    document.getElementById("serverLastUpdate").innerHTML = serverLastUpdateText + changelogServer;
+
+    //HAGO ESTO PARA EVITAR PROBLEMAS POR SI GUIDO NO SUBE LOS ASSETS DE ALGUNOS DE LOS S.O
+    //POR QUE SE ROMPE LA PAGINA :@
+    if (javaWindows32) {
+        document.getElementById("javaWindows32Download").href = javaWindows32.browser_download_url;
+    }else {
+        document.getElementById("javaWindows32Download").remove()
+    }
+
+    if (javaWindows64) {
+        document.getElementById("javaWindows64Download").href = javaWindows64.browser_download_url;
+    }else {
+        document.getElementById("javaWindows64Download").remove()
+    }
+
+    if (javaOsx) {
+        document.getElementById("javaOsxDownload").href = javaOsx.browser_download_url;
+    }else {
+        document.getElementById("javaOsxDownload").remove()
+    }
+
+    if (javaLinux) {
+        document.getElementById("javaLinuxDownload").href = javaLinux.browser_download_url;
+    }else {
+        document.getElementById("javaLinuxDownload").remove()
+    }
+
+    //RANKINGS:
+    var charfilesTopTenLevel = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenlevel"));
+    var charfilesTopTenGold = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptengold"));
+    var charfilesTopTenMoreTimeOnline = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenmoretimeonline"));
+    var charfilesTopTenMoreHp = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenmorehp"));
+    var charfilesTopTenCharKiller = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptencharkiller"));
+    var charfilesTopTenNpcKiller = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptennpckiller"));
+    var charfilesLastUpdate = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/lastTimeUpdated"));
+    var charfilesCount = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/getCountChars"));
+    var gameMasters= JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/getGameMasters"));
+
+    if (gameMasters) {
+        if (gameMasters.admines.length > 0) {
+            document.getElementById("gmsAdmines").innerHTML = "Admines: " + gameMasters.admines.toString();
+        }
+
+        if (gameMasters.dioses.length > 0) {
+            document.getElementById("gmsDioses").innerHTML = "Dioses: " + gameMasters.dioses.toString();
+        } else {
+            document.getElementById("gmsDioses").innerHTML = "Se buscan personas para ocupar el puesto de Dioses";
+        }
+
+        if (gameMasters.semidioses.length > 0) {
+            document.getElementById("gmsSemidioses").innerHTML = "SemiDioses: " + gameMasters.semidioses.toString();
+        } else {
+            document.getElementById("gmsSemidioses").innerHTML = "Se buscan personas para ocupar el puesto de SemiDioses";
+        }
+
+        if (gameMasters.consejeros.length > 0) {
+            document.getElementById("gmsConsejeros").innerHTML = "Consejeros: " + gameMasters.consejeros.toString();
+        } else {
+            document.getElementById("gmsConsejeros").innerHTML = "Se buscan personas para ocupar el puesto de Consejeros";
+        }
+
+        if (gameMasters.rolemasters.length > 0) {
+            document.getElementById("gmsRolemasters").innerHTML = "Rolemasters: " + gameMasters.rolemasters.toString();
+        } else {
+            document.getElementById("gmsRolemasters").innerHTML = "Se buscan personas para ocupar el puesto de Rolemasters";
+        }
+    }
+
+    if (charfilesTopTenLevel && charfilesTopTenLevel.length === 10) {
+        document.getElementById("charfilesTopTenLevel1").innerHTML = charfilesTopTenLevel[0].NOMBRE + " -- " + charfilesTopTenLevel[0].STATS_ELV;
+        document.getElementById("charfilesTopTenLevel2").innerHTML = charfilesTopTenLevel[1].NOMBRE + " -- " + charfilesTopTenLevel[1].STATS_ELV;
+        document.getElementById("charfilesTopTenLevel3").innerHTML = charfilesTopTenLevel[2].NOMBRE + " -- " + charfilesTopTenLevel[2].STATS_ELV;
+        document.getElementById("charfilesTopTenLevel4").innerHTML = charfilesTopTenLevel[3].NOMBRE + " -- " + charfilesTopTenLevel[3].STATS_ELV;
+        document.getElementById("charfilesTopTenLevel5").innerHTML = charfilesTopTenLevel[4].NOMBRE + " -- " + charfilesTopTenLevel[4].STATS_ELV;
+        document.getElementById("charfilesTopTenLevel6").innerHTML = charfilesTopTenLevel[5].NOMBRE + " -- " + charfilesTopTenLevel[5].STATS_ELV;
+        document.getElementById("charfilesTopTenLevel7").innerHTML = charfilesTopTenLevel[6].NOMBRE + " -- " + charfilesTopTenLevel[6].STATS_ELV;
+        document.getElementById("charfilesTopTenLevel8").innerHTML = charfilesTopTenLevel[7].NOMBRE + " -- " + charfilesTopTenLevel[7].STATS_ELV;
+        document.getElementById("charfilesTopTenLevel9").innerHTML = charfilesTopTenLevel[8].NOMBRE + " -- " + charfilesTopTenLevel[8].STATS_ELV;
+        document.getElementById("charfilesTopTenLevel10").innerHTML = charfilesTopTenLevel[9].NOMBRE + " -- " + charfilesTopTenLevel[9].STATS_ELV;
+    } else {
+        document.getElementById("charfilesTopTenLevel").innerHTML = "No hay informacion disponible en estos momentos"
+    }
+
+    if (charfilesTopTenCharKiller && charfilesTopTenCharKiller.length === 10) {
+        document.getElementById("charfilesTopTenCharKiller1").innerHTML = charfilesTopTenCharKiller[0].NOMBRE + " -- " + charfilesTopTenCharKiller[0].MUERTES_USERMUERTES;
+        document.getElementById("charfilesTopTenCharKiller2").innerHTML = charfilesTopTenCharKiller[1].NOMBRE + " -- " + charfilesTopTenCharKiller[1].MUERTES_USERMUERTES;
+        document.getElementById("charfilesTopTenCharKiller3").innerHTML = charfilesTopTenCharKiller[2].NOMBRE + " -- " + charfilesTopTenCharKiller[2].MUERTES_USERMUERTES;
+        document.getElementById("charfilesTopTenCharKiller4").innerHTML = charfilesTopTenCharKiller[3].NOMBRE + " -- " + charfilesTopTenCharKiller[3].MUERTES_USERMUERTES;
+        document.getElementById("charfilesTopTenCharKiller5").innerHTML = charfilesTopTenCharKiller[4].NOMBRE + " -- " + charfilesTopTenCharKiller[4].MUERTES_USERMUERTES;
+        document.getElementById("charfilesTopTenCharKiller6").innerHTML = charfilesTopTenCharKiller[5].NOMBRE + " -- " + charfilesTopTenCharKiller[5].MUERTES_USERMUERTES;
+        document.getElementById("charfilesTopTenCharKiller7").innerHTML = charfilesTopTenCharKiller[6].NOMBRE + " -- " + charfilesTopTenCharKiller[6].MUERTES_USERMUERTES;
+        document.getElementById("charfilesTopTenCharKiller8").innerHTML = charfilesTopTenCharKiller[7].NOMBRE + " -- " + charfilesTopTenCharKiller[7].MUERTES_USERMUERTES;
+        document.getElementById("charfilesTopTenCharKiller9").innerHTML = charfilesTopTenCharKiller[8].NOMBRE + " -- " + charfilesTopTenCharKiller[8].MUERTES_USERMUERTES;
+        document.getElementById("charfilesTopTenCharKiller10").innerHTML = charfilesTopTenCharKiller[9].NOMBRE + " -- " + charfilesTopTenCharKiller[9].MUERTES_USERMUERTES;
+    } else {
+        document.getElementById("charfilesTopTenCharKiller").innerHTML = "No hay informacion disponible en estos momentos"
+    }
+
+    if (charfilesTopTenGold && charfilesTopTenGold.length === 10) {
+        document.getElementById("charfilesTopTenGold1").innerHTML = charfilesTopTenGold[0].NOMBRE + " -- " + (Number(charfilesTopTenGold[0].STATS_GLD) + Number(charfilesTopTenGold[0].STATS_BANCO));
+        document.getElementById("charfilesTopTenGold2").innerHTML = charfilesTopTenGold[1].NOMBRE + " -- " + (Number(charfilesTopTenGold[1].STATS_GLD) + Number(charfilesTopTenGold[1].STATS_BANCO));
+        document.getElementById("charfilesTopTenGold3").innerHTML = charfilesTopTenGold[2].NOMBRE + " -- " + (Number(charfilesTopTenGold[2].STATS_GLD) + Number(charfilesTopTenGold[2].STATS_BANCO));
+        document.getElementById("charfilesTopTenGold4").innerHTML = charfilesTopTenGold[3].NOMBRE + " -- " + (Number(charfilesTopTenGold[3].STATS_GLD) + Number(charfilesTopTenGold[3].STATS_BANCO));
+        document.getElementById("charfilesTopTenGold5").innerHTML = charfilesTopTenGold[4].NOMBRE + " -- " + (Number(charfilesTopTenGold[4].STATS_GLD) + Number(charfilesTopTenGold[4].STATS_BANCO));
+        document.getElementById("charfilesTopTenGold6").innerHTML = charfilesTopTenGold[5].NOMBRE + " -- " + (Number(charfilesTopTenGold[5].STATS_GLD) + Number(charfilesTopTenGold[5].STATS_BANCO));
+        document.getElementById("charfilesTopTenGold7").innerHTML = charfilesTopTenGold[6].NOMBRE + " -- " + (Number(charfilesTopTenGold[6].STATS_GLD) + Number(charfilesTopTenGold[6].STATS_BANCO));
+        document.getElementById("charfilesTopTenGold8").innerHTML = charfilesTopTenGold[7].NOMBRE + " -- " + (Number(charfilesTopTenGold[7].STATS_GLD) + Number(charfilesTopTenGold[7].STATS_BANCO));
+        document.getElementById("charfilesTopTenGold9").innerHTML = charfilesTopTenGold[8].NOMBRE + " -- " + (Number(charfilesTopTenGold[8].STATS_GLD) + Number(charfilesTopTenGold[8].STATS_BANCO));
+        document.getElementById("charfilesTopTenGold10").innerHTML = charfilesTopTenGold[9].NOMBRE + " -- " + (Number(charfilesTopTenGold[9].STATS_GLD) + Number(charfilesTopTenGold[9].STATS_BANCO));
+    } else {
+        document.getElementById("charfilesTopTenGold").innerHTML = "No hay informacion disponible en estos momentos"
+    }
+
+    if (charfilesTopTenMoreHp && charfilesTopTenMoreHp.length === 10) {
+        document.getElementById("charfilesTopTenMoreHp1").innerHTML = charfilesTopTenMoreHp[0].NOMBRE + " -- " + charfilesTopTenMoreHp[0].STATS_MAXHP;
+        document.getElementById("charfilesTopTenMoreHp2").innerHTML = charfilesTopTenMoreHp[1].NOMBRE + " -- " + charfilesTopTenMoreHp[1].STATS_MAXHP;
+        document.getElementById("charfilesTopTenMoreHp3").innerHTML = charfilesTopTenMoreHp[2].NOMBRE + " -- " + charfilesTopTenMoreHp[2].STATS_MAXHP;
+        document.getElementById("charfilesTopTenMoreHp4").innerHTML = charfilesTopTenMoreHp[3].NOMBRE + " -- " + charfilesTopTenMoreHp[3].STATS_MAXHP;
+        document.getElementById("charfilesTopTenMoreHp5").innerHTML = charfilesTopTenMoreHp[4].NOMBRE + " -- " + charfilesTopTenMoreHp[4].STATS_MAXHP;
+        document.getElementById("charfilesTopTenMoreHp6").innerHTML = charfilesTopTenMoreHp[5].NOMBRE + " -- " + charfilesTopTenMoreHp[5].STATS_MAXHP;
+        document.getElementById("charfilesTopTenMoreHp7").innerHTML = charfilesTopTenMoreHp[6].NOMBRE + " -- " + charfilesTopTenMoreHp[6].STATS_MAXHP;
+        document.getElementById("charfilesTopTenMoreHp8").innerHTML = charfilesTopTenMoreHp[7].NOMBRE + " -- " + charfilesTopTenMoreHp[7].STATS_MAXHP;
+        document.getElementById("charfilesTopTenMoreHp9").innerHTML = charfilesTopTenMoreHp[8].NOMBRE + " -- " + charfilesTopTenMoreHp[8].STATS_MAXHP;
+        document.getElementById("charfilesTopTenMoreHp10").innerHTML = charfilesTopTenMoreHp[9].NOMBRE + " -- " + charfilesTopTenMoreHp[9].STATS_MAXHP;
+    } else {
+        document.getElementById("charfilesTopTenMoreHp").innerHTML = "No hay informacion disponible en estos momentos"
+    }
+
+    function getTimeParsedFromSeconds(seconds){
+        seconds = parseInt(seconds, 10);
+
+        var days = Math.floor(seconds / (3600*24));
+        seconds  -= days*3600*24;
+        var hrs   = Math.floor(seconds / 3600);
+        seconds  -= hrs*3600;
+        var mnts = Math.floor(seconds / 60);
+        seconds  -= mnts*60;
+
+
+        if  (days > 0) {
+            hrs = hrs + (days * 24)
+        }
+        
+        var stringParsed = hrs+":"+mnts+":"+seconds+" hs";
+        return stringParsed
+    }
+
+    if (charfilesTopTenMoreTimeOnline && charfilesTopTenMoreTimeOnline.length === 10) {
+        document.getElementById("charfilesTopTenMoreTimeOnline1").innerHTML = charfilesTopTenMoreTimeOnline[0].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[0].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline2").innerHTML = charfilesTopTenMoreTimeOnline[1].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[1].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline3").innerHTML = charfilesTopTenMoreTimeOnline[2].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[2].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline4").innerHTML = charfilesTopTenMoreTimeOnline[3].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[3].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline5").innerHTML = charfilesTopTenMoreTimeOnline[4].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[4].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline6").innerHTML = charfilesTopTenMoreTimeOnline[5].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[5].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline7").innerHTML = charfilesTopTenMoreTimeOnline[6].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[6].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline8").innerHTML = charfilesTopTenMoreTimeOnline[7].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[7].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline9").innerHTML = charfilesTopTenMoreTimeOnline[8].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[8].INIT_UPTIME);
+        document.getElementById("charfilesTopTenMoreTimeOnline10").innerHTML = charfilesTopTenMoreTimeOnline[9].NOMBRE + " -- " + getTimeParsedFromSeconds(charfilesTopTenMoreTimeOnline[9].INIT_UPTIME);
+    } else {
+        document.getElementById("charfilesTopTenMoreTimeOnline").innerHTML = "No hay informacion disponible en estos momentos"
+    }
+
+    if (charfilesTopTenNpcKiller && charfilesTopTenNpcKiller.length === 10) {
+        document.getElementById("charfilesTopTenNpcKiller1").innerHTML = charfilesTopTenNpcKiller[0].NOMBRE + " -- " + charfilesTopTenNpcKiller[0].MUERTES_NPCSMUERTES;
+        document.getElementById("charfilesTopTenNpcKiller2").innerHTML = charfilesTopTenNpcKiller[1].NOMBRE + " -- " + charfilesTopTenNpcKiller[1].MUERTES_NPCSMUERTES;
+        document.getElementById("charfilesTopTenNpcKiller3").innerHTML = charfilesTopTenNpcKiller[2].NOMBRE + " -- " + charfilesTopTenNpcKiller[2].MUERTES_NPCSMUERTES;
+        document.getElementById("charfilesTopTenNpcKiller4").innerHTML = charfilesTopTenNpcKiller[3].NOMBRE + " -- " + charfilesTopTenNpcKiller[3].MUERTES_NPCSMUERTES;
+        document.getElementById("charfilesTopTenNpcKiller5").innerHTML = charfilesTopTenNpcKiller[4].NOMBRE + " -- " + charfilesTopTenNpcKiller[4].MUERTES_NPCSMUERTES;
+        document.getElementById("charfilesTopTenNpcKiller6").innerHTML = charfilesTopTenNpcKiller[5].NOMBRE + " -- " + charfilesTopTenNpcKiller[5].MUERTES_NPCSMUERTES;
+        document.getElementById("charfilesTopTenNpcKiller7").innerHTML = charfilesTopTenNpcKiller[6].NOMBRE + " -- " + charfilesTopTenNpcKiller[6].MUERTES_NPCSMUERTES;
+        document.getElementById("charfilesTopTenNpcKiller8").innerHTML = charfilesTopTenNpcKiller[7].NOMBRE + " -- " + charfilesTopTenNpcKiller[7].MUERTES_NPCSMUERTES;
+        document.getElementById("charfilesTopTenNpcKiller9").innerHTML = charfilesTopTenNpcKiller[8].NOMBRE + " -- " + charfilesTopTenNpcKiller[8].MUERTES_NPCSMUERTES;
+        document.getElementById("charfilesTopTenNpcKiller10").innerHTML = charfilesTopTenNpcKiller[9].NOMBRE + " -- " + charfilesTopTenNpcKiller[9].MUERTES_NPCSMUERTES;
+    } else {
+        document.getElementById("charfilesTopTenNpcKiller").innerHTML = "No hay informacion disponible en estos momentos"
+    }
+
+    if (charfilesLastUpdate) {
+        charfilesLastUpdate = new Date(charfilesLastUpdate[0].UPDATE_TIME);
+        var yyyymmdd = charfilesLastUpdate.getDate() + '/' + (charfilesLastUpdate.getMonth() + 1) + '/' + charfilesLastUpdate.getFullYear();
+        var hourAndMinutes = (charfilesLastUpdate.getHours()<10?'0':'') + charfilesLastUpdate.getHours() + ":" + (charfilesLastUpdate.getMinutes()<10?'0':'') + charfilesLastUpdate.getMinutes()
+        
+        var dateString = "Ultima actualizacion: " + yyyymmdd + " " + hourAndMinutes + "hs";
+        document.getElementById("charfilesLastUpdate").innerHTML = dateString
+    } else {
+        document.getElementById("charfilesLastUpdate").innerHTML = "No hay informacion disponible en estos momentos"
+    }
+
+    if (charfilesCount) {
+        document.getElementById("charfilesCount").innerHTML = "Personajes creados con actividad reciente: " + charfilesCount[0].COUNT     
+    } else {
+        document.getElementById("charfilesCount").innerHTML = "No hay informacion disponible en estos momentos"
+    }
+
+</script>
+
+</html>
