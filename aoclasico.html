@@ -40,13 +40,6 @@
         }
 
         var githubReponseAutoupdate = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-autoupdate/releases/latest"));
-        var githubReponseAoJava = JSON.parse(httpGet("https://api.github.com/repos/guidota/ao-java/releases"));
-
-        var javaLinux = githubReponseAoJava[0].assets.find(x => x.name.includes('linux'));
-        var javaWindows32 = githubReponseAoJava[0].assets.find(x => x.name.includes('win-32'));
-        var javaWindows64 = githubReponseAoJava[0].assets.find(x => x.name.includes('win-64'));
-        var javaOsx = githubReponseAoJava[0].assets.find(x => x.name.includes('app'));
-
         var githubReponseClient = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-cliente/releases/latest"));
         var githubReponseServer = JSON.parse(httpGet("https://api.github.com/repos/ao-libre/ao-server/releases/latest"));
 
@@ -737,32 +730,6 @@
     const changelogServer = " - <a target='_blank' href='https://github.com/ao-libre/ao-server/blob/master/Changelog-server.txt'>Ver Changelog</a>"
 
     document.getElementById("serverLastUpdate").innerHTML = serverLastUpdateText + changelogServer;
-
-    //HAGO ESTO PARA EVITAR PROBLEMAS POR SI GUIDO NO SUBE LOS ASSETS DE ALGUNOS DE LOS S.O
-    //POR QUE SE ROMPE LA PAGINA :@
-    if (javaWindows32) {
-        document.getElementById("javaWindows32Download").href = javaWindows32.browser_download_url;
-    }else {
-        document.getElementById("javaWindows32Download").remove()
-    }
-
-    if (javaWindows64) {
-        document.getElementById("javaWindows64Download").href = javaWindows64.browser_download_url;
-    }else {
-        document.getElementById("javaWindows64Download").remove()
-    }
-
-    if (javaOsx) {
-        document.getElementById("javaOsxDownload").href = javaOsx.browser_download_url;
-    }else {
-        document.getElementById("javaOsxDownload").remove()
-    }
-
-    if (javaLinux) {
-        document.getElementById("javaLinuxDownload").href = javaLinux.browser_download_url;
-    }else {
-        document.getElementById("javaLinuxDownload").remove()
-    }
 
     //RANKINGS:
     var charfilesTopTenLevel = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenlevel"));
