@@ -1,0 +1,1446 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-size: 11px;
+            background-color: #3a3e5c;
+        }
+
+        div img {
+            transform: scale(1.12);
+        }
+
+        div.mapa_2 {
+            width: 50px;
+            height: 50px;
+            padding: 0px;
+            border: 0px solid white;
+            display: inline-block;
+            background-color: #3a3e5c;
+            font-size: 20px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 50px;
+        }
+
+        div.mapa {
+            width: 100px;
+            height: 100px;
+            padding: 0px;
+            border: 0px solid white;
+            display: inline-block;
+            overflow: hidden;
+            margin: 0px;
+            background-color: #3a3e5c;
+            font-size: 50px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 100px;
+        }
+
+        table {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        DIV.table {
+            display: table;
+        }
+
+        FORM.tr,
+        DIV.tr {
+            display: table-row;
+        }
+
+        SPAN.td {
+            display: table-cell;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script>
+        var mapas = [
+            {
+                "mapNumber": 0,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 1,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 2,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 3,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 4,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 5,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 6,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 7,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 8,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 9,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 10,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 11,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 12,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 13,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 14,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 15,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 16,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 17,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 18,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 19,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 20,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 21,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 22,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 23,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 24,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 25,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 26,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 27,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 28,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 29,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 30,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 31,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 32,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 33,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 34,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 35,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 36,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 37,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 38,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 39,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 40,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 41,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 42,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 43,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 44,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 45,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 46,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 47,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 48,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 49,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 50,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 51,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 52,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 53,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 54,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 55,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 56,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 57,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 58,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 59,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 60,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 61,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 62,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 63,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 64,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 65,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 66,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 67,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 68,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 69,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 70,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 71,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 72,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 73,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 74,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 75,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 76,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 77,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 78,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 79,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 80,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 81,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 82,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 83,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 84,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 85,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 86,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 87,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 88,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 89,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 90,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 91,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 92,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 93,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 94,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 95,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 96,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 97,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 98,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 99,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 100,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 101,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 102,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 103,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 104,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 105,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 106,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 107,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 108,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 109,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 110,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 111,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 112,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 113,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 114,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 115,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 116,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 117,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 118,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 119,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 120,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 121,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 122,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 123,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 124,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 125,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 126,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 127,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 128,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 129,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 130,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 131,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 132,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 133,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 134,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 135,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 136,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 137,
+                "mapPosition": 5
+            },
+            {
+                "mapNumber": 138,
+                "mapPosition": 6
+            },
+            {
+                "mapNumber": 139,
+                "mapPosition": 7
+            },
+            {
+                "mapNumber": 140,
+                "mapPosition": 7
+            },
+            {
+                "mapNumber": 141,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 142,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 143,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 144,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 145,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 146,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 147,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 148,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 149,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 150,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 151,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 152,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 153,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 154,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 155,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 156,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 157,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 158,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 159,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 160,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 161,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 162,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 163,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 164,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 165,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 166,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 167,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 168,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 169,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 170,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 171,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 172,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 173,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 174,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 175,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 176,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 177,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 178,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 179,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 180,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 181,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 182,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 183,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 184,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 185,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 186,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 187,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 188,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 189,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 190,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 191,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 192,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 193,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 194,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 195,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 196,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 197,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 198,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 199,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 200,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 201,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 202,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 203,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 204,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 205,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 206,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 207,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 208,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 209,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 210,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 211,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 212,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 213,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 214,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 215,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 216,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 217,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 218,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 219,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 220,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 221,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 222,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 223,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 224,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 225,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 226,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 227,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 228,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 229,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 230,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 231,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 232,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 233,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 234,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 235,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 236,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 237,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 238,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 239,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 240,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 241,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 242,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 243,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 244,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 245,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 246,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 247,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 248,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 249,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 250,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 251,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 252,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 253,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 254,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 255,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 256,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 257,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 258,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 259,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 260,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 261,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 262,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 263,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 264,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 265,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 266,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 267,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 268,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 269,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 270,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 271,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 272,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 273,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 274,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 275,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 276,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 277,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 278,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 279,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 280,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 281,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 282,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 283,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 284,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 285,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 286,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 287,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 288,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 289,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 290,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 291,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 292,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 293,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 294,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 295,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 296,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 297,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 298,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 299,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 300,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 301,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 302,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 303,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 304,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 305,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 306,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 307,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 308,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 309,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 310,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 311,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 312,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 313,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 314,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 315,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 316,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 317,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 318,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 319,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 320,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 321,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 322,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 323,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 324,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 325,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 326,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 327,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 328,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 329,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 330,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 331,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 332,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 333,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 334,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 335,
+                "mapPosition": "cambiar"
+            },
+            {
+                "mapNumber": 336,
+                "mapPosition": "cambiar"
+            }
+        ]
+    </script>
+
+</head>
+
+<body>
+    <table id="mapagrande" border=0 cellpadding=0 cellspacing=0></table>
+
+    <script>
+        var i;
+        var lastMap = 573;
+        var filas = 23;
+        var columnas = 16;
+
+        var columnaTrabajo = $("#mapagrande").append(`<tr id=1></tr>`)
+
+        for (i = 1; i < 573; i++) {
+            console.log(i, filas, (i % filas))
+
+            if ((i % filas) === 0) {
+                var columnaTrabajo = $("#mapagrande").append(`<tr id=${i}></tr>`)
+            }
+
+            columnaTrabajo.append(`<th><div class="mapa_2" id="${i}" ondrop="drop(event);" ondragover="allowDrop(event)">${i}<img src="https://raw.githubusercontent.com/ao-libre/ao-cliente/master/Graficos/MiniMapa/${i}.bmp"></img></div></th>`);
+        }
+    </script>
+
+</body>
+
+</html>
