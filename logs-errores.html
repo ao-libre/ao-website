@@ -59,7 +59,7 @@
         //Cambio los salto de linea por breaks :)
         el.log = el.log.replace(/\n/g, "<br />");
         let colorText = getRandomColor();
-        let divError = document.createElement("div");
+        let divBackup = document.createElement("div");
         divBackup.style.color = colorText
         
         let h1Error = document.createElement("h4")
@@ -84,7 +84,7 @@
 
         divMain.innerHTML = el.log
         divLogsErrores.appendChild(h1Error);
-        divLogsErrores.appendChild(divError);
+        divLogsErrores.appendChild(divMain);
     });
 
 </script>
