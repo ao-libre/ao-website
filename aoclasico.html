@@ -135,9 +135,6 @@
                                 <a href="https://github.com/ao-libre" target="_blank">Codigo Fuente</a>
                             </li>
                             <li>
-                                <a href="https://recursos.argentumonline.org" target="_blank">Galeria de Graficos</a>
-                            </li>
-                            <li>
                                 <a href="https://www.reddit.com/r/argentumonlineoficial" target="_blank">Foro</a>
                             </li>
                             <li>
@@ -179,9 +176,10 @@
                         </h2>
 
                         <h1 class="nk-title display-5"><span>ESTADO SERVER: <span> <span style="color:green">ONLINE<span></h1>
+                        <h2 class="nk-title display-5"><span>Usuarios Online: <span> <span id="usersOnline" style="color:yellow">ONLINE<span></h2>
 
 
-                        <a id="autoupdateDownload" href="#" class="nk-btn nk-btn-lg">
+                        <a id="autoupdateDownload" href="#" class="nk-btn nk-btn-lg" style="font-size: 75px;">
                             <ion-icon name="cloud-download"></ion-icon> DESCARGAR
                         </a>
                         
@@ -778,6 +776,9 @@
     const changelogServer = " - <a target='_blank' href='https://github.com/ao-libre/ao-server/blob/master/Changelog-server.txt'>Ver Changelog</a>"
 
     document.getElementById("serverLastUpdate").innerHTML = serverLastUpdateText + changelogServer;
+
+    var usersOnline = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getNumUsersLogs"));
+    document.getElementById("usersOnline").innerHTML = usersOnline.onlines;
 
     //RANKINGS:
     var charfilesTopTenLevel = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenlevel"));
