@@ -778,12 +778,11 @@
 
     document.getElementById("serverLastUpdate").innerHTML = serverLastUpdateText + changelogServer;
 
-    var allServersInformation = JSON.parse(httpGet("http://api.argentumonline.org/api/v1/servers/getOnlineUsersFromAllServers"));
+    var allServersInformation = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/servers/getOnlineUsersFromAllServers"));
     
     var elementParentUsersOnline = document.getElementById("usersOnline");
 
     allServersInformation.serversInfo.forEach(el => {
-        console.log(el.serverName)
         var newElement = document.createElement("h6");
         var textNewElement =  document.createTextNode(`${el.serverName}||${el.ipAndPort} - Usuarios Online ${el.quantityUsers}`);
         
