@@ -1245,174 +1245,6 @@
             {
                 "mapNumber": 294,
                 "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 295,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 296,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 297,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 298,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 299,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 300,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 301,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 302,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 303,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 304,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 305,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 306,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 307,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 308,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 309,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 310,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 311,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 312,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 313,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 314,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 315,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 316,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 317,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 318,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 319,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 320,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 321,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 322,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 323,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 324,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 325,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 326,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 327,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 328,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 329,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 330,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 331,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 332,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 333,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 334,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 335,
-                "mapPosition": "cambiar"
-            },
-            {
-                "mapNumber": 336,
-                "mapPosition": "cambiar"
             }
         ]
     </script>
@@ -1424,20 +1256,20 @@
 
     <script>
         var i;
-        var lastMap = 573;
+        var lastMap = 294;
         var filas = 23;
         var columnas = 16;
 
         var columnaTrabajo = $("#mapagrande").append(`<tr id=1></tr>`)
 
-        for (i = 1; i < 573; i++) {
+        for (i = 1; i < lastMap; i++) {
             console.log(i, filas, (i % filas))
 
             if ((i % filas) === 0) {
                 var columnaTrabajo = $("#mapagrande").append(`<tr id=${i}></tr>`)
             }
 
-            columnaTrabajo.append(`<th><div class="mapa_2" id="${i}" ondrop="drop(event);" ondragover="allowDrop(event)">${i}<img src="https://raw.githubusercontent.com/ao-libre/ao-cliente/master/Graficos/MiniMapa/${i}.bmp"></img></div></th>`);
+            columnaTrabajo.append(`<th><div class="mapa" id="${i}" ondrop="drop(event);" ondragover="allowDrop(event)"><img src="https://raw.githubusercontent.com/ao-libre/ao-cliente/master/Graficos/MiniMapa/${i}.bmp"></img></div></th>`);
         }
     </script>
 

@@ -175,13 +175,14 @@
                             <span style="color:blue">Online<span>
                         </h2>
 
-                        <h1 class="nk-title display-5"><span>ESTADO SERVER: <span> <span style="color:green">ONLINE<span></h1>
-                        <h2 class="nk-title display-5"><span>Usuarios Online: <span> <span id="usersOnline" style="color:yellow">--<span></h2>
-
-
                         <a id="autoupdateDownload" href="#" class="nk-btn nk-btn-lg" style="font-size: 75px;">
                             <ion-icon name="cloud-download"></ion-icon> DESCARGAR
                         </a>
+
+                        <h2 class="nk-title display-5">
+                            <span>Usuarios Online en Todos los Servidores <span> 
+                            <span id="usersOnline" style="color:goldenrod"><span>
+                        </h2>
                         
                         </br>
                         </br>
@@ -777,8 +778,22 @@
 
     document.getElementById("serverLastUpdate").innerHTML = serverLastUpdateText + changelogServer;
 
-    var usersOnline = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/logs/getNumUsersLogs"));
-    document.getElementById("usersOnline").innerHTML = usersOnline.onlines;
+    var allServersInformation = JSON.parse(httpGet("http://api.argentumonline.org/api/v1/servers/getOnlineUsersFromAllServers"));
+    
+    var elementParentUsersOnline = document.getElementById("usersOnline");
+
+    allServersInformation.serversInfo.forEach(el => {
+        console.log(el.serverName)
+        var newElement = document.createElement("h6");
+        var textNewElement =  document.createTextNode(`${el.serverName}||${el.ipAndPort} - Usuarios Online ${el.quantityUsers}`);
+        
+        if (el.serverName.includes("Servidor Principal")) {
+            newElement.style.color = "greenyellow"
+        }
+
+        newElement.appendChild(textNewElement);
+        elementParentUsersOnline.appendChild(newElement)
+    });
 
     //RANKINGS:
     var charfilesTopTenLevel = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/toptenlevel"));
