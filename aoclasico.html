@@ -361,8 +361,6 @@
 
         </div>
 
-
-
         <!-- START: RANKINGS -->
         <div class="nk-box" style="background: black">
 
@@ -613,6 +611,25 @@
         </div>
         <!-- END: AGREGAR ITEMS -->
 
+        <!-- START: COMICS -->
+        <div class="nk-box text-center bg-main-7 text-white">
+            <div class="nk-gap-4"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 text-md-left">
+                        <h2 class="nk-title">Comics Argentum Online</h2>
+                        <h3 class="nk-sub-title mb-0 text-white op-7">Un nuevo comic aparecera si actualizas la pagina.</h3>
+                        <img id="comicImage" />
+                    </div>
+                    <div class="col-md-4 text-md-right">
+
+                    </div>
+                </div>
+            </div>
+            <div class="nk-gap-4"></div>
+        </div>
+        <!-- END: COMICS -->
+
         <footer class="nk-footer nk-footer-parallax nk-footer-parallax-opacity">
             <img class="nk-footer-top-corner" src="assets/images/footer-corner.png" alt="">
 
@@ -804,6 +821,11 @@
     var charfilesLastUpdate = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/lastTimeUpdated"));
     var charfilesCount = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/getCountChars"));
     var gameMasters= JSON.parse(httpGet("https://api.argentumonline.org/api/v1/charfiles/getGameMasters"));
+    var randomComic = JSON.parse(httpGet("https://api.argentumonline.org/api/v1/servers/getRandomComic"));
+
+    if (randomComic && randomComic.comicImage) {
+        document.getElementById("comicImage").src = randomComic.comicImage;
+    }
 
     if (gameMasters) {
         if (gameMasters.admines.length > 0) {
