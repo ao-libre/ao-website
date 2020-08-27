@@ -983,6 +983,32 @@
         document.getElementById("charfilesCount").innerHTML = "No hay informacion disponible en estos momentos"
     }
 
+ 
+
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+    var crate = new Crate({
+      server: '479056868707270657',
+      channel: '479056868707270659'
+    })
+	
+	crate.toggle(false)
+	
+	// Display for 60 seconds + custom avatar
+	crate.notify({
+	  content: 'AO-Libre Chat',
+	  timeout: 60000,
+	  avatar: 'https://argentumonline.org/assets/images/ao-libre-logo.png'
+	})
+	
+	// Listen for discord message events
+	crate.on('message', ({ message, channel }) => {
+		crate.notify('Nuevo mensaje en el chat de discord')
+		console.log(`New message in ${channel}`, message)
+	})   
+	
+</script>
+
 
 </html>
