@@ -1,5 +1,6 @@
 # ao-website
-Website Argentum Online
+Argentum Online
 
+Come and see what everyone is hootin’ and hollerin’ about.
 
-Website for our game Argentum Online
+This website is for our game Argentum Online.
