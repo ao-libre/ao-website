@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.5/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/png" href="assets/images/favicon-ao-libre.png">
+
+    <title>AOL Token</title>
+
+</head>
+
+<body>
+    <style>
+        html {
+            background-image: url('./assets/images/fondo_preventa_nft.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        body {
+            background: transparent;
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 3rem;
+            font-size: 3rem;
+        }
+
+        .dashboard {
+            background: rgba(255, 255, 255, 0.63);
+            padding: 2rem 1rem;
+            width: fit-content;
+            margin: 0 auto;
+            max-width: 40%;
+            border-radius: 5px;
+        }
+
+        .meta-gray {
+            -webkit-filter: grayscale(1);
+        }
+
+        .meta-normal {
+            -webkit-filter: grayscale(0);
+        }
+
+        .centered {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .row-space {
+            padding: 2rem 0;
+        }
+
+        .q-btn .q-icon, .q-btn .q-spinner {
+            font-size: 3.715em;
+        }
+    </style>
+
+    <div class="dashboard">
+        <div style="margin-top: 30px;" class="row text-center">
+            <div class="col-md-12">
+                <h2 style="color:rgb(39, 39, 39)"><span style="color:red">A</span><span style="color:blue">O</span> <span style="color:green">Libre</span> Token (AOL)</h2>
+                <h2 style="color:rgb(121, 6, 121)">Public Sale</h2>
+            </div>
+        </div>
+        
+        <div class="row text-center">
+            <div class="col-md-12">
+
+                <img id="metaicon" class="meta-gray" src="./assets/images/ao-libre-logo.png" alt="AOL Logo" width="100"
+                    height="100" />
+
+            </div>
+        </div>
+        <div style="margin-top: 30px;" class="centered">
+            <button id="enableMetamask" class="btn btn-primary centered">Connect with Metamask</button>
+        </div>
+
+        <div style="margin-top: 30px;" class="centered">
+            <button id="addTokenToWallet" class="btn btn-primary centered">Add $AOL <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
+        </div>
+        
+        <section class="contract-section hidden">
+            <!-- <div class="centered" id="myAddress"></div> -->
+            <div class="centered" id="contractAddress"></div>
+            
+            <h3 style="color:indigo;font-size: 16px;" class="centered" id="status"></h3>
+
+            <legend class="centered">
+                Quantity AOL Tokens <input id="quantityToBuy" step="0.01" value="1" type="number">
+            </legend>
+            <div class="centered" id="aolTokenPrice"></div>
+
+            </br>
+            <button id="buyButton" class="btn btn-lg btn-primary centered">BUY AOL TOKENS</button>
+
+        </section>
+        <ul>
+            <li>
+                <a target="_blank" href="https://whitepaper.argentumonline.org">Whitepaper</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://argentumonline.org">Argentum Online Libre Website</a>
+            </li>
+        </ul>
+
+    </div>
+
+    <script>
+        let currentAccount = null;
+        let web3;
+        let abi;
+        let contractAddress = '0x474A359F3317c791503bBa6D27e5e73201e9EBB6'
+        let tokenPrice = 0;
+
+        function handleAccountsChanged(accounts) {
+            console.log('Calling HandleChanged')
+
+            if (accounts.length === 0) {
+                console.log('Please connect to MetaMask.');
+                $('#enableMetamask').html('Connect with Metamask')
+            } else if (accounts[0] !== currentAccount) {
+                currentAccount = accounts[0];
+                $('#status').html('')
+
+                if (currentAccount != null) {
+                    // Set the button label
+                    $('#enableMetamask').remove()
+                    $('#myAddress').html(`Your Address: <code>${currentAccount}</code>`)
+                    $('#contractAddress').html(`Contract Address: <code>${contractAddress}</code>`)
+                }
+            }
+            console.log('WalletAddress in HandleAccountChanged =' + currentAccount)
+        }
+
+        function connect() {
+            console.log('Calling connect()')
+            ethereum
+                .request({ method: 'eth_requestAccounts' })
+                .then(handleAccountsChanged)
+                .catch((err) => {
+                    if (err.code === 4001) {
+                        // EIP-1193 userRejectedRequest error
+                        // If this happens, the user rejected the connection request.
+                        console.log('Please connect to MetaMask.');
+                        $('#status').html('You refused to connect Metamask')
+                    } else {
+                        console.error(err);
+                    }
+                });
+        }
+
+        function detectMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        function buy() {
+            console.log('Comprando AOL Token.')
+            $('#buyButton').prop('disabled', true)
+            const aolSwapContract = new web3.eth.Contract(abi, contractAddress)
+
+
+            aolSwapContract.methods.buy()
+            .send({ 
+                from: currentAccount,
+                value: tokenPrice * $('#quantityToBuy').val()
+            })
+            .then((result) => {
+                $('#status').html(`Woohoo! You just bought ${$('#quantityToBuy').val()} AOL Tokens.`)
+                $('#buyButton').prop('disabled', false)
+            }).catch((e) => {
+                $('#status').html(e.message)
+                $('#buyButton').prop('disabled', false)
+            })
+        }
+
+        async function addTokenToWallet() {
+            const tokenAddress = '0x7372021e9Be6F74486a88b17E6c1263857948c40';
+            const tokenSymbol = 'AOL';
+            const tokenDecimals = 18;
+            const tokenImage = 'http://argentumonline.org/assets/images/ao-libre-logo.png';
+
+            try {
+                // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+                const wasAdded = await window.ethereum.request({
+                    method: 'wallet_watchAsset',
+                    params: {
+                    type: 'ERC20', // Initially only supports ERC20, but eventually more!
+                    options: {
+                        address: tokenAddress, // The address that the token is at.
+                        symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
+                        decimals: tokenDecimals, // The number of decimals in the token
+                        image: tokenImage, // A string url of the token logo
+                    },
+                    },
+                });
+
+                if (wasAdded) {
+                    console.log('Thanks for your interest!');
+                } else {
+                    console.log('Your loss!');
+                }
+            } catch (error) {
+            console.log(error);
+            }
+        }
+    </script>
+    <script>
+
+        $(document).ready(async function () {
+            $.getJSON("./contracts/0x474A359F3317c791503bBa6D27e5e73201e9EBB6.json", async function (result) {
+                abi = result
+
+                m = detectMetaMask()
+                if (m) {
+                    $('#metaicon').removeClass('meta-gray')
+                    $('#metaicon').addClass('meta-normal')
+                    $('#enableMetamask').attr('disabled', false)
+                    $('#buyButton').prop('disabled', false)
+                    connect() // Make sure the connected wallet is being returned
+                } else {
+                    $('#enableMetamask').attr('disabled', true)
+                    $('#metaicon').removeClass('meta-normal')
+                    $('#metaicon').addClass('meta-gray')
+                    $('#buyButton').prop('disabled', true)
+                }
+
+                $('#enableMetamask').click(function () {
+                    connect()
+                });
+
+                $('#buyButton').click(function () {
+                    buy()
+                });
+
+                $('#addTokenToWallet').click(function () {
+                    addTokenToWallet()
+                });
+
+                try {
+                    // MORALIS
+                    if (!web3) {
+                        Moralis.initialize("vQ0f9Gffu78iALnoxSvEyM1WJiSthHKYoUGcx2Cm");
+                        Moralis.serverURL = 'https://agedx0mrcbtw.moralisweb3.com:2053/server'
+                        const currentUser = Moralis.User.current()
+                        if (!currentUser) {
+                            Moralis.Web3.authenticate().then(function (user) {
+                                console.log('Moralis authentication works. Eth address: ', user.get('ethAddress'))
+                            })
+                        }
+                        web3 = await Moralis.Web3.enable();
+                    }
+                } catch (error) {
+                    console.log(error)
+                }
+
+                const aolSwapContract = new web3.eth.Contract(abi, contractAddress)
+
+                aolSwapContract.methods.AOLTokenPrice()
+                .call()
+                .then((result) => {
+                    tokenPrice = result;
+                    $('#aolTokenPrice').html(`AOL Token Price: ${web3.utils.fromWei(result)} eth`)
+                }).catch((e) => {
+                    $('#aolTokenPrice').html(e.message)
+                })
+
+            });
+        })
+    </script>
+</body>
+
+</html>
