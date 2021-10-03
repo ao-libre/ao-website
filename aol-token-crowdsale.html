@@ -118,10 +118,10 @@
 
     <script>
         let currentAccount = null;
-        let web3;
         let abi;
         let contractAddress = '0x474A359F3317c791503bBa6D27e5e73201e9EBB6'
         let tokenPrice = 0;
+        let web3 = window.web3;
 
         function handleAccountsChanged(accounts) {
             console.log('Calling HandleChanged')
@@ -218,8 +218,6 @@
             console.log(error);
             }
         }
-    </script>
-    <script>
 
         $(document).ready(async function () {
             $.getJSON("./contracts/0x474A359F3317c791503bBa6D27e5e73201e9EBB6.json", async function (result) {
@@ -251,19 +249,21 @@
                     addTokenToWallet()
                 });
 
+
                 try {
-                    // MORALIS
-                    if (!web3) {
-                        Moralis.initialize("vQ0f9Gffu78iALnoxSvEyM1WJiSthHKYoUGcx2Cm");
-                        Moralis.serverURL = 'https://agedx0mrcbtw.moralisweb3.com:2053/server'
-                        const currentUser = Moralis.User.current()
-                        if (!currentUser) {
-                            Moralis.Web3.authenticate().then(function (user) {
-                                console.log('Moralis authentication works. Eth address: ', user.get('ethAddress'))
-                            })
-                        }
-                        web3 = await Moralis.Web3.enable();
+                    let ethereum = window.ethereum;
+
+                    if (typeof ethereum !== 'undefined') {
+                        await ethereum.enable();
+                        web3 = new Web3(ethereum);
+                    } else if (typeof web3 !== 'undefined') {
+                        await ethereum.enable();
+                        web3 = new Web3(web3.currentProvider);
+                    } else {
+                        alert('Non-Ethereum browser detected. You should consider trying MetaMask!');
+                        return;
                     }
+
                 } catch (error) {
                     console.log(error)
                 }
