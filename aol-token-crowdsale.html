@@ -35,7 +35,7 @@
         }
 
         .dashboard {
-            background: rgba(255, 255, 255, 0.63);
+            background: rgba(255, 255, 255, 0.53);
             padding: 2rem 1rem;
             width: fit-content;
             margin: 0 auto;
@@ -72,29 +72,37 @@
                 <h2 style="color:rgb(39, 39, 39)"><span style="color:red">A</span><span style="color:blue">O</span> <span style="color:green">Libre</span> Token (AOL)</h2>
                 <h2 style="color:rgb(121, 6, 121)">Public Sale</h2>
             </div>
+
+            <button id="addTokenToWallet" class="btn btn-primary centered">Add $AOL <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
+            <ul>
+                <li>
+                    <span style="color:rgb(1, 88, 27);font-size: 23px;" class="centered" id="publicSaleSupply">Public Sale Supply: 2.000.000 AOL</span>
+                </li>
+                <li>
+                    <span style="color:gold;font-size: 23px;" class="centered" id="maxSupply">Max Supply: 100.000.000 AOL</span>
+                </li>
+            </ul>
+
+    
         </div>
-        
+            
         <div class="row text-center">
             <div class="col-md-12">
 
-                <img id="metaicon" class="meta-gray" src="./assets/images/ao-libre-logo.png" alt="AOL Logo" width="100"
-                    height="100" />
-
+                <img id="metaicon" class="meta-gray" src="./assets/images/ao-libre-logo.png" alt="AOL Logo" width="100" height="100" />
             </div>
         </div>
+        
+
         <div style="margin-top: 30px;" class="centered">
             <button id="enableMetamask" class="btn btn-primary centered">Connect with Metamask</button>
         </div>
 
-        <div style="margin-top: 30px;" class="centered">
-            <button id="addTokenToWallet" class="btn btn-primary centered">Add $AOL <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
-        </div>
-        
         <section class="contract-section hidden">
             <!-- <div class="centered" id="myAddress"></div> -->
             <div class="centered" id="contractAddress"></div>
             
-            <h3 style="color:indigo;font-size: 16px;" class="centered" id="status"></h3>
+            <h1 style="color:indigo;font-size: 16px;" class="centered" id="status"></h1>
 
             <legend class="centered">
                 Quantity AOL Tokens <input id="quantityToBuy" step="0.01" value="1" type="number">
@@ -121,7 +129,7 @@
         let abi;
         let contractAddress = '0x474A359F3317c791503bBa6D27e5e73201e9EBB6'
         let tokenPrice = 0;
-        let web3 = window.web3;
+        let web3;
 
         function handleAccountsChanged(accounts) {
             console.log('Calling HandleChanged')
