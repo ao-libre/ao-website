@@ -127,7 +127,7 @@
     <script>
         let currentAccount = null;
         let abi;
-        let contractAddress = '0x474A359F3317c791503bBa6D27e5e73201e9EBB6'
+        let contractAddress = '0xFFC8902c113Cba1eB064D4D666d3B3Aa5b1D8353'
         let tokenPrice = 0;
         let web3;
 
@@ -228,7 +228,7 @@
         }
 
         $(document).ready(async function () {
-            $.getJSON("./contracts/0x474A359F3317c791503bBa6D27e5e73201e9EBB6.json", async function (result) {
+            $.getJSON("./contracts/0xFFC8902c113Cba1eB064D4D666d3B3Aa5b1D8353.json", async function (result) {
                 abi = result
 
                 m = detectMetaMask()
