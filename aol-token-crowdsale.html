@@ -202,7 +202,8 @@
             aolSwapContract.methods.buy()
             .send({ 
                 from: currentAccount,
-                value: tokenPrice * $('#quantityToBuy').val()
+                value: tokenPrice * $('#quantityToBuy').val(),
+                gasPrice: '15000000000',
             })
             .then((result) => {
                 $('#status').html(`Woohoo! You just bought ${$('#quantityToBuy').val()} AOL Tokens.`)
