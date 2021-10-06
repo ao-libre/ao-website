@@ -151,7 +151,7 @@
     <script>
         let currentAccount = null;
         let abi;
-        let contractAddress = '0xFFC8902c113Cba1eB064D4D666d3B3Aa5b1D8353'
+        let contractAddress = '0xef7729284D0EbadFF2C27B654513426749cC9732'
         let tokenPrice = 0;
         let web3;
 
@@ -222,7 +222,7 @@
         }
 
         async function addTokenToWallet() {
-            const tokenAddress = '0x7372021e9Be6F74486a88b17E6c1263857948c40';
+            const tokenAddress = '0xEA17E48C988D64e92d64550C787B17281F61828e';
             const tokenSymbol = 'AOLB';
             const tokenDecimals = 18;
             const tokenImage = 'https://argentumonline.org/assets/images/ao-libre-aolb-logo.png';
@@ -253,7 +253,7 @@
         }
 
         $(document).ready(async function () {
-            $.getJSON("./contracts/0xFFC8902c113Cba1eB064D4D666d3B3Aa5b1D8353.json", async function (result) {
+            $.getJSON("./contracts/0xef7729284D0EbadFF2C27B654513426749cC9732.json", async function (result) {
                 abi = result
 
                 m = detectMetaMask()
