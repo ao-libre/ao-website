@@ -200,17 +200,21 @@
             }
         }
 
-        function buy() {
+        async function buy() {
             console.log('Comprando AOLB Token.')
             $('#buyButton').prop('disabled', true)
+            
             const aolSwapContract = new web3.eth.Contract(abi, contractAddress)
-
+            const estimatedGas = await aolSwapContract.methods.buy().estimateGas({
+                from: currentAccount,
+                value: tokenPrice * $('#quantityToBuy').val()
+            })
 
             aolSwapContract.methods.buy()
             .send({ 
                 from: currentAccount,
                 value: tokenPrice * $('#quantityToBuy').val(),
-                gasPrice: '210000'
+                gas: estimatedGas
             })
             .then((result) => {
                 $('#status').html(`Woohoo! You just bought ${$('#quantityToBuy').val()} AOLB Tokens.`)
