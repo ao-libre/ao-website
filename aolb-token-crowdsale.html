@@ -126,7 +126,7 @@
             <!-- <div class="centered" id="myAddress"></div> -->
             <div class="centered" id="contractAddress"></div>
             
-            <h1 style="color:indigo;font-size: 16px;" class="centered" id="status"></h1>
+            <h1 style="color:rgb(197, 184, 206);font-size: 16px;" class="centered" id="status"></h1>
 
             <legend class="centered">
                 Quantity AOLB Tokens <input id="quantityToBuy" step="0.01" value="1" type="number">
@@ -172,6 +172,7 @@
                     $('#contractAddress').html(`Contract Address: <code>${contractAddress}</code>`)
                 }
             }
+
             console.log('WalletAddress in HandleAccountChanged =' + currentAccount)
         }
 
@@ -203,26 +204,34 @@
         async function buy() {
             console.log('Comprando AOLB Token.')
             $('#buyButton').prop('disabled', true)
-            
             const aolSwapContract = new web3.eth.Contract(abi, contractAddress)
-            const estimatedGas = await aolSwapContract.methods.buy().estimateGas({
+
+            try {
+                const estimatedGas = await aolSwapContract.methods.buy().estimateGas({
                 from: currentAccount,
                 value: tokenPrice * $('#quantityToBuy').val()
-            })
+                })
 
-            aolSwapContract.methods.buy()
-            .send({ 
-                from: currentAccount,
-                value: tokenPrice * $('#quantityToBuy').val(),
-                gas: estimatedGas
-            })
-            .then((result) => {
-                $('#status').html(`Woohoo! You just bought ${$('#quantityToBuy').val()} AOLB Tokens.`)
-                $('#buyButton').prop('disabled', false)
-            }).catch((e) => {
+                aolSwapContract.methods.buy()
+                .send({ 
+                    from: currentAccount,
+                    value: tokenPrice * $('#quantityToBuy').val(),
+                    gas: estimatedGas
+                })
+                .then((result) => {
+                    $('#status').html(`Woohoo! You just bought ${$('#quantityToBuy').val()} AOLB Tokens.`)
+                    $('#buyButton').prop('disabled', false)
+                }).catch((e) => {
+                    console.log(e)
+                    $('#status').html(e.message)
+                    $('#buyButton').prop('disabled', false)
+                })
+            }
+            catch(e) {
                 $('#status').html(e.message)
                 $('#buyButton').prop('disabled', false)
-            })
+            }
+           
         }
 
         async function addTokenToWallet() {
@@ -236,13 +245,13 @@
                 const wasAdded = await window.ethereum.request({
                     method: 'wallet_watchAsset',
                     params: {
-                    type: 'BEP20',
-                    options: {
-                        address: tokenAddress, // The address that the token is at.
-                        symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
-                        decimals: tokenDecimals, // The number of decimals in the token
-                        image: tokenImage, // A string url of the token logo
-                    },
+                        type: 'BEP20',
+                        options: {
+                            address: tokenAddress, // The address that the token is at.
+                            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: tokenDecimals, // The number of decimals in the token
+                            image: tokenImage, // A string url of the token logo
+                        },
                     },
                 });
 
