@@ -79,21 +79,28 @@
         .q-btn .q-icon, .q-btn .q-spinner {
             font-size: 3.715em;
         }
+
+        body {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(205, 133, 50);
+            text-shadow: 2px 0 0 #222, -2px 0 0 #222, 0 2px 0 #222, 0 -2px 0 #222, 1px 1px #222, -1px -1px 0 #222, 1px -1px 0 #222, -1px 1px 0 #222;
+        }
     </style>
 
     <div class="dashboard">
         <div style="margin-top: 30px;" class="row text-center">
             <div class="col-md-12">
-                <h2 style="color:rgb(39, 39, 39)"><span style="color:red">A</span><span style="color:blue">O</span> <span style="color:green">Libre</span> Token (AOL)</h2>
+                <h2 style="color:rgb(139, 139, 139)"><span style="color:red">A</span><span style="color:blue">O</span> <span style="color:green">Libre</span> Token (AOL)</h2>
                 <h2 style="color:rgb(0, 31, 206)">ERC 20</h2>
+                <img width="300px" height="200px" src="https://40ujpa2tq6oi3ky5sc2d4o2f-wpengine.netdna-ssl.com/wp-content/uploads/ethereum-logo-portrait-purple-purple-758x426.png">
                 <h2 style="color:rgb(121, 6, 121)">Public Sale</h2>
+                <h3 style="color:rgb(231, 59, 231)">Connect to Ethereum Mainnet Network to Swap</h3>
             </div>
 
-            <h6 style="color:rgb(255, 215, 255)">Connect to Ethereum Mainnet Network to Swap</h6>
             <button id="addTokenToWallet" class="btn btn-primary centered">Add $AOL <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
             <ul>
                 <li>
-                    <span style="color:rgb(1, 88, 27);font-size: 23px;" class="centered" id="publicSaleSupply">Public Sale Supply: 2.000.000 AOL</span>
+                    <span style="color:rgb(175, 246, 196);font-size: 23px;" class="centered" id="publicSaleSupply">Public Sale Supply: 2.000.000 AOL</span>
                 </li>
                 <li>
                     <span style="color:gold;font-size: 23px;" class="centered" id="maxSupply">Max Supply: 100.000.000 AOL</span>
@@ -218,7 +225,7 @@
             const tokenAddress = '0x7372021e9Be6F74486a88b17E6c1263857948c40';
             const tokenSymbol = 'AOL';
             const tokenDecimals = 18;
-            const tokenImage = 'http://argentumonline.org/assets/images/ao-libre-logo.png';
+            const tokenImage = 'https://argentumonline.org/assets/images/ao-libre-logo.png';
 
             try {
                 // wasAdded is a boolean. Like any RPC method, an error may be thrown.
@@ -302,7 +309,7 @@
                     tokenPrice = result;
                     $('#aolTokenPrice').html(`AOL Token Price: ${web3.utils.fromWei(result)} eth`)
                 }).catch((e) => {
-                    $('#aolTokenPrice').html(e.message)
+                    $('#aolTokenPrice').html("Probably you are in the WRONG NETWORK, connect to Ethereum Mainnet - " + e.message)
                 })
 
             });

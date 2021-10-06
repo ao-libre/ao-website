@@ -79,21 +79,28 @@
         .q-btn .q-icon, .q-btn .q-spinner {
             font-size: 3.715em;
         }
+
+        body {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: yellowgreen;
+            text-shadow: 2px 0 0 #222, -2px 0 0 #222, 0 2px 0 #222, 0 -2px 0 #222, 1px 1px #222, -1px -1px 0 #222, 1px -1px 0 #222, -1px 1px 0 #222;
+        }
     </style>
 
     <div class="dashboard">
         <div style="margin-top: 30px;" class="row text-center">
             <div class="col-md-12">
-                <h2 style="color:rgb(39, 39, 39)"><span style="color:red">A</span><span style="color:blue">O</span> <span style="color:green">Libre</span> Token (AOLB)</h2>
+                <h2 style="color:rgb(250, 246, 4)"><span style="color:red">A</span><span style="color:blue">O</span> <span style="color:green">Libre</span> Token (AOLB)</h2>
                 <h2 style="color:rgb(213, 236, 0)">BEP 20</h2>
+                <img width="300px" height="200px" src="https://www.logowik.com/content/uploads/images/binance-smart-chain6387.jpg">
                 <h2 style="color:rgb(121, 6, 121)">Public Sale</h2>
+                <h3 style="color:rgb(100, 223, 0)">Connect to Binance Smart Chain Network to Swap</h3>
             </div>
 
-            <h4 style="color:rgb(255, 215, 255)">Connect to Binance Smart Chain Network to Swap</h4>
             <button id="addTokenToWallet" class="btn btn-primary centered">Add $AOLB <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
             <ul>
                 <li>
-                    <span style="color:rgb(1, 88, 27);font-size: 23px;" class="centered" id="publicSaleSupply">Public Sale Supply: 10.000.000 AOLB</span>
+                    <span style="color:rgb(200, 228, 208);font-size: 23px;" class="centered" id="publicSaleSupply">Public Sale Supply: 10.000.000 AOLB</span>
                 </li>
                 <li>
                     <span style="color:gold;font-size: 23px;" class="centered" id="maxSupply">Max Supply: 100.000.000.000 AOLB</span>
@@ -202,7 +209,8 @@
             aolSwapContract.methods.buy()
             .send({ 
                 from: currentAccount,
-                value: tokenPrice * $('#quantityToBuy').val()
+                value: tokenPrice * $('#quantityToBuy').val(),
+                gasPrice: '15000000000'
             })
             .then((result) => {
                 $('#status').html(`Woohoo! You just bought ${$('#quantityToBuy').val()} AOLB Tokens.`)
@@ -217,14 +225,14 @@
             const tokenAddress = '0x7372021e9Be6F74486a88b17E6c1263857948c40';
             const tokenSymbol = 'AOLB';
             const tokenDecimals = 18;
-            const tokenImage = 'http://argentumonline.org/assets/images/ao-libre-aolb-logo.png';
+            const tokenImage = 'https://argentumonline.org/assets/images/ao-libre-aolb-logo.png';
 
             try {
                 // wasAdded is a boolean. Like any RPC method, an error may be thrown.
                 const wasAdded = await window.ethereum.request({
                     method: 'wallet_watchAsset',
                     params: {
-                    type: 'ERC20', // Initially only supports ERC20, but eventually more!
+                    type: 'BEP20',
                     options: {
                         address: tokenAddress, // The address that the token is at.
                         symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
@@ -277,7 +285,6 @@
 
                 try {
                     let ethereum = window.ethereum;
-
                     if (typeof ethereum !== 'undefined') {
                         await ethereum.enable();
                         web3 = new Web3(ethereum);
@@ -301,7 +308,7 @@
                     tokenPrice = result;
                     $('#aolTokenPrice').html(`AOLB Token Price: ${web3.utils.fromWei(result)} eth`)
                 }).catch((e) => {
-                    $('#aolTokenPrice').html(e.message)
+                    $('#aolTokenPrice').html("Probably you are in the WRONG NETWORK, connect to Binance Smart Chain - " + e.message)
                 })
 
             });
