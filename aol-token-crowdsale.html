@@ -307,7 +307,7 @@
                 .call()
                 .then((result) => {
                     tokenPrice = result;
-                    $('#aolTokenPrice').html(`AOL Token Price: ${web3.utils.fromWei(result)} eth`)
+                    $('#aolTokenPrice').html(`AOL Token Price: ${web3.utils.fromWei(result)} ETH`)
                 }).catch((e) => {
                     $('#aolTokenPrice').html("Probably you are in the WRONG NETWORK, connect to Ethereum Mainnet - " + e.message)
                 })

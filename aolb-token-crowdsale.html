@@ -306,7 +306,7 @@
                 .call()
                 .then((result) => {
                     tokenPrice = result;
-                    $('#aolTokenPrice').html(`AOLB Token Price: ${web3.utils.fromWei(result)} eth`)
+                    $('#aolTokenPrice').html(`AOLB Token Price: ${web3.utils.fromWei(result)} BNB`)
                 }).catch((e) => {
                     $('#aolTokenPrice').html("Probably you are in the WRONG NETWORK, connect to Binance Smart Chain - " + e.message)
                 })
