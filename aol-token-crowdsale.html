@@ -83,7 +83,7 @@
         body {
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: rgb(205, 133, 50);
-            text-shadow: 2px 0 0 #222, -2px 0 0 #222, 0 2px 0 #222, 0 -2px 0 #222, 1px 1px #222, -1px -1px 0 #222, 1px -1px 0 #222, -1px 1px 0 #222;
+            text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
         }
     </style>
 
@@ -107,16 +107,16 @@
                 </li>
             </ul>
 
-    
+
         </div>
-            
+
         <div class="row text-center">
             <div class="col-md-12">
 
                 <img id="metaicon" class="meta-gray" src="./assets/images/ao-libre-logo.png" alt="AOL Logo" width="100" height="100" />
             </div>
         </div>
-        
+
 
         <div style="margin-top: 30px;" class="centered">
             <button id="enableMetamask" class="btn btn-primary centered">Connect with Metamask</button>
@@ -125,7 +125,7 @@
         <section class="contract-section hidden">
             <!-- <div class="centered" id="myAddress"></div> -->
             <div class="centered" id="contractAddress"></div>
-            
+
             <h1 style="color:rgb(197, 184, 206);font-size: 16px;" class="centered" id="status"></h1>
 
             <legend class="centered">
@@ -145,6 +145,10 @@
                 <a target="_blank" href="https://argentumonline.org">Argentum Online Libre Website</a>
             </li>
         </ul>
+        <span>Developed by: </span>
+        <a target="_blank" href="https://thehype.nz">The Hype</a>
+        <span>And </span>
+        <a target="_blank" href="https://www.conreco.com.ar">Conreco</a>
 
     </div>
 
@@ -155,8 +159,11 @@
         let tokenPrice = 0;
         let web3;
 
-        function handleAccountsChanged(accounts) {
+        async function handleAccountsChanged(accounts) {
             console.log('Calling HandleChanged')
+
+            await initWeb3()
+            getTokenPrice()
 
             if (accounts.length === 0) {
                 console.log('Please connect to MetaMask.');
@@ -212,7 +219,7 @@
                 })
 
                 aolSwapContract.methods.buy()
-                .send({ 
+                .send({
                     from: currentAccount,
                     value: tokenPrice * $('#quantityToBuy').val(),
                     gas: estimatedGas
@@ -258,7 +265,49 @@
                     console.log('Your loss!');
                 }
             } catch (error) {
-            console.log(error);
+                console.log(error);
+            }
+        }
+
+        function initWeb3 () {
+            return new Promise(async (resolve, reject) => {
+                if(!web3 || typeof web3 === 'undefined') {
+                    console.log('Init web3')
+                    try {
+                        let ethereum = window.ethereum;
+
+                        if (typeof ethereum !== 'undefined') {
+                            await ethereum.enable();
+                            web3 = new Web3(ethereum);
+                        } else if (typeof web3 !== 'undefined') {
+                            await ethereum.enable();
+                            web3 = new Web3(web3.currentProvider);
+                        } else {
+                            alert('Non-Ethereum browser detected. You should consider trying MetaMask!');
+                            return;
+                        }
+
+                    } catch (error) {
+                        reject(error)
+                    }
+                }
+                resolve(web3)
+            })
+        }
+
+        function getTokenPrice() {
+            if(web3) {
+                console.log('Getting token price')
+                const aolSwapContract = new web3.eth.Contract(abi, contractAddress)
+
+                aolSwapContract.methods.AOLTokenPrice()
+                .call()
+                .then((result) => {
+                    tokenPrice = result;
+                    $('#aolTokenPrice').html(`AOL Token Price: ${web3.utils.fromWei(result)} ETH`)
+                }).catch((e) => {
+                    $('#aolTokenPrice').html("Probably you are in the WRONG NETWORK, connect to Ethereum Mainnet - " + e.message)
+                })
             }
         }
 
@@ -291,37 +340,6 @@
                 $('#addTokenToWallet').click(function () {
                     addTokenToWallet()
                 });
-
-
-                try {
-                    let ethereum = window.ethereum;
-
-                    if (typeof ethereum !== 'undefined') {
-                        await ethereum.enable();
-                        web3 = new Web3(ethereum);
-                    } else if (typeof web3 !== 'undefined') {
-                        await ethereum.enable();
-                        web3 = new Web3(web3.currentProvider);
-                    } else {
-                        alert('Non-Ethereum browser detected. You should consider trying MetaMask!');
-                        return;
-                    }
-
-                } catch (error) {
-                    console.log(error)
-                }
-
-                const aolSwapContract = new web3.eth.Contract(abi, contractAddress)
-
-                aolSwapContract.methods.AOLTokenPrice()
-                .call()
-                .then((result) => {
-                    tokenPrice = result;
-                    $('#aolTokenPrice').html(`AOL Token Price: ${web3.utils.fromWei(result)} ETH`)
-                }).catch((e) => {
-                    $('#aolTokenPrice').html("Probably you are in the WRONG NETWORK, connect to Ethereum Mainnet - " + e.message)
-                })
-
             });
         })
     </script>
