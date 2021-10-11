@@ -56,39 +56,6 @@
     </script>
     <!-- End Matomo Code -->
 
-    <script>
-        async function addTokenToWallet() {
-            const tokenAddress = '0xEA17E48C988D64e92d64550C787B17281F61828e';
-            const tokenSymbol = 'AOLB';
-            const tokenDecimals = 18;
-            const tokenImage = 'https://argentumonline.org/assets/images/ao-libre-aolb-logo.png';
-
-            try {
-                // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-                const wasAdded = await window.ethereum.request({
-                    method: 'wallet_watchAsset',
-                    params: {
-                        type: 'ERC20',
-                        options: {
-                            address: tokenAddress, // The address that the token is at.
-                            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
-                            decimals: tokenDecimals, // The number of decimals in the token
-                            image: tokenImage, // A string url of the token logo
-                        },
-                    },
-                });
-
-                if (wasAdded) {
-                    console.log('Thanks for your interest!');
-                } else {
-                    console.log('Your loss!');
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        }
-    </script>
-
 </head>
 
 
@@ -353,10 +320,10 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <button id="addTokenToWallet" class="btn btn-primary centered">Agregar $AOL <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
+                                            <button id="addTokenToWalletAol" class="btn btn-primary centered">Agregar $AOL <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
                                         </td>
                                         <td>
-                                            <button id="addTokenToWallet" class="btn btn-primary centered">Agregar $AOLB <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
+                                            <button id="addTokenToWalletAolb" class="btn btn-primary centered">Agregar $AOLB <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
                                         </td>
                                     </tr>
 
@@ -513,6 +480,88 @@
     <script src="assets/js/godlike-init.js"></script>
     <!-- END: Scripts -->
 
+    <script>
+        async function addTokenToWalletAolb() {
+            const tokenAddress = '0xEA17E48C988D64e92d64550C787B17281F61828e';
+            const tokenSymbol = 'AOLB';
+            const tokenDecimals = 18;
+            const tokenImage = 'https://argentumonline.org/assets/images/ao-libre-aolb-logo.png';
+
+            try {
+                // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+                const wasAdded = await window.ethereum.request({
+                    method: 'wallet_watchAsset',
+                    params: {
+                        type: 'ERC20',
+                        options: {
+                            address: tokenAddress, // The address that the token is at.
+                            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: tokenDecimals, // The number of decimals in the token
+                            image: tokenImage, // A string url of the token logo
+                        },
+                    },
+                });
+
+                if (wasAdded) {
+                    console.log('Thanks for your interest!');
+                } else {
+                    console.log('Your loss!');
+                }
+
+                debugger;
+                
+                window.location.reload()
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        function addTokenToWalletAol() {
+            const tokenAddress = '0x7372021e9Be6F74486a88b17E6c1263857948c40';
+            const tokenSymbol = 'AOL';
+            const tokenDecimals = 18;
+            const tokenImage = 'https://argentumonline.org/assets/images/ao-libre-logo.png';
+
+            try {
+
+                // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+                const wasAdded = window.ethereum.request({
+                    method: 'wallet_watchAsset',
+                    params: {
+                        type: 'ERC20', // Initially only supports ERC20, but eventually more!
+                        options: {
+                            address: tokenAddress, // The address that the token is at.
+                            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: tokenDecimals, // The number of decimals in the token
+                            image: tokenImage, // A string url of the token logo
+                        },
+                    },
+                }).then(() => {
+                    console.log('Thanks for your interest!');
+                    window.location.reload()
+                }).catch(() => {
+                    console.log('Your loss!');
+                    window.location.reload()
+                });
+
+
+            } catch (error) {
+                console.log(error);
+            }
+
+        }
+
+        $(document).ready(async function () {
+            $('#addTokenToWalletAolb').click(function () {
+                addTokenToWalletAolb()
+            });
+
+            $('#addTokenToWalletAol').click(function () {
+                addTokenToWalletAol()
+            });
+
+        })
+    </script>
 
 </body>
 
