@@ -20,6 +20,8 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/dist/css/bootstrap.min.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.5/web3.min.js"></script>
+    
     <!-- FontAwesome -->
     <script defer src="assets/vendor/fontawesome-free/js/all.js"></script>
     <script defer src="assets/vendor/fontawesome-free/js/v4-shims.js"></script>
@@ -53,6 +55,39 @@
         })();
     </script>
     <!-- End Matomo Code -->
+
+    <script>
+        async function addTokenToWallet() {
+            const tokenAddress = '0xEA17E48C988D64e92d64550C787B17281F61828e';
+            const tokenSymbol = 'AOLB';
+            const tokenDecimals = 18;
+            const tokenImage = 'https://argentumonline.org/assets/images/ao-libre-aolb-logo.png';
+
+            try {
+                // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+                const wasAdded = await window.ethereum.request({
+                    method: 'wallet_watchAsset',
+                    params: {
+                        type: 'ERC20',
+                        options: {
+                            address: tokenAddress, // The address that the token is at.
+                            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: tokenDecimals, // The number of decimals in the token
+                            image: tokenImage, // A string url of the token logo
+                        },
+                    },
+                });
+
+                if (wasAdded) {
+                    console.log('Thanks for your interest!');
+                } else {
+                    console.log('Your loss!');
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    </script>
 
 </head>
 
@@ -316,6 +351,16 @@
                                             <span>Max Supply: 100.000.000.000 AOLB</span>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="addTokenToWallet" class="btn btn-primary centered">Agregar $AOL <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
+                                        </td>
+                                        <td>
+                                            <button id="addTokenToWallet" class="btn btn-primary centered">Agregar $AOLB <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
+                                        </td>
+                                    </tr>
+
+
                                 </table>
                                 <br>
                                 <a href="https://whitepaper.argentumonline.org/" class="nk-btn nk-btn-lg link-effect-4">WHITEPAPER</a>
