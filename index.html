@@ -280,10 +280,14 @@
                                             <img height="100px"
                                                 src="https://argentumonline.org/assets/images/ao-libre-logo.png">
                                         </td> -->
+                                        <!-- <td>
+                                            <img height="100px" src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png">
+                                        </td> -->
+
                                         <td>
-                                            <img height="100px"
-                                                src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png">
+                                            <img height="100px" src="https://argentumonline.org/assets/images/relaunch/logo.png">
                                         </td>
+
                                         <td>
                                             <img height="100px" src="http://nfts.ao20.com.ar/config/images/example.gif">
                                         </td>
@@ -291,8 +295,14 @@
                                     <tr>
                                         <!-- <td><a href="./aol-token-crowdsale.html"
                                                 class="nk-btn nk-btn-lg link-effect-4">COMPRAR AOL TOKEN.</a></td> -->
-                                        <td><a target="_blank" href="aolb-token-crowdsale.html"
-                                                class="nk-btn nk-btn-lg link-effect-4">Comprar AOLB Token.</a></td>
+                                        <!-- <td>
+                                            <a target="_blank" href="aolb-token-crowdsale.html"class="nk-btn nk-btn-lg link-effect-4">Comprar AOLB Token.</a>
+                                        </td> -->
+
+                                        <td>
+                                            <a target="_blank" href="relaunch.html"class="nk-btn nk-btn-lg link-effect-4">Re-launch Matadrako Token.</a>
+                                        </td>
+
                                         <td>
                                             <a target="_blank" href="http://nfts.ao20.com.ar"
                                                 class="nk-btn nk-btn-lg link-effect-4">Comprar NFT.</a>
@@ -304,25 +314,37 @@
                                         <!-- <td>
                                             <span>PRE VENTA: 2.000.000 AOL</span>
                                         </td> -->
-                                        <td>
+                                        <!-- <td>
                                             <span>PRE VENTA: 5.000.000.000 AOLB</span>
+                                        </td> -->
+                                        <td>
+                                            <span>PRE VENTA: 20%</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <!-- <td>
                                             <span>Max Supply: 100.k000.000 AOL</span>
                                         </td> -->
-                                        <td>
+                                        <!-- <td>
                                             <span>Max Supply: 100.000.000.000 AOLB</span>
+                                        </td> -->
+                                        <td>
+                                            <span>Max Supply: 100.000.000.000 $MTD</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <!-- <td>
                                             <button id="addTokenToWalletAol" class="btn btn-primary centered">Agregar $AOL <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
                                         </td> -->
-                                        <td>
+                                        <!-- <td>
                                             <button id="addTokenToWalletAolb" class="btn btn-primary centered">Agregar
                                                 $AOLB <img aria-hidden="true" role="img" width="45px" heigth="45px"
+                                                    src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png"
+                                                    class="q-icon notranslate on-right"></button>
+                                        </td> -->
+                                        <td>
+                                            <button id="addTokenToWalletAolb" class="btn btn-primary centered">Agregar
+                                                $MTD <img aria-hidden="true" role="img" width="45px" heigth="45px"
                                                     src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png"
                                                     class="q-icon notranslate on-right"></button>
                                         </td>
@@ -579,6 +601,42 @@
     <!-- END: Scripts -->
 
     <script>
+        async function addTokenToWalletMatadrako() {
+            const tokenAddress = '0x5273E9e7b6E08f137e3e5b242A436752C4cEc659';
+            const tokenSymbol = 'MTD';
+            const tokenDecimals = 18;
+            const tokenImage = 'https://argentumonline.org/assets/images/relaunch/logo.png';
+
+            try {
+                // wasAdded is a boolean. Like any RPC method, an error may be thrown.
+                const wasAdded = await window.ethereum.request({
+                    method: 'wallet_watchAsset',
+                    params: {
+                        type: 'ERC20',
+                        options: {
+                            address: tokenAddress, // The address that the token is at.
+                            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: tokenDecimals, // The number of decimals in the token
+                            image: tokenImage, // A string url of the token logo
+                        },
+                    },
+                });
+
+                if (wasAdded) {
+                    console.log('Thanks for your interest!');
+                } else {
+                    console.log('Your loss!');
+                }
+
+                debugger;
+
+                window.location.reload()
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+
         async function addTokenToWalletAolb() {
             const tokenAddress = '0xEA17E48C988D64e92d64550C787B17281F61828e';
             const tokenSymbol = 'AOLB';
