@@ -1,0 +1,149 @@
+@use '../abstracts/' as *;
+
+@keyframes criss-cross-left {
+    0% {
+      left: -20px;
+    }
+    50% {
+        left: 50%;
+        
+        width: 20px;
+        height: 20px;
+    }
+    100% {
+        left: 50%;
+        width: 375px;
+        height: 375px;
+
+    }
+  }
+  
+@keyframes criss-cross-right {
+    0% {
+        right: -20px;
+    }
+    50% {
+        right: 50%;
+        width: 20px;
+        height: 20px;
+
+    }
+    100% {
+        right: 50%;
+        width: 375px;
+        height: 375px;
+
+    }
+}
+
+.btn-action {
+    padding: 11px 45px;
+    border: 2px solid $main-color;
+    border-radius: 27px;
+
+    transition: color 0.4s linear;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    font-family: $font-main;
+
+    &:hover {
+        color: $white;
+        &::before {
+            -webkit-animation: criss-cross-left 0.8s both;
+            animation: criss-cross-left 0.8s both;
+            -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+        }
+        &::after {
+            -webkit-animation: criss-cross-right 0.8s both;
+            animation: criss-cross-right 0.8s both;
+            -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+        }
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: $main-color;
+        border-radius: 50%;
+    }
+    &::before {
+        left: -20px;
+        transform: translate(-50%, -50%);
+    }
+    &::after {
+        right: -20px;
+        transform: translate(50%, -50%);
+    }
+
+}
+
+.btn-action.style-2 {
+    background: $main-color;
+    padding: 20px 48px;
+    border-radius: 33px;
+    z-index: 1;
+    border: none;
+    &:hover {
+        color: $main-color;
+        
+        transition-delay: 0.5s;
+    }
+    &::before,
+    &::after {
+        background-color: $white;
+    }
+}
+
+.blog-list {
+    .btn-action.style-2 {
+        padding: 12px 39px;
+        font-size: 16px;
+
+        @include mobile {
+            padding: 12px 15px;
+        }
+    }
+}
+
+.view-all {
+    margin-top: 72px;
+    .btn-action {
+        padding: 9px 32px;
+        font-size: 16px;
+    }
+}
+.road-map .view-all {
+    @include tablet {
+        text-align: left;
+    }
+}
+
+.home-2 .view-all{
+    margin-top: 52px;
+    .btn-action {
+        padding: 12px 51px;
+        font-size: 18px;
+    }
+}
+
+.load-more {
+    margin-top: 46px;
+    .btn-action {
+        padding: 12px 39px;
+    }
+}
+
+.blog-grid .load-more {
+    margin-top: 31px;
+}
+
+
+

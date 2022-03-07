@@ -1,0 +1,325 @@
+@use '../abstracts/' as *;
+.hero-slider {
+    padding: 85px 0;
+    @include tablet {
+        padding: 0;
+    }
+
+    &.style-2 {
+        padding: 116px 0 327px;
+
+        @include mobile {
+            padding: 50px 0 100px;
+        }
+    }
+
+    // background: url('../../../assets/images/shape/shape-01.png') no-repeat;
+}
+
+.section-about {
+    padding: 170px 0;
+    @include tablet {
+        padding: 100px 0;
+    }
+    .group-image {
+        display: flex;
+        align-items: center;
+
+        @include tablet {
+            padding-top: 50px;
+        }
+        @include mobile {
+            flex-wrap: wrap;
+            justify-content: space-around; 
+        }
+
+        .left {
+            margin-right: 30px;
+
+            @include mobile {
+                margin-bottom: 30px;
+                margin-right: 0;
+            }
+        }
+        .right .item:nth-child(1) {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.page {
+    background: url('./../../assets/images/background/bg-about.jpg');
+}
+
+.about .section-about {
+    padding: 168px 0;
+}
+.home-2 .section-about {
+    padding: 170px 0 146px;
+}
+.porfolio {
+    padding: 150px 0 139px;
+
+    @include tablet {
+        padding: 100px 0;
+    }
+}
+.about .porfolio  {
+    padding: 147px 0 0;
+    @include mobile {
+        padding: 100px 0 0;
+    }
+}
+
+.montono {
+    padding: 0 6px;
+}
+.home-2 .montono {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .row > * {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+.road-map {
+    padding: 113px 0px 160px;
+
+    @include tablet {
+        padding: 100px 0;
+    }
+}
+.home-2 .road-map {
+    padding: 136px 0px 169px;
+}
+
+.roadmap .road-map {
+    padding: 143px 0px 160px;
+}
+
+.mission .road-map {
+    padding: 144px 0px 11px;
+}
+
+.newsletter {
+    .newsletter__body {
+        @include flex(center,space-between);
+        background: $bg-item-1;
+        padding: 51px 72px 47px;
+        border-radius: 20px;
+
+        @include tablet {
+            flex-wrap: wrap;
+
+            .body__form {
+                width: 100% !important;
+                padding-left: 0 !important;
+                padding-top: 30px;
+            }
+        }
+
+        @include mobile {
+            padding: 51px 30px 47px;
+        }
+
+        .body__form {
+            width: 60%;
+            padding-left: 43px;
+        }
+        
+    }
+}
+
+.team {
+    padding: 139px 0 128px;
+
+    @include tablet {
+        padding: 100px 0;
+    }
+}
+.home-2 .team {
+    padding: 139px 0 144px;
+}
+.about .team {
+    padding: 111px 0 115px;
+}
+
+.page-team .team {
+    padding-bottom: 0;
+}
+
+.testimonials {
+    padding: 137px 0 142px;
+
+    @include tablet {
+        padding: 100px 0;
+    }
+}
+
+.action {
+    padding: 149px 0 122px;
+    .action__body {
+        background: $bg-item-3;
+        border-radius: 20px;
+        padding: 61px 72px;
+        @include flex(center,space-between);
+
+        @include tablet {
+            flex-wrap: wrap;
+
+            .block-text {
+                margin-bottom: 30px;
+            }
+        }
+
+        @include mobile {
+            padding: 61px 30px;
+        }
+
+        .btn-action.style-2 {
+            padding: 18px 60px;
+            font-size: 20px;
+        }
+    }
+}
+
+.page-blog-single .action {
+    padding: 168px 0 122px;
+}
+
+.page-contact .action {
+    padding: 143px 0 122px;
+}
+
+.about .action {
+    padding: 167px 0 122px;
+}
+.page-team .action {
+    padding: 57px 0 122px;
+}
+
+.home-2 .testimonial {
+    padding: 140px 0 132px;
+}
+
+.blog {
+    padding: 122px 0;
+}
+.home-2 .partners {
+    padding: 46px 0 119px;
+}
+
+.roadmap .faq {
+    padding: 143px 0 0;
+}
+.page-faq .faq {
+    padding: 143px 0 121px;
+}
+.page-faq .action {
+    padding: 167px 0 122px;
+}
+
+.visions {
+    padding: 169px 0 167px;
+
+    @include tablet {
+        padding: 100px 0;
+    }
+
+    .group-image {
+        margin-left: -208px;
+
+        @include tablet {
+            margin-left: 0;
+            margin-top: 60px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.missions {
+    .block-text {
+        padding-top: 21px;
+    }
+    .group-image {
+        margin-left: 109px;
+
+        @include tablet {
+            margin-left: 0;
+            margin-top: 60px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.collection {
+    padding: 143px 0 149px;
+
+    @include tablet {
+        padding: 60px 0;
+    }
+
+    .group-image {
+        padding-right: 200px;
+        position: relative;
+
+        @include tablet {
+            padding-right: 0;
+        }
+    }
+}
+
+.collections .action {
+    padding: 159px 0 122px;
+}
+
+.blog-list {
+    padding: 168px 0 20px;
+}
+
+.blog-grid {
+    padding: 168px 0 11px;
+}
+
+.contact {
+    padding: 144px 0 168px; 
+}
+
+@include mobile {
+    .action,
+    .about .section-about,
+    .about .action,
+    .collections .action,
+    .home-2 .road-map,
+    .home-2 .team ,
+    .home-2 .testimonial,
+    .roadmap .road-map,
+    .page-blog-single .action,
+    .page-faq .faq,
+    .contact,
+    .page-contact .action,
+    .page-faq .action {
+        padding: 100px 0;
+    }
+
+    .about .team {
+        padding: 50px 0 40px;
+    }
+
+    .page-team .action {
+        padding: 0px 0 100px;
+    }
+
+    .roadmap .faq,
+    .mission .road-map,
+    .blog-grid {
+        padding-top: 100px;
+    }
+
+}

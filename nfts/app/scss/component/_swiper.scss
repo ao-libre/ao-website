@@ -1,0 +1,233 @@
+@use '../abstracts/' as *;
+
+.swiper.swiper-vertical {
+    height: 570px;
+    .swiper-wrapper {
+        .swiper-slide {
+            height: auto !important;
+        }
+    }
+    
+}
+// .mySwiper1 {
+//     .swiper-slide-active {
+//         opacity: 0;
+//     }
+// }
+
+.content-right {
+    justify-content: flex-end;
+    @include tablet {
+        justify-content: space-between;
+        padding-top: 50px;
+    }
+
+    .swiper {
+        margin-left: 30px;
+        margin-right: 0;
+        @include tablet{
+            margin-left: 0px;
+        }
+    }
+
+
+}
+
+.team .swiper-slide {
+    padding-top: 51px;
+}
+
+.swiper .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.42);
+    margin: 0 13px !important;
+    opacity: 1;
+}
+.swiper .swiper-pagination-bullet-active {
+    background: rgba(255, 255, 255, 1);
+    position: relative;
+
+    &:after {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        content: "";
+        width: 24px;
+        height: 24px;
+        border: 2px solid $main-color;
+        overflow: visible;
+    }
+}
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+    top: 96%;
+}
+.swiper .swiper-button-next {
+    left: 59%;
+
+    @include tablet {
+        left: 80%;
+    }
+    @include mobile {
+        display: none;
+    }
+}
+.swiper .swiper-button-prev {
+    left: 52%;
+    @include tablet {
+        left: 70%;
+    }
+    @include mobile {
+        display: none;
+    }
+}
+.swiper .swiper-button-next:after,
+.swiper .swiper-button-prev:after {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 100;
+    font-size: 60px;
+    color: $white;
+}
+.swiper .swiper-button-disabled::after {
+    font-size: 36px;
+}
+.swiper .swiper-button-next:after {
+    content: '\f178';
+}
+.swiper .swiper-button-prev:after {
+    content: '\f177';
+}
+
+
+
+.road-map {
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-family: 'Font Awesome 5 Pro';
+        font-weight: 100;
+        font-size: 60px;
+        color: $main-color;
+    }
+    .swiper-button-disabled::after {
+        color: $white;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        top: 50%;
+
+        @include desktop-1350 {
+            display: none;
+        }
+    }
+
+    .swiper-button-next {
+        left: auto;
+        right: -85px;
+    }
+    .swiper-button-prev {
+        left: -85px;
+    }
+    .swiper-button-next:after,
+    .swiper-button-prev:after  {
+        font-size: 50px;
+    }
+    .swiper-button-next:after {
+        content: '\f054';
+    }
+    .swiper-button-prev:after {
+        content: '\f053';
+    }
+}
+
+.swiper-portfolio.s1 {
+    // overflow: unset;
+    margin-bottom: 30px;
+    padding: 0 190px;
+
+    @include tablet {
+        padding: 0;
+    }
+}
+.home-2 .portfolio .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.gallery-top {
+    .item {
+        width: 470px;
+        height: 470px;
+
+        @include tablet {
+            width: 100%;
+            height: 500px;
+        }
+    }
+}
+.gallery-thumbs {
+
+    margin: 25px 60px 0 !important;
+    @include mobile {
+        margin: 25px 0 !important;
+    }
+    .swiper-slide {
+        opacity: 0.4;
+    }
+    .swiper-slide-thumb-active {
+        opacity: 1;
+    }
+    .item {
+        width: 78px;
+        height: 78px;
+        border-radius: 10px;
+        img {
+            width: 49px;
+            height: 65px;
+        }
+    }
+}
+.collection {
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 36px;
+        min-width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        @include flex(center,center);
+        top: auto;
+        bottom: 22px;
+        background: $bg-item-2;
+
+        @include mobile {
+            display: none;
+        }
+    }
+    .swiper-button-next {
+        right: 30%;
+        @include tablet {
+            right: 0;
+        }
+    }
+    .swiper-button-prev {
+        left: 0;
+    }
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-family: 'Font Awesome 5 Pro';
+        font-weight: 100;
+        font-size: 22px;
+        color: $main-color;
+    }
+
+    .swiper-button-next:after {
+        content: '\f105';
+    }
+    .swiper-button-prev:after {
+        content: '\f104';
+    }
+
+}

@@ -1,0 +1,207 @@
+@use '../abstracts/' as *;
+
+.footer {
+    .footer__body {
+        text-align: center;
+        padding-bottom: 120px;
+        border-bottom: 1px solid rgba(255,255,255,0.18);
+        .desc {
+            padding: 42px 300px 26px;
+
+            @include tablet {
+                padding: 42px 100px 26px;
+            }
+            @include mobile {
+                padding: 42px 0px 26px;
+            }
+        }
+
+        .social {
+            @include flex(center,center);
+            padding-left: 0;
+
+            li {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: $bg-item-1;
+                margin: 0 12px;
+                @include flex(center,center);
+
+                position: relative;
+                transition: .5s;
+                overflow: hidden;
+                a {
+                    transition: .5s;
+                    z-index: 2;
+                }
+
+                &:hover {
+                    a {
+                        transform: rotateY(360deg);
+                        color: $white;
+                    }
+
+                    &::before {
+                        top: 0;
+                    }
+                    &:nth-child(1):before {
+                        background: #2374e1;
+                    }
+                    &:nth-child(2):before {
+                        background: #55acee;
+                    }
+                    &:nth-child(3):before {
+                        background: #0077b5;
+                    }
+                    &:nth-child(4):before {
+                        background: #c00;
+                    }
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transition: .5s;
+                    z-index: 1;
+                }
+
+                
+
+                
+            }
+        }
+    }
+    .footer_bottom {
+        @include flex(center,space-between);
+        padding: 35px 13px;
+
+        @include mobile {
+            flex-wrap: wrap;
+            justify-content: center;
+
+            ul {
+                padding-left: 20px;
+                
+                li {
+                    &:nth-child(1) {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+        p {
+            margin-bottom: 0;
+
+            @include mobile {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        ul {
+            @include flex(center,flex-end);
+
+            li {
+                padding-left: 38px;
+
+                a {
+                    font-family: 'Roboto';
+                    font-size: 16px;
+
+                }
+            }
+        }
+    }
+
+    &.style-2 {
+        .footer__body {
+            text-align: left;
+            display: flex;
+            flex-wrap: wrap;
+
+            .desc {
+                padding: 0;
+                margin-top: 23px;
+            }
+            .social {
+                margin-top: 30px;
+                justify-content: flex-start;
+                li {
+                    width: 54px;
+                    height: 54px;
+                    min-width: 54px;
+                    margin: 0 6px;
+                    &:nth-child(1) {
+                        margin-left: 0;
+                    }
+                }
+            }
+            .link {
+                padding-top: 12px;
+                ul {
+                    padding-left: 0;
+                    margin-top: 21px;
+                    li {
+                        margin-bottom: 9px;
+                        a {
+                            font-family: $font-second;
+                        }
+                    }
+                }
+
+                &.s1 {
+                    padding-left: 106px;
+                }
+                &.s2 {
+                    padding-left: 85px;
+                }
+                @include desktop-1200 {
+                    &.s2 {
+                        padding-left: 0;
+                        padding-top: 60px;
+                    }
+                }
+                @include mobile {
+                    &.s1 {
+                        padding-left: 0;
+                        padding-top: 60px;
+                    }
+                }
+            }
+            .newsletter {
+                padding-left: 23px;
+                padding-top: 12px;
+                p {
+                    margin-top: 18px;
+                }
+                @include desktop-1200{
+                    padding-left: 106px;
+                    padding-top: 60px;
+                }
+                @include mobile {
+                    padding-left: 0;
+                }
+            }
+            .form-group {
+                margin-top: 24px;
+                position: relative;
+                input {
+                    padding: 17px 24px;
+                    border-radius: 10px;
+                }
+                i {
+                    position: absolute;
+                    right: 19px;
+                    top: 33%;
+                    color: $main-color;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}

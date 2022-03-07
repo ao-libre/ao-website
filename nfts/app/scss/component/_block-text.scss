@@ -1,0 +1,154 @@
+@use '../abstracts/' as *;
+
+.block-text {
+    position: relative;
+    .sub-title {
+        position: relative;
+        line-height: 3.2;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 36px;
+            height: 5px;
+            background: $main-color;
+        }
+    }
+
+    .desc {
+        font-size: 24px;
+    }
+    &.center {
+        .sub-title::after {
+            left: 0;
+            right: 0;
+            
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+    }
+
+    h1.heading-bg {
+        font-size: 240px;
+        letter-spacing: 24px;
+        text-transform: uppercase;
+        position: absolute;
+        z-index: -1;
+        left: 27px;
+        right: 0;
+        top: -40px;
+
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+
+        @include mobile {
+            font-size: 80px;
+            top: 10px;
+        }
+
+        span {
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #4425ad;
+            -webkit-text-fill-color: rgb(0 0 0/0%);
+        }
+    } 
+
+    ul {
+        padding-left: 3px;
+
+        li {
+            @include flex(flex-start, flex-start);
+
+            i {
+                margin-right: 29px;
+                font-weight: 300;
+                color: $main-color;
+                margin-top: 4px;
+                font-size: 22px;
+            }
+        }
+
+        &.nft {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            li {
+                width: 50%;
+                margin-bottom: 18px;
+
+                @include mobile {
+                    width: 100%;
+                }
+                a {
+                    font-size: 18px;
+                    font-family: $font-second;
+
+                    i {
+                        margin-right: 17px;
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+                }
+                
+            }
+            &.s2 {
+                display: block;
+            }
+        }
+    }
+
+}
+
+.home-2 .montono,
+.home-2 .testimonial,
+.home-2 .road-map {
+
+    .block-text{
+        h1.heading-bg {
+
+            @include desktop-1900 {
+                font-size: 135px;
+            }
+            
+            @include desktop-1200 {
+                display: none;
+            }
+        }
+    }
+}
+
+
+.collections, .page-contact
+ {
+    .block-text {
+        @include tablet {
+
+            h1.heading-bg {
+                font-size: 68px;
+                top: 54px;
+            }
+        }
+        @include mobile {
+            h1.heading-bg {
+                display: none;
+            }
+        }
+    }
+    .collection .block-text {
+        @include tablet {
+            margin-top: 60px;
+        }
+    }
+}
+
+.page-title {
+    .block-text {
+        .sub-title {
+            line-height: 1.8;
+        }
+    }
+}
