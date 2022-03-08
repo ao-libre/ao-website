@@ -767,7 +767,7 @@ a:hover {
   background: #fd562a;
 }
 .block-text .desc {
-  font-size: 24px;
+  font-size: 18px;
 }
 .block-text.center .sub-title::after {
   left: 0;
