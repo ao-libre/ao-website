@@ -1,44 +1,19 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Argentum Online Community">
-    <title>Argentum Online Libre</title>
-    <link rel="icon" type="image/png" href="assets/images/favicon-ao-libre.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monteno - NFT Portfolio HTML Template</title>
+    <link rel="stylesheet" href="app/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="app/dist/app.css">
+    <link rel="stylesheet" href="assets/font/font-awesome.css">
+    <link href="app/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="app/dist/swiper-bundle.min.css" />
 
-    <!-- START: Styles -->
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,400,400i,700%7cMarcellus+SC"
-        rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/dist/css/bootstrap.min.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.5/web3.min.js"></script>
-
-    <!-- FontAwesome -->
-    <script defer src="assets/vendor/fontawesome-free/js/all.js"></script>
-    <script defer src="assets/vendor/fontawesome-free/js/v4-shims.js"></script>
-
-    <!-- IonIcons -->
-    <link rel="stylesheet" href="assets/vendor/ionicons/css/ionicons.min.css">
-
-    <!-- GODLIKE -->
-    <link rel="stylesheet" href="assets/css/godlike.css">
-
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="assets/css/custom.css">
-
-    <!-- END: Styles -->
-
-    <!-- jQuery -->
-    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/favicon.png">
 
     <!-- Matomo -->
     <script type="text/javascript">
@@ -55,729 +30,654 @@
         })();
     </script>
     <!-- End Matomo Code -->
-
 </head>
+<body class="home-2 header-fixed">
 
-
-<!--
-    Additional Classes:
-        .nk-page-boxed
--->
-
-<body>
-    <!-- START: Page Preloader -->
-    <div class="nk-preloader">
-        <!--
-         Preloader animation
-         data-close-... data used for closing preloader
-         data-open-...  data used for opening preloader
-    -->
-        <div class="nk-preloader-bg" style="background-color: #000;" data-close-frames="23" data-close-speed="1.2"
-            data-close-sprites="./assets/images/preloader-bg.png" data-open-frames="23" data-open-speed="1.2"
-            data-open-sprites="./assets/images/preloader-bg-bw.png">
-        </div>
-
-        <div class="nk-preloader-content">
-            <div>
-                <img class="nk-img" src="assets/images/ao-libre-logo.png"
-                    alt="Argentum Online Libre - MMORPG Open-Source hecho en Argentina" width="170">
-                <div class="nk-preloader-animation"></div>
-            </div>
-        </div>
-
-        <div class="nk-preloader-skip">Omitir</div>
+    <!-- Preloading -->
+    <div class="preloader">
+        <div class="icon"></div>
     </div>
-    <!-- END: Page Preloader -->
+    <!-- end Preloading -->
 
-
-    <!--
-    START: Page Video Background
-
-    Additional Attributes:
-        data-video - Youtube/Vimeo/self-hosted video urls.
-            self-hosted video example:
-            data-video="mp4:./video/local-video.mp4,webm:./video/local-video.webm,ogv:./video/local-video.ogv"
-        data-video-loop - loop video (true/false)
-        data-video-mute - mute video music (true/false)
-        data-video-volume - volume of video music (0-100)
-        data-video-start-time - video start time in seconds
-        data-video-end-time - video end time in seconds
-        data-video-pause-on-page-leave - pause video when the page not in focus (true/false)
--->
-    <div class="nk-page-background op-5" data-video="https://youtu.be/SBvV9_bybEo" data-video-loop="true"
-        data-video-mute="true" data-video-volume="0" data-video-start-time="1137" data-video-end-time="0"
-        data-video-pause-on-page-leave="true" style="background-image: url('assets/images/page-background.jpg');"></div>
-    <!-- END: Page Background -->
-
-    <!--
-    START: Page Audio Background
-
-    Additional Attributes:
-        data-audio - URL to audio file
-        data-audio-volume - audio volume (0-100)
-        data-audio-autoplay - autoplay audio (true/false)
-        data-audio-loop - loop audio (true/false)
-        data-audio-pause-on-page-leave - pause video when the page not in focus (true/false)
--->
-    <div class="nk-page-background-audio d-none"
-        data-audio="https://github.com/ao-libre/ao-cliente/raw/master/AUDIO/MP3/NO%20EN%20USO%20(MIDI%207)%20-%20ALTERNATIVA.mp3"
-        data-audio-volume="100" data-audio-autoplay="true" data-audio-loop="true" data-audio-pause-on-page-leave="true">
+    <!-- Scroll Top -->
+    <div class="progress-wrap active-progress">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+    </svg>
     </div>
-    <!-- END: Page Background -->
+    <!-- end Scroll Top -->
 
-
-    <!-- START: Page Border -->
-    <div class="nk-page-border">
-        <div class="nk-page-border-t"></div>
-        <div class="nk-page-border-r"></div>
-        <div class="nk-page-border-b"></div>
-        <div class="nk-page-border-l"></div>
-    </div>
-    <!-- END: Page Border -->
-
-    <!--
-    Additional Classes:
-        .nk-header-opaque
--->
-    <header class="nk-header nk-header-opaque">
-
-        <!--
-    START: Top Contacts
-
-    Additional Classes:
-        .nk-contacts-top-light
--->
-        <div class="nk-contacts-top">
-            <div class="container">
-                <div class="nk-contacts-left">
-                    <div class="nk-navbar">
-                        <ul class="nk-nav">
-                            <li><a>Hecho con <span style="color:red">❤</span> desde Latinoamerica para todo el mundo</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="nk-contacts-right">
-                    <div class="nk-navbar">
-                        <ul class="nk-nav">
-                            <li>
-                                <a href="https://discord.gg/f5zp3zbVRj" target="_blank">
-                                    <span class="nk-share-icon" title="Chatea con nosotros en discord"
-                                        data-share="discord">
-                                        <span class="icon fa fa-commenting-o"></span>
-                                    </span>
-                                    <span class="nk-share-name">Discord</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.reddit.com/r/argentumonlineoficial" target="_blank">
-                                    <span class="nk-share-icon" title="Foro" data-share="reddit">
-                                        <span class="icon fa fa-reddit"></span>
-                                    </span>
-                                    <span class="nk-share-name">Reddit</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/ao-libre" target="_blank">
-                                    <span class="nk-share-icon" title="Fork us" data-share="github">
-                                        <span class="icon fa fa-github"></span>
-                                    </span>
-                                    <span class="nk-share-name">Github</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com/argentumonlinelibre/" target="_blank">
-                                    <span class="nk-share-icon" title="Me Gusta" data-share="facebook">
-                                        <span class="icon fa fa-facebook"></span>
-                                    </span>
-                                    <span class="nk-share-name">Facebook</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/AOLibre" target="_blank">
-                                    <span class="nk-share-icon" title="Twitter" data-share="twitter">
-                                        <span class="icon fa fa-twitter"></span>
-                                    </span>
-                                    <span class="nk-share-name">Twitter</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/argentumonlinelibre/" target="_blank">
-                                    <span class="nk-share-icon" title="instram" data-share="instram">
-                                        <span class="icon fa fa-instagram"></span>
-                                    </span>
-                                    <span class="nk-share-name">Instagram</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END: Top Contacts -->
-
-    </header>
-
-    <div class="nk-main">
-
-
-        <!-- START: Header Title -->
-        <!--
-    Additional Classes:
-        .nk-header-title-sm
-        .nk-header-title-md
-        .nk-header-title-lg
-        .nk-header-title-xl
-        .nk-header-title-full
-        .nk-header-title-parallax
-        .nk-header-title-parallax-opacity
-        .nk-header-title-boxed
--->
-        <div class="nk-header-title nk-header-title-md nk-header-title-parallax nk-header-title-parallax-opacity">
-            <div class="bg-image op-6">
-                <img src="assets/images/image-games.jpg" alt="" class="jarallax-img">
-            </div>
-
-            <div class="nk-header-table">
-                <div class="nk-header-table-cell">
-                    <div class="container">
-
-                        <div class="nk-header-text" style="font-weight: bold;">
-                            <img src="https://argentumonline.org/assets/images/ao-libre-logo.png">
-                            <div>
-                                <p>
-                                    <span style="color:red">A</span><span style="color:blue">O</span> <span
-                                        style="color:green">Libre</span> es un proyecto colaborativo utilizando el
-                                    open-source como bandera. Todos estan
-                                    invitados a participar haciendo modificaciones a nivel codigo, graficos, sonidos,
-                                    agregar items, hechizos, mapear o ser parte de la organizacion del juego dentro del
-                                    server. Todo nuestros recursos y codigo estan liberados bajo la licencia AGPL y
-                                    pueden encontrarlos en Github.
-                                </p>
-                            </div>
-
-                            <div>
-                                <h4 class="nk-title display-3">
-                                    <span style="color:red">A</span><span style="color:blue">O</span><span
-                                        style="color:green">L</span> Blockchain
-                                </h4>
-                                <p>
-                                    Tenemos nuestros tokens BEP-20 (AOLB) que usaremos para recompensas para nuestros
-                                    jugadores, recompensas para las personas
-                                    que colaboran en el proyecto desde diseño, música, game master,
-                                    mantenedores de servidores, game designers, programadores, equipo de
-                                    control de calidad, etc.
-                                </p>
-
-                                <table style="margin-left:auto;margin-right:auto;">
-                                    <tr>
-                                        <!-- <th>Ethereum (ERC-20)</th> -->
-                                        <th>Binance Smart Chain (BEP-20)</th>
-                                        <th>ARGENTUMS NFT Collection (ERC-721)</th>
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <img height="100px"
-                                                src="https://argentumonline.org/assets/images/ao-libre-logo.png">
-                                        </td> -->
-                                        <td>
-                                            <img height="100px" src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png">
-                                        </td>
-
-                                        <!-- <td>
-                                            <img height="100px" src="https://argentumonline.org/assets/images/relaunch/logo.png">
-                                        </td> -->
-
-                                        <td>
-                                            <img src="assets/images/nfts-example.gif">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <!-- <td><a href="./aol-token-crowdsale.html"
-                                                class="nk-btn nk-btn-lg link-effect-4">COMPRAR AOL TOKEN.</a></td> -->
-                                        <td>
-                                            <a target="_blank" href="aolb-token-crowdsale.html"class="nk-btn nk-btn-lg link-effect-4">Comprar AOLB Token.</a>
-                                        </td>
-
-                                        <!-- <td>
-                                            <a target="_blank" href="relaunch.html"class="nk-btn nk-btn-lg link-effect-4">Re-launch Matadrako Token.</a>
-                                        </td> -->
-
-                                        <td>
-                                            <a target="_blank" href="/nfts" class="nk-btn nk-btn-lg link-effect-4">ARGENTUMS NFT Collection.</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <span>PRE VENTA: 2.000.000 AOL</span>
-                                        </td> -->
-                                        <td>
-                                            <span>PRE VENTA: 5.000.000.000 $AOLB</span>
-                                        </td>
-                                        <!-- <td>
-                                            <span>PRE VENTA: 20%</span>
-                                        </td> -->
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <span>Max Supply: 100.k000.000 AOL</span>
-                                        </td> -->
-                                        <td>
-                                            <span>Max Supply: 100.000.000.000 $AOLB</span>
-                                        </td>
-                                        <td>
-                                            <span>10,000 Unique NFTs</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <!-- <td>
-                                            <button id="addTokenToWalletAol" class="btn btn-primary centered">Agregar $AOL <img aria-hidden="true" role="img" width="45px" heigth="45px"src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png" class="q-icon notranslate on-right"></button>
-                                        </td> -->
-                                        <td>
-                                            <button id="addTokenToWalletAolb" class="btn btn-primary centered">Agregar
-                                                $AOLB <img aria-hidden="true" role="img" width="45px" heigth="45px"
-                                                    src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png"
-                                                    class="q-icon notranslate on-right"></button>
-                                        </td>
-                                        <!-- <td>
-                                            <button id="addTokenToWalletMatadrako" class="btn btn-primary centered">Agregar
-                                                $MTD <img aria-hidden="true" role="img" width="45px" heigth="45px"
-                                                    src="https://storage.googleapis.com/thoreum-cdn/public/icons/metamask.png"
-                                                    class="q-icon notranslate on-right"></button>
-                                        </td> -->
-                                    </tr>
-
-
-                                </table>
-                                <br>
-                                <a href="https://whitepaper.argentumonline.org/"
-                                    class="nk-btn nk-btn-lg link-effect-4">WHITEPAPER</a>
-                                <a href="https://www.youtube.com/watch?v=N0ryEHvZHcU"
-                                    class="nk-btn nk-btn-lg link-effect-4">Entrevista sobre Tokens</a>
-
-                            </div>
-                            <br>
-                            <form style="border:1px solid #ccc;padding:3px;text-align:center;"
-                                action="https://tinyletter.com/aolibre" method="post" target="popupwindow"
-                                onsubmit="window.open('https://tinyletter.com/aolibre', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
-                                <p><label for="tlemail">Newsletter: nuestras novedades al email</label></p>
-                                <p><input type="text" placeholder="youremail@domain.com" style="width:140px"
-                                        name="email" id="tlemail" /></p>
-                                <input type="hidden" value="1" name="embed" />
-                                <input type="submit" value="Subscribir" />
-                            </form>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-            <!-- END: Header Title -->
-
-            <!-- START: Demos -->
-            <!-- <div class="container">
-                <div class="nk-gap-6"></div>
-                <section id="blog" class="blog">
-                    <div class="blog__header">
-                        <h2 class="blog__header2">Novedades</h2>
-                    </div>
-                    <ul class="blog__slider">
-                        Posts go here
-                    </ul>
-                </section>
-
-                <div class="nk-gap-6"></div>
-            </div> -->
-            <!-- END: Demos -->
-
-        </div>
-
-
-        <!-- START: Demos -->
-        <div class="container" id="demos">
-            <div class="nk-gap-6"></div>
-            <div class="col-md-12">
-                <div class="nk-image-box-1-a nk-no-effect">
-                    <a href="aoclasico.html" class="nk-image-box-link"></a>
-                    <img src="assets/images/ao-clasico-logo.png" alt="AO Clasico">
-                    <div class="nk-image-box-overlay nk-image-box-center">
-                        <div>
-                            <h3 class="nk-image-box-title h4">AO-Clasico - El juego clasico de toda la vida esta
-                                disponible para que lo sigas
-                                jugando y viciando como hace años</h3>
-                        </div>
-                    </div>
-                </div>
-                <a href="aoclasico.html" class="nk-btn nk-btn-lg link-effect-3">+++++++ JUGAR AHORA ++++++++</a>
-            </div>
-            <!-- <div class="col-md-6">
-                    <div class="nk-image-box-1-a nk-no-effect">
-                        <a href="https://finisterra.argentumonline.org/" class="nk-image-box-link"></a>
-                        <img src="assets/images/finisterra-logo.png" alt="Finisterra">
-                        <div class="nk-image-box-overlay nk-image-box-center">
-                            <div>
-                                <h3 class="nk-image-box-title h4">Finisterra (aka AO-Java) es el proyecto que inicio
-                                    el remake del AO con conceptos y tecnologias que son mas modernas.</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-            <div class="nk-gap-6"></div>
-        </div>
-        <!-- END: Demos -->
-
-
-        <!-- START: Demos -->
+    <!-- Header -->
+    <header id="header_main" class="header">
         <div class="container">
-            <div class="nk-gap-6"></div>
-            <h1>Trabajamos con: </h1>
-            <div class="col-md-12">
-                <a href="https://bscscan.com/token/0xea17e48c988d64e92d64550c787b17281f61828e" target="_blank"
-                    class="w-inline-block">
-                    <img src="https://www.unicoincrypto.io/static/media/bsc-scan.0bcd078b.png" loading="lazy" alt=""
-                        width="200">
-                </a>
-
-                <a href="https://www.conreco.com.ar" target="_blank">
-                    <img class="nk-img" src="assets/images/footer-logo-conreco.png" alt="" width="200" height=60px>
-                </a>
-
-                <a href="https://minehost.com.ar/" target="_blank">
-                    <img class="nk-img" src="assets/images/footer-logo-minehost.png" alt="" width="200" height=60px>
-                </a>
-
-                <a href="https://poocoin.app/tokens/0xea17e48c988d64e92d64550c787b17281f61828e" target="_blank"
-                    class="w-inline-block">
-                    <img src="https://bnbshinobi.com/wp-content/uploads/2021/10/2.png" loading="lazy" alt="" width="200"
-                        height=60px>
-                </a>
-
-                <a href="https://www.dextools.io/app/bsc/pair-explorer/0x923ec40eb9fb4cfed9798d195547682f006abdd9"
-                    target="_blank" class="w-inline-block">
-                    <img src="https://acet.finance/images/dext-logo.png" loading="lazy" alt="" width="200" height=60px>
-                </a>
-
-                <a href="https://dex.guru/token/0xea17e48c988d64e92d64550c787b17281f61828e-bsc" target="_blank"
-                    class="w-inline-block">
-                    <img width="200px" height="60px"
-                        src="https://camo.githubusercontent.com/a0834bb2b78ca29c2c6106455a819e7e5eb490b9f37eda2dc740078b6ff353f3/68747470733a2f2f67626c6f627363646e2e676974626f6f6b2e636f6d2f6173736574732532462d4d4f326e726d77685f446f784b63317638306e2532462d4d546e6b6e6f6878595f515157715a3572702d2532462d4d546e6d375a674e377342575f764e585f7a31253246686f72697a6f6e74616c2d6c6f676f2d77686974652d6261636b67726f756e642e706e673f616c743d6d6564696126746f6b656e3d66366533376632332d616664352d346131332d626236612d313632653164393564313864"
-                        loading="lazy" alt="">
-                </a>
-
-                <a href="https://pancakeswap.finance/swap#/swap?outputCurrency=0xea17e48c988d64e92d64550c787b17281f61828e"
-                    target="_blank" class="w-inline-block">
-                    <img width="200px" height="60px"
-                        src="https://assets.website-files.com/6085da5236345d6d2672750c/60a1a7c8b8bd38568fc0cda0_scorgi-pancakeswap-logo.png"
-                        loading="lazy" alt="">
-                </a>
-
-                <a href="https://coinpaprika.com/coin/aolb-argentum-online-libre-token-b" target="_blank"
-                    class="w-inline-block">
-                    <img width="200px" height="60px"
-                        src="https://www.paracriptos.com/wp-content/uploads/2021/01/coinpaprika-logo.png" loading="lazy"
-                        alt="">
-                </a>
-
-                <a href="https://etherscan.io/token/0x859c8159bc53022354f39357bd1fdf6091542087" target="_blank"
-                    class="w-inline-block">
-                    <img src="https://etherscan.io/images/logo-ether.png?v=0.0.2" loading="lazy" alt=""
-                        class="image-29 coinmms" width="200" height="60px">
-                </a>
-
-                <a href="https://blockspot.io/coin/argentum-online-libre-token-b/" target="_blank"
-                    class="w-inline-block">
-                    <img width="200px" height="60px"
-                        src="https://h6i7m5d5.rocketcdn.me/wp-content/uploads/cropped-blockspot-logo-white.webp"
-                        loading="lazy" alt="">
-                </a>
-                
-<!--                 <a href="https://coinranking.com/es/moneda/VUpkQIwTw+argentumonlinelibretokenb-aolb" target="_blank"
-                    class="w-inline-block">
-                    <img width="200px" height="60px"
-                        src="https://cdn.coinranking.com/assets/83e88bf6f53c686e1405e94f75bc3b20.svg"
-                        loading="lazy" alt="">
-                </a> -->
-                
-                
-<!--                 <a href="https://polygonscan.com/address/0x3c2c82868f682C0A26FDF779C1F36dc753532a07" target="_blank"
-                    class="w-inline-block">
-                    <img width="200px" height="60px"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Hs2GelWsbu_cjofn0Qr1Cdt-fzpb6nT9sIPtRh_E8SgQBbmPuvaybkm-rOIHogbMjcE&usqp=CAU"
-                        loading="lazy" alt="">
-                </a> -->
-
-            </div>
-
-            <div class="nk-gap-6"></div>
-        </div>
-        <!-- END: Demos -->
-
-        <!-- START: Footer -->
-        <!--
-    Additional Classes:
-        .nk-footer-parallax
-        .nk-footer-parallax-opacity
--->
-        <footer class="nk-footer nk-footer-parallax nk-footer-parallax-opacity">
-            <img class="nk-footer-top-corner" src="assets/images/footer-corner.png" alt="">
-
-
-            <div class="container">
-                <div class="nk-gap-2"></div>
-
-
-                <h3 class="nk-title"><strong>Acerca de:</strong></h3>
-                <p>
-                    <span style="color:red">A</span><span style="color:blue">O</span> <span
-                        style="color:green">Libre</span> es una organizacion sin fines de lucro, trabajamos de forma
-                    colaborativa donde mantenemos activamente juegos en forma open-source, tenemos servidores online
-                    para que cualquiera pueda entrar y jugar en nuestros mundos
-                </p>
-                <p>
-                    Se distribuye bajo los términos de la licencia GNU Affero GPL (General Public License).
-                </p>
-
-
-                <div class="nk-footer-links">
-                    <img class="nk-img" src="https://www.gnu.org/graphics/agplv3-155x51.png" alt="" width="120">
-                    <a href="https://www.gnu.org/licenses/agpl.html" target="_blank" class="link-effect">Terminos y
-                        Condiciones de la Licencia</a>
-                </div>
-
-                <a href="mailto: info@argentumonline.org" target="_blank" class="link-effect">Contacto:
-                    info@argentumonline.org</a>
-        </footer>
-        <!-- END: Footer -->
-
-    </div>
-
-
-    <!--
-    START: Side Buttons
-        .nk-side-buttons-visible
--->
-    <div class="nk-side-buttons nk-side-buttons-visible">
-        <ul>
-            <li>
-                <span class="nk-btn nk-btn-lg nk-btn-icon nk-bg-audio-toggle">
-                    <span class="icon">
-                        <span class="ion-android-volume-up nk-bg-audio-pause-icon"></span>
-                        <span class="ion-android-volume-off nk-bg-audio-play-icon"></span>
-                    </span>
-                </span>
-            </li>
-            <li class="nk-scroll-top">
-                <span class="nk-btn nk-btn-lg nk-btn-icon">
-                    <span class="icon ion-ios-arrow-up"></span>
-                </span>
-            </li>
-        </ul>
-    </div>
-    <!-- END: Side Buttons -->
-
-
-    <div class="nk-cookie-alert" style="display: block; opacity: 1; transform: translate3d(0px, 0px, 0px);">
-
-        <span class="nk-cookie-alert-close">
-            <span class="nk-icon-close" onclick='parentNode.parentNode.remove()'></span></span>
-        If you want to see this site in english click in the button below, please notice that the site is not fully
-        functional with the translation and probably you need to use it in spanish but this will work as a guide for you
-        <div class="nk-gap"></div>
-        <a href="https://translate.google.com/translate?hl=&sl=es&tl=en&u=http%3A%2F%2Fargentumonline.org%2F"
-            class="nk-btn nk-btn-lg link-effect-4">See site in english.</a>
-    </div>
-
-    <!-- START: Scripts -->
-
-    <!-- Object Fit Polyfill -->
-    <script src="assets/vendor/object-fit-images/dist/ofi.min.js"></script>
-
-    <!-- GSAP -->
-    <script src="assets/vendor/gsap/src/minified/TweenMax.min.js"></script>
-    <script src="assets/vendor/gsap/src/minified/plugins/ScrollToPlugin.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-
-
-    <!-- Jarallax -->
-    <script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
-    <script src="assets/vendor/jarallax/dist/jarallax-video.min.js"></script>
-
-    <!-- SoundManager2 -->
-    <script src="assets/vendor/soundmanager2/script/soundmanager2-nodebug-jsmin.js"></script>
-
-    <!-- GODLIKE -->
-    <script src="assets/js/godlike.min.js"></script>
-    <script src="assets/js/godlike-init.js"></script>
-    <!-- END: Scripts -->
-
-    <script>
-        async function addTokenToWalletMatadrako() {
-            const tokenAddress = '0x5273E9e7b6E08f137e3e5b242A436752C4cEc659';
-            const tokenSymbol = 'MTD';
-            const tokenDecimals = 18;
-            const tokenImage = 'https://argentumonline.org/assets/images/relaunch/logo.png';
-
-            try {
-                // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-                const wasAdded = await window.ethereum.request({
-                    method: 'wallet_watchAsset',
-                    params: {
-                        type: 'ERC20',
-                        options: {
-                            address: tokenAddress, // The address that the token is at.
-                            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
-                            decimals: tokenDecimals, // The number of decimals in the token
-                            image: tokenImage, // A string url of the token logo
-                        },
-                    },
-                });
-
-                if (wasAdded) {
-                    console.log('Thanks for your interest!');
-                } else {
-                    console.log('Your loss!');
-                }
-
-                debugger;
-
-                window.location.reload()
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-
-        async function addTokenToWalletAolb() {
-            const tokenAddress = '0xEA17E48C988D64e92d64550C787B17281F61828e';
-            const tokenSymbol = 'AOLB';
-            const tokenDecimals = 18;
-            const tokenImage = 'https://argentumonline.org/assets/images/ao-libre-aolb-logo.png';
-
-            try {
-                // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-                const wasAdded = await window.ethereum.request({
-                    method: 'wallet_watchAsset',
-                    params: {
-                        type: 'ERC20',
-                        options: {
-                            address: tokenAddress, // The address that the token is at.
-                            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
-                            decimals: tokenDecimals, // The number of decimals in the token
-                            image: tokenImage, // A string url of the token logo
-                        },
-                    },
-                });
-
-                if (wasAdded) {
-                    console.log('Thanks for your interest!');
-                } else {
-                    console.log('Your loss!');
-                }
-
-                debugger;
-
-                window.location.reload()
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        function addTokenToWalletAol() {
-            const tokenAddress = '0x859c8159bc53022354f39357bd1fdf6091542087';
-            const tokenSymbol = 'AOL';
-            const tokenDecimals = 18;
-            const tokenImage = 'https://argentumonline.org/assets/images/ao-libre-logo.png';
-
-            try {
-
-                // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-                const wasAdded = window.ethereum.request({
-                    method: 'wallet_watchAsset',
-                    params: {
-                        type: 'ERC20', // Initially only supports ERC20, but eventually more!
-                        options: {
-                            address: tokenAddress, // The address that the token is at.
-                            symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
-                            decimals: tokenDecimals, // The number of decimals in the token
-                            image: tokenImage, // A string url of the token logo
-                        },
-                    },
-                }).then(() => {
-                    console.log('Thanks for your interest!');
-                    window.location.reload()
-                }).catch(() => {
-                    console.log('Your loss!');
-                    window.location.reload()
-                });
-
-
-            } catch (error) {
-                console.log(error);
-            }
-
-        }
-
-        $(document).ready(async function () {
-            $('#addTokenToWalletAolb').click(function () {
-                addTokenToWalletAolb()
-            });
-
-            $('#addTokenToWalletAol').click(function () {
-                addTokenToWalletAol()
-            });
-
-        })
-
-        fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@aolibre')
-            .then((res) => res.json())
-            .then((data) => {
-                // Filter for acctual posts. Comments don't have categories, therefore can filter for items with categories bigger than 0
-                const res = data.items //This is an array with the content. No feed, no info about author etc..
-                const posts = res.filter(item => item.categories.length > 0) // That's the main trick* !
-
-                // Functions to create a short text out of whole blog's content
-                function toText(node) {
-                    let tag = document.createElement('div')
-                    tag.innerHTML = node
-                    node = tag.innerText
-                    return node
-                }
-                function shortenText(text, startingPoint, maxLength) {
-                    return text.length > maxLength ?
-                        text.slice(startingPoint, maxLength) :
-                        text
-                }
-
-                // Put things in right spots of markup
-                let output = '';
-                posts.forEach((item) => {
-                    output += `
-                <li class="blog__post">
-                    <a href="${item.link}">
-                    <img src="${item.thumbnail}" class="blog__topImg" width="200px" height="200px"></img>
-                    <div class="blog__content">
-                        <div class="blog_preview">
-                            <span class="blog__title">${shortenText(item.title, 0, 30) + '...'}</span>
-                            <p class="blog__intro">${'...' + shortenText(toText(item.content), 60, 300) + '...'}</p>
+            <div class="row">
+                <div class="col-12">
+                    <div class="header__body d-flex justify-content-between">
+                        <div class="header__logo">
+                            <a href="index.html">
+                                <img id="site-logo" src="assets/images/logo.png"
+                                alt="Monteno" width="217" height="50"
+                                data-retina="assets/images/logo@2x.png" data-width="217"
+                                data-height="50">
+                            </a>
                         </div>
-                        <hr>
-                        <div class="blog__info">
-                            <span class="blog__author">${item.author}</span>
-                            <span class="blog__date">${shortenText(item.pubDate, 0, 10)}</span>
+
+                        <div class="header__right">
+                            <nav id="main-nav" class="main-nav">
+                                <ul id="menu-primary-menu" class="menu">
+                                    <li class="menu-item menu-item-has-children">
+                                        <a href="/aoclasico">Descargar</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children">
+                                        <a href="/aoclasico">Rankings</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children">
+                                        <a href="aolb-token-crowdsale.html">$AOLB Crowdsale</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children">
+                                        <a href="nfts.html">ARGENTUMS NFTs</a>
+                                    </li>
+                                </ul>
+                            </nav><!-- /#main-nav -->
+                            <ul class="social">
+                                <li><a href="https://www.facebook.com/argentumonlinelibre/"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://twitter.com/AOLibre"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="https://discord.com/invite/f5zp3zbVRj"><i class="fab fa-discord"></i></a></li>
+                                <li><a href="https://www.instagram.com/argentumonlinelibre/"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.reddit.com/r/argentumonlineoficial/"><i class="fab fa-reddit"></i></a></li>
+                                <li><a href="https://pin.it/2neqgsy"><i class="fab fa-pinterest"></i></a></li>
+                                <li><a href="https://www.github.com/ao-libre"><i class="fab fa-github"></i></a></li>
+                            </ul>
+                            <div class="mobile-button"><span></span></div><!-- /.mobile-button -->
                         </div>
                     </div>
-                    <a/>
-                </li>`
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- end Header -->
 
-                })
-                document.querySelector('.blog__slider').innerHTML = output
-            })
+    <!-- Hero Slider -->
+    <section class="tf-section hero-slider style-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="block-text pt-24 center" >
+                        <h6 class="sub-title mb-6" data-aos="fade-up">We are AO Libre</h6>
+                        <h2 class="title mb-26" data-aos="fade-up"><span style="color:rgb(62, 62, 231)">Argentum </span><span style="color:rgb(196, 13, 13)"> Online</span> <br> <span style="color:rgb(60, 153, 7)"> Libre</span></h2>
+                        <p class="desc mb-53" data-aos="fade-up">AO Libre es un proyecto colaborativo utilizando el open-source como bandera. <br>Todos estan invitados a participar a ser parte de la organizacion del juego dentro del server. <br> Todo nuestros recursos y codigo estan liberados bajo la licencia AGPL y pueden encontrarlos en Github. </p>
+                        <!-- <a href="about.html" class="btn-action style-2" data-aos="fade-up" data-aos-duration="1200" >Get Connected</a> -->
+
+                        <div class="shape">
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/4.png" alt="Image"></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/5.png" alt="Image"></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/6.png" alt="Image"></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/7.png" alt="Image"></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/8.png" alt="Image"></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/9.png" alt="Image"></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/10.png" alt="Image"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end Hero Slider -->
+
+    <!-- Speciality -->
+    <section class="tf-section section-speciality">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block-text center">
+                        <h1 class="heading-bg" data-aos="fade-down" data-aos-duration="1000"><span>Ecosystem</span></h1>
+                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">Elige tu propia aventura</h5>
+                        <h6 class="title mb-28" data-aos="fade-up" data-aos-duration="1000">AO Libre tiene su servidor oficial abierto 24/7 Experiencia y oro dificultad: Dificil. <br> Por otra parte te entrega herramientas para poder abrir tu propio server de AO</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="box-item bg-1" data-aos="fade-up" data-aos-duration="800">
+                            <img src="assets/images/items/pjs-transparentes/11.png" alt="AO Libre Character">
+                            <span class="h5">Jugar</span>
+                            <p>Podes descargarte el juego ya mismo desde <a href="/aoclasico">aqui</a> y empezar a jugar.</p>
+                        </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="box-item bg-2 s2" data-aos="fade-up" data-aos-duration="1000">
+                            <img src="assets/images/items/pjs-transparentes/12.png" alt="AO Libre Character">
+                            <span class="h5">Montar tu servidor</span>
+                            <p>¿Queres tu propio server de Argentum Online? Es muy facil, aca te decimos como, solo 5 minutos. <a target="_blank" href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/">Click Aqui</a></p>
+                        </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="box-item bg-1 s2-m">
+                            <img src="assets/images/items/pjs-transparentes/13.png" alt="AO Libre Character">
+                            <span class="h5">Crea tu mundo</span>
+                            <p>¿Queres crear mapas para tu servidor de Argentum Online? World Editor es la herramienta que necesitas. Mira este <a target="_blank" href="https://www.youtube.com/watch?v=EvymQYQICsc">tutorial</a></p>
+                            <p><a href="https://github.com/ao-libre/ao-autoupdate/releases/download/v1.7/aolibre-installer-v1.7.exe">Descargar Worldeditor</a></p>
+                        </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1400">
+                    <div class="box-item bg-2 s2">
+                            <img src="assets/images/items/pjs-transparentes/14.png" alt="AO Libre Character">
+                            <span class="h5">Agregar nuevos items</span>
+                            <p>¿Queres agregar nuevos items al juego ? En este <a target="_blank" href="https://www.youtube.com/watch?v=p8Vf2jcJUFc">tutorial</a> te mostramos como.</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end Speciality -->
+
+    <!-- About Us -->
+    <section class="tf-section section-about">
+        <div class="container">
+            <div class="row reverse">
+                <div class="col-xl-7 col-md-12">
+                    <div class="group-image">
+                        <div class="left">
+                            <div class="item bg-1"><img src="aoclasico/assets/images/nfts-example.gif" alt="ARGENTUMS NFTs"></div>
+                        </div>
+                        <div class="right">
+                            <div class="item bg-2"><img src="aoclasico/assets/images/ao-libre-aolb-logo.png" alt="$AOLB Logo"></div>
+                            <div class="item bg-3"><img src="aoclasico/assets/images/ao-libre-logo.png" alt="AO Libre"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-12">
+                    <div class="block-text pt-12">
+                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">Crypto space</h5>
+                        <h3 class="title mb-58" data-aos="fade-up" data-aos-duration="1000">Blockchain Development</h3>
+                        <p class="fs-21 mb-33" data-aos="fade-up" data-aos-duration="1000">ARGENTUMS NFTs Collection is the first step in our mission to help Argentum Online thrive thanks to the blockchain technology. We are developing a Metaverse around all the servers that use AO Libre, so your NFTs will be re-usable between servers.</p>
+                        <p class="fs-18 line-h17 mb-41" data-aos="fade-up" data-aos-duration="1000">On top of that, we’re creating the $AOLB BEP-20 token that’ll serve as the backbone of the platform. We are on a Crowdsale/Pre-Sale of the token which represents just the 5% of the Total Cap in others words this is the early-bird stage. </p>
+                        <a href="aolb-token-crowdsale.html" class="btn-action style-2"  data-aos="fade-up" data-aos-duration="1200">Buy $AOLB</a>
+                        <a href="nfts" class="btn-action style-2"  data-aos="fade-up" data-aos-duration="1200">ARGENTUMS NFT more info</a>
+                        <a href="https://whitepaper.argentumonline.org" class="btn-action style-2"  data-aos="fade-up" data-aos-duration="1200">Whitepaper</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end About Us -->
+
+    <!-- Montono -->
+    <section class="tf-section montono">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="block-text center">
+                        <h1 class="heading-bg" data-aos="fade-down" data-aos-duration="1000"><span>The Game</span></h1>
+                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">Screenshots</h5>
+                        <h3 class="title mb-28" data-aos="fade-up" data-aos-duration="1000">Check real images of our <br> MMORPG</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-52">
+                <div class="col-xl-4 col-md-6">
+                    <div class="image-box" data-aos="fade-up" data-aos-duration="1000">
+                        <img src="assets/images/screenshots/1.png" alt="Screenshot">
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="image-box" data-aos="fade-up" data-aos-duration="1000">
+                        <img src="assets/images/screenshots/2.png" alt="Screenshot">
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="image-box" data-aos="fade-up" data-aos-duration="1000">
+                        <img src="assets/images/screenshots/3.png" alt="Screenshot">
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="image-box" data-aos="fade-up" data-aos-duration="1000">
+                        <img src="assets/images/screenshots/4.png" alt="Screenshot">
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="image-box" data-aos="fade-up" data-aos-duration="1000">
+                        <img src="assets/images/screenshots/5.png" alt="Screenshot">
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="image-box" data-aos="fade-up" data-aos-duration="1000">
+                        <img src="assets/images/screenshots/6.png" alt="Screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end Montono -->
+
+    <!-- Visions -->
+    <section class="tf-section visions">
+        <div class="container">
+            <div class="row reverse">
+                <div class="col-xl-7 col-md-12">
+                    <div class="group-image" data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000">
+                        <iframe width="720" height="550" src="https://www.youtube.com/embed/SBvV9_bybEo?t=1266s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-12">
+                    <div class="block-text pt-12">
+                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">Gameplay</h5>
+                        <h3 class="title mb-37" data-aos="fade-up" data-aos-duration="1000"> </h3>
+                        <h4 class="fs-18 mb-41" data-aos="fade-up" data-aos-duration="1000">Ten viajero, acepta este ropaje, estas bebidas y manzanas. Ahora toma tus cosas y emprende viaje, un nuevo mundo te está esperando, hazte de amigos y enemigos y vive una nueva aventura en las fantásticas tierras de este mundo llamado... Argentum Online</h4>
+                        <a href="/aoclasico" class="btn-action style-2"  data-aos="fade-up" data-aos-duration="1200">Jugar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end Visions -->
+
+    <!-- Counter -->
+    <!-- <section class="tf-section counter">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="counter__body" data-aos="fade-down" data-aos-duration="1000">
+                        <div class="counter">
+                            <div class="number-counter">
+                                <span class="number" data-speed="1000" data-to="100" data-inviewport="yes">100</span>K
+                            </div>
+                            <h5 class="title">Registered User</h5>    
+                        </div>
+                        <div class="counter">
+                            <div class="number-counter">
+                                <span class="number" data-speed="1000" data-to="5" data-inviewport="yes">22</span>
+                            </div>
+                            <h5 class="title">Years of development</h5>    
+                        </div>
+                        <div class="counter">
+                            <div class="number-counter">
+                                <span class="number" data-speed="1000" data-to="10" data-inviewport="yes">10</span>B
+                            </div>
+                            <h5 class="title">Yearly Trading</h5>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- end Counter -->
 
 
+        <!-- FAQ -->
+        <section class="tf-section faq">
+            <div id="faq" class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="block-text center">
+                            <h1 class="heading-bg" data-aos="fade-down" data-aos-duration="1000"><span>FAQ</span></h1>
+                            <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">FAQ</h5>
+                            <h3 class="title mb-28" data-aos="fade-up" data-aos-duration="1000">Frequently Aksed <br>
+                                Questions</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row flat-tabs">
+                    <div class="col-md-4">
+                        <ul class="menu-tab">
+                            <li class="item-title active">
+                                <span class="inner">AO Libre</span>
+                            </li>
+                            <li class="item-title">
+                                <span class="inner">NFT Collection</span>
+                            </li>
+                            <li class="item-title">
+                                <span class="inner">$AOLB (BEP-20)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="content-tab">
+                            <div class="content-inner">
+                                <div class="flat-accordion">
+                                    <div class="flat-toggle">
+                                        <h5 class="toggle-title">What is AO Libre?</h5>
+                                        <div class="toggle-content">
+                                            <p class="fs-18">AO Libre is a collaborative project using open-source as a
+                                                banner. Everyone is invited to participate by making modifications to the
+                                                code, graphics, sounds, adding items, spells, mapping or being part of the
+                                                organization of the game within the server. All our resources and code are
+                                                released under the GPL license and can be found on Github.</p>
+                                            <p class="fs-18"></p>
+    
+                                        </div>
+                                    </div>
+                                    <div class="flat-toggle">
+                                        <h5 class="toggle-title">Is the Game Online?</h5>
+                                        <div class="toggle-content">
+                                            <p class="fs-18">Yes, you can download the game from <a
+                                                    href="/aoclasico" target="_blank">
+                                                    here</a> and play in any server either fan-maintained or the maintained
+                                                by AO Libre's staff</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-inner">
+                                <div class="flat-accordion">
+                                    <div class="flat-toggle">
+    
+    
+                                        <h5 class="toggle-title">How do I buy an ARGENTUM NFT?</h5>
+                                        <div class="toggle-content">
+                                            <p class="fs-18">First, you’ll need to have an Ethereum wallet. You can directly
+                                                create one and buy some Ethereum on platforms such as Kraken, Satoshitango
+                                                or BuenBit. Then, you’ll have to setup the
+                                                Metamask chrome extension. Finally,
+                                                you’ll be able to buy ARGENTUM NFTs directly on our website on the date
+                                                of the public sale.</p>
+                                        </div>
+                                        <h5 class="toggle-title">What is an NFT?</h5>
+                                        <div class="toggle-content">
+                                            <p class="fs-18">An NFT (Non-fungible token) is a piece of digital asset (image,
+                                                video, audio...) that lives in the blockchain. Once you buy an NFT, it
+                                                belongs to you, and no one will be able to copy or distribute your NFT
+                                                thanks to the decentralized aspect of the blockchain. You’ll then be able to
+                                                trade and sell your NFTs on NFTs marketplaces like Open Sea.</p>
+                                        </div>
+                                        <h5 class="toggle-title">NFT Collection</h5>
+                                        <div class="toggle-content">
+                                            <p class="fs-18">ARGENTUMS are 10,000 lovable characters generated Non Fungible
+                                                Tokens (NFTS) eternally written on the Ethereum blockchain. These ARGENTUMS
+                                                have varying traits that make each unique and collectible (Weapon, Helmet,
+                                                Armour and Weapon). These are the official ARGENTUMS of the AO Libre
+                                                community. Beware of scams.</p>
+                                        </div>
+    
+                                        <h5 class="toggle-title">When is the public sale</h5>
+                                        <div class="toggle-content">
+                                            <p class="fs-18">Check in the <a href="nfts">ARGENTUMS NFTs Collection section </a>.</p>
+                                        </div>
+    
+                                        <h5 class="toggle-title">How can I get an ARGENTUM?</h5>
+                                        <div class="toggle-content">
+                                            <p class="fs-18">ARGENTUMS will be available to mint directly from our website
+                                                by simply connecting your Metamask wallet. You will also be able to purchase
+                                                from our secondary market on the official ARGENTUMS OpenSea collection.
+                                                Please make sure you use the correct link - all official links can be found
+                                                on our Discord channel.</p>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-inner">
+                                <div class="flat-accordion">
+                                    <div class="flat-toggle">
+                                        <h5 class="toggle-title">$AOLB (Binance Smart Chain) - Official Token</h5>
+                                        <div class="toggle-content">
+                                            <p class="fs-18">
+                                                We have our BEP-20 token (AOLB) which we will use for a lot of
+                                                things including, rewards to our players, rewards to people who collaborate
+                                                in the project in many ways, design, music, game masters, server
+                                                maintainers, game designers, developers, qa team, etc.
+                                            </p>
+                                            <p class="fs-18">
+                                                If you HOLD 100,000 $AOLB Tokens, you will receive 1 ARGENTUM NFT by Airdrop
+                                                more info in the <a href="nfts">ARGENTUMS NFTs Section</a>
+                                            </p>
+                                            <img src="https://argentumonline.org/assets/images/ao-libre-aolb-logo.png"
+                                                alt="BEP-20" class="img-fluid">
+                                            <p class="fs-18">
+                                                <a href="https://argentumonline.org/aolb-token-crowdsale"
+                                                    target="_blank">Buy $AOLB Token</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end FAQ -->
+
+    <!-- Blog -->
+    <!-- <section class="tf-section blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="block-text center">
+                        <h1 class="heading-bg" data-aos="fade-down" data-aos-duration="1000"><span>Blog</span></h1>
+                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">From Our Blog</h5>
+                        <h3 class="title mb-28" data-aos="fade-up" data-aos-duration="1000">Read Our Recent<br>News & Articles</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-51">
+                <div class="col-12">
+                    <div class="swiper swiper-blog">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="blog__box" data-aos="fade-up" data-aos-duration="800">
+                                    <div class="blog-img">
+                                        <a href="blog-single.html">
+                                            <img src="assets/images/blog/blog-01.jpg" alt="Monteno">
+                                        </a>
+                                    </div>
+                                    <div class="blog-content">
+                                        <a href="blog-single.html" class="category">NFT Trading</a>
+                                        <a href="blog-single.html" class="h6 title">How to buy and sale nft in a easiest way</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="blog__box" data-aos="fade-up" data-aos-duration="1200">
+                                    <div class="blog-img">
+                                        <a href="blog-single.html">
+                                            <img src="assets/images/blog/blog-02.jpg" alt="Monteno">
+                                        </a>
+                                    </div>
+                                    <div class="blog-content">
+                                        <a href="blog-single.html" class="category">NFT Trading</a>
+                                        <a href="blog-single.html" class="h6 title">How to buy and sale nft in a easiest way</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="blog__box" data-aos="fade-up" data-aos-duration="1600">
+                                    <div class="blog-img">
+                                        <a href="blog-single.html">
+                                            <img src="assets/images/blog/blog-03.jpg" alt="Monteno">
+                                        </a>
+                                    </div>
+                                    <div class="blog-content">
+                                        <a href="blog-single.html" class="category">NFT Trading</a>
+                                        <a href="blog-single.html" class="h6 title">How to buy and sale nft in a easiest way</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="blog__box" data-aos="fade-up" data-aos-duration="800">
+                                    <div class="blog-img">
+                                        <a href="blog-single.html">
+                                            <img src="assets/images/blog/blog-04.jpg" alt="Monteno">
+                                        </a>
+                                    </div>
+                                    <div class="blog-content">
+                                        <a href="blog-single.html" class="category">NFT Trading</a>
+                                        <a href="blog-single.html" class="h6 title">How to buy and sale nft in a easiest way</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- end Blog -->
+
+    <!-- Partners -->
+    <section class="tf-section partners">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="partners__body style-2" data-aos="zoom-in" data-aos-duration="800">
+                        <h5>We are online thanks to the support and services of the following companies: </h5>
+                        <!-- Slider main container -->
+                        <div class="swiper swiper-partner" data-swiper-autoplay="2000">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="box-partner">
+                                        <a href="https://www.conreco.com.ar"><img src="assets/images/partners/logo-01.png" alt="Conreco"></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="box-partner">
+                                        <a href="https://www.minehost.com.ar"><img src="assets/images/partners/logo-02.png" alt="Minehost"></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="box-partner">
+                                        <a href="https://www.riseup.net"><img src="assets/images/partners/logo-03.png" alt="Rise Up"></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="box-partner">
+                                        <a href="https://www.github.com"><img src="assets/images/partners/logo-04.png" alt="Github"></a>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="box-partner">
+                                        <a href="https://www.heroku.com"><img src="assets/images/partners/logo-05.png" alt="Heroku"></a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="box-partner">
+                                        <a href="https://www.db4free.net"><img src="assets/images/partners/logo-06.png" alt="db4free"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end Partners -->
+    
+    <!-- Footer -->
+    <footer class="footer style-2">
+        <div class="container">
+            <div class="row">
+                <div class="footer__body">
+                    <div class="col-xl-3 col-md-6 col-12">
+                        <div class="info">
+                            <img src="assets/images/logo-2.png" alt="Monteno">
+                            <p class="desc fs-18">
+                                AO Libre es una organizacion sin fines de lucro, trabajamos de forma colaborativa donde mantenemos activamente juegos en forma open-source, tenemos servidores online para que cualquiera pueda entrar y jugar en nuestros mundos
+                            </p>
+
+                            <p class="desc fs-18">
+                                Se distribuye bajo los términos de la licencia GNU Affero GPL (General Public License). 
+                            </p>
+
+                            <img src="https://www.gnu.org/graphics/agplv3-155x51.png" alt="" width="120">
+                            <a href="https://www.gnu.org/licenses/agpl.html" target="_blank">Terminos y Condiciones de la Licencia</a>
+
+                            <ul class="social">
+                                <li><a href="https://www.facebook.com/argentumonlinelibre/"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://twitter.com/AOLibre"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="https://discord.com/invite/f5zp3zbVRj"><i class="fab fa-discord"></i></a></li>
+                                <li><a href="https://www.instagram.com/argentumonlinelibre/"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.reddit.com/r/argentumonlineoficial/"><i class="fab fa-reddit"></i></a></li>
+                                <li><a href="https://pin.it/2neqgsy"><i class="fab fa-pinterest"></i></a></li>
+                                <li><a href="https://www.github.com/ao-libre"><i class="fab fa-github"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-6">
+                        <div class="link s1">
+                            <h5 class="title">Links</h5>
+                            <ul>
+                                <li><a href="/aoclasico">Jugar</a></li>
+                                <li><a href="nfts">ARGENTUMS NFTs Collection</a></li>
+                                <li><a href="aolb-token-crowdsale.html">Buy $AOLB from Crowdsale</a></li>
+                                <li><a href="/aoclasico">Rankings</a></li>
+                                <li><a href="https://whitepaper.argentumonline.org/">Whitepaper</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-6">
+                        <div class="link s2">
+                            <h5 class="title">Ayuda</h5>
+                            <ul>
+                                <li><a target="_blank" href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/">Montar mi server</a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/watch?v=p8Vf2jcJUFc">Indexar nuevos items</a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/watch?v=EvymQYQICsc">Crear nuevos mapas</a></li>
+                                <li><a target="_blank" href="https://www.gs-zone.org/">GS-Zone foro de AO</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-12">
+                        <div class="newsletter">
+                            <h5 class="title">Newsletter</h5>
+                            <p class="fs-18">Recibe nuestras novedades por correo.</p>
+                            <!-- <form action="#">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Escribir email" required>
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                            </form> -->
+
+                            <form class="body__form" action="https://tinyletter.com/aolibre" method="post"
+                                target="popupwindow"
+                                onsubmit="window.open('https://tinyletter.com/aolibre', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="tlemail" placeholder="Your email here" required>
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="hidden" value="1" name="embed" />
+                                </div>
+                                <br>        
+                                <button type="submit" class="btn btn-primary">Subscribe</button>
+
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_bottom">
+                    <p class="fs-16">⚔️ 2022, AO Libre </p>
+                    <ul>
+                        <li><a href="mailto:info@argentumonline.org">🛡️ info@argentumonline.org</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end Footer -->
+    
+
+    <script src="app/js/jquery.min.js"></script>
+    <script src="app/js/swiper-bundle.min.js"></script>
+    <script src="app/js/swiper.js"></script>
+    <script src="app/js/countto.js"></script>
+    <script src="app/js/app.js"></script>
+    <script src="app/js/aos.js"></script>
+    <script type="text/javascript" src="app/js/vanilla-tilt.js"></script>
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelector(".box-item"), {
+            max: 25,
+            speed: 400
+        });
+        VanillaTilt.init(document.querySelectorAll(".box-item"));
     </script>
-
+    <script>
+        AOS.init();
+      </script>
 </body>
-
 </html>

@@ -362,7 +362,7 @@ a:hover {
 .header.is-fixed {
   height: 80px;
   transition: height 0.3s ease;
-  background: #4e1111;
+  background: #2e2828;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.3);
 }
 .header .header__right {
