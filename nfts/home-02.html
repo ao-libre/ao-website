@@ -254,6 +254,30 @@
     </section>
     <!-- end Montono -->
 
+    <!-- Visions -->
+    <section class="tf-section visions">
+        <div class="container">
+            <div class="row reverse">
+                <div class="col-xl-7 col-md-12">
+                    <div class="group-image" data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000">
+                        <iframe width="720" height="550" src="https://www.youtube.com/embed/SBvV9_bybEo?t=1266s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-12">
+                    <div class="block-text pt-12">
+                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">Gameplay</h5>
+                        <h3 class="title mb-37" data-aos="fade-up" data-aos-duration="1000"> </h3>
+                        <h4 class="fs-18 mb-41" data-aos="fade-up" data-aos-duration="1000">Ten viajero, acepta este ropaje, estas bebidas y manzanas. Ahora toma tus cosas y emprende viaje, un nuevo mundo te está esperando, hazte de amigos y enemigos y vive una nueva aventura en las fantásticas tierras de este mundo llamado... Argentum Online</h4>
+                        <a href="../aoclasico.html" class="btn-action style-2"  data-aos="fade-up" data-aos-duration="1200">Jugar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end Visions -->
+
     <!-- Counter -->
     <!-- <section class="tf-section counter">
         <div class="container">
@@ -421,7 +445,7 @@
         <!-- end FAQ -->
 
     <!-- Blog -->
-    <section class="tf-section blog">
+    <!-- <section class="tf-section blog">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -493,7 +517,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- end Blog -->
 
     <!-- Partners -->
@@ -502,43 +526,45 @@
             <div class="row">
                 <div class="col-12">
                     <div class="partners__body style-2" data-aos="zoom-in" data-aos-duration="800">
-
+                        <h5>We are online thanks to the support and services of the following companies: </h5>
                         <!-- Slider main container -->
-                        <div class="swiper swiper-partner">
+                        <div class="swiper swiper-partner" data-swiper-autoplay="2000">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="box-partner">
-                                        <a href="#"><img src="assets/images/partners/logo-01.png" alt="Monteno"></a>
+                                        <a href="https://www.conreco.com.ar"><img src="assets/images/partners/logo-01.png" alt="Conreco"></a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="box-partner">
-                                        <a href="#"><img src="assets/images/partners/logo-02.png" alt="Monteno"></a>
+                                        <a href="https://www.minehost.com.ar"><img src="assets/images/partners/logo-02.png" alt="Minehost"></a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="box-partner">
-                                        <a href="#"><img src="assets/images/partners/logo-03.png" alt="Monteno"></a>
+                                        <a href="https://www.riseup.net"><img src="assets/images/partners/logo-03.png" alt="Rise Up"></a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="box-partner">
-                                        <a href="#"><img src="assets/images/partners/logo-04.png" alt="Monteno"></a>
+                                        <a href="https://www.github.com"><img src="assets/images/partners/logo-04.png" alt="Github"></a>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="box-partner">
+                                        <a href="https://www.heroku.com"><img src="assets/images/partners/logo-05.png" alt="Heroku"></a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="box-partner">
-                                        <a href="#"><img src="assets/images/partners/logo-05.png" alt="Monteno"></a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="box-partner">
-                                        <a href="#"><img src="assets/images/partners/logo-06.png" alt="Monteno"></a>
+                                        <a href="https://www.db4free.net"><img src="assets/images/partners/logo-06.png" alt="db4free"></a>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+
                         
                     </div>
                 </div>
@@ -604,20 +630,33 @@
                         <div class="newsletter">
                             <h5 class="title">Newsletter</h5>
                             <p class="fs-18">Recibe nuestras novedades por correo.</p>
-                            <form action="#">
+                            <!-- <form action="#">
                                 <div class="form-group">
                                     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Escribir email" required>
                                     <i class="fa fa-envelope"></i>
                                 </div>
+                            </form> -->
+
+                            <form class="body__form" action="https://tinyletter.com/aolibre" method="post"
+                                target="popupwindow"
+                                onsubmit="window.open('https://tinyletter.com/aolibre', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="tlemail" placeholder="Your email here" required>
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="hidden" value="1" name="embed" />
+                                </div>
+                                <br>        
+                                <button type="submit" class="btn btn-primary">Subscribe</button>
+
                             </form>
                             
                         </div>
                     </div>
                 </div>
                 <div class="footer_bottom">
-                    <p class="fs-16">2022, AO Libre </p>
+                    <p class="fs-16">⚔️ 2022, AO Libre </p>
                     <ul>
-                        <li><a href="mailto:info@argentumonline.org">info@argentumonline.org</a></li>
+                        <li><a href="mailto:info@argentumonline.org">🛡️ info@argentumonline.org</a></li>
                     </ul>
                 </div>
             </div>
