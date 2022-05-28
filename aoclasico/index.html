@@ -198,7 +198,7 @@
                         <br>
                         <br>
                         <a id="autoupdateDownload" href="#" class="nk-btn nk-btn-lg" style="font-size: 45px;">
-                            <ion-icon name="cloud-download"></ion-icon> Descargar Instalador
+                            <ion-icon name="cloud-download"></ion-icon> Descargar Juego.
                         </a>
 
                         <h2 class="nk-title display-5">
@@ -209,8 +209,8 @@
                         </br>
                         </br>
                         <span>
-                            Si el boton de descarga no funciona, baja la ultima version del instalador desde aqui: </br>
-                            <a href="https://github.com/ao-libre/ao-autoupdate/releases">https://github.com/ao-libre/ao-autoupdate/releases</a>
+                            Si el boton de descarga no funciona podes bajar la ultima version del juego de Github: </br>
+                            <a href="https://github.com/ao-libre/ao-cliente/releases">https://github.com/ao-libre/ao-cliente/releases</a>
                         </span>
                         
                         </br>
@@ -804,7 +804,9 @@
     //document.getElementById("clientDownload").href = githubReponseClient.assets[0].browser_download_url;
     // document.getElementById("serverDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
     document.getElementById("worldEditorDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
-    document.getElementById("autoupdateDownload").href = githubReponseAutoupdate.assets[0].browser_download_url;
+    
+    //TODO: Bajo el ZIP del juego hasta que el instalador deje de tirar archivo peligroso
+    document.getElementById("autoupdateDownload").href = githubReponseClient.assets[0].browser_download_url;
 
     var clientDateRelease = new Date(githubReponseClient.published_at)
     var yyyymmddClientUpdate = clientDateRelease.getDate() + '/' + (clientDateRelease.getMonth() + 1) + '/' + clientDateRelease.getFullYear();
