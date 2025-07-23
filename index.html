@@ -632,7 +632,7 @@
                     </div> -->
                 </div>
                 <div class="footer_bottom">
-                    <p class="fs-16">⚔️ 2022, AO Libre </p>
+                    <p class="fs-16">⚔️ <span id="current-year"></span>, AO Libre </p>
                     <ul>
                         <li><a href="mailto:info@argentumonline.org">🛡️ info@argentumonline.org</a></li>
                     </ul>
@@ -659,6 +659,8 @@
     </script>
     <script>
         AOS.init();
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
       </script>
 </body>
 </html>
