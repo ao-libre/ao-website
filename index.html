@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +14,9 @@
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/images/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/images/favicon.png">
+
+    <!-- i18n -->
+    <script src="app/js/i18n.js" defer></script>
 
     <!-- Matomo -->
     <script type="text/javascript">
@@ -30,6 +33,26 @@
         })();
     </script>
     <!-- End Matomo Code -->
+
+    <style>
+        #lang-switcher {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.5);
+            color: inherit;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-right: 12px;
+            vertical-align: middle;
+            transition: background 0.2s, color 0.2s;
+        }
+        #lang-switcher:hover {
+            background: rgba(255,255,255,0.15);
+        }
+    </style>
 </head>
 <body class="home-2 header-fixed">
 
@@ -66,19 +89,20 @@
                             <nav id="main-nav" class="main-nav">
                                 <ul id="menu-primary-menu" class="menu">
                                     <li class="menu-item menu-item-has-children">
-                                        <a href="https://github.com/ao-libre/ao-cliente/releases/latest" target="_blank">Descargar</a>
+                                        <a href="https://github.com/ao-libre/ao-cliente/releases/latest" target="_blank" data-i18n="nav.download">Descargar</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children">
-                                        <a href="https://discord.com/invite/f5zp3zbVRj" target="_blank">Discord</a>
+                                        <a href="https://discord.com/invite/f5zp3zbVRj" target="_blank" data-i18n="nav.discord">Discord</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children">
-                                        <a href="https://github.com/ao-libre" target="_blank">GitHub</a>
+                                        <a href="https://github.com/ao-libre" target="_blank" data-i18n="nav.github">GitHub</a>
                                     </li>
                                     <li class="menu-item menu-item-has-children">
-                                        <a href="https://wiki.argentumonline.org/" target="_blank">Wiki</a>
+                                        <a href="https://wiki.argentumonline.org/" target="_blank" data-i18n="nav.wiki">Wiki</a>
                                     </li>
                                 </ul>
                             </nav><!-- /#main-nav -->
+                            <button id="lang-switcher" onclick="switchLang(this.textContent.trim().toLowerCase())" aria-label="Switch language">EN</button>
                             <ul class="social">
                                 <li><a href="https://www.facebook.com/argentumonlinelibre/"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="https://twitter.com/AOLibre"><i class="fab fa-twitter"></i></a></li>
@@ -103,19 +127,18 @@
             <div class="row">
                 <div class="col-12">
                     <div class="block-text pt-24 center" >
-                        <h6 class="sub-title mb-6" data-aos="fade-up">We are AO Libre</h6>
+                        <h6 class="sub-title mb-6" data-aos="fade-up" data-i18n="hero.subtitle">Somos AO Libre</h6>
                         <h2 class="title mb-26" data-aos="fade-up"><span style="color:rgb(62, 62, 231)">Argentum </span><span style="color:rgb(196, 13, 13)"> Online</span> <br> <span style="color:rgb(60, 153, 7)"> Libre</span></h2>
-                        <p class="desc mb-53" data-aos="fade-up">AO Libre es un proyecto colaborativo utilizando el open-source como bandera. <br>Todos estan invitados a participar a ser parte de la organizacion del juego dentro del server. <br> Todo nuestros recursos y codigo estan liberados bajo la licencia AGPL y pueden encontrarlos en Github. </p>
-                        <!-- <a href="about.html" class="btn-action style-2" data-aos="fade-up" data-aos-duration="1200" >Get Connected</a> -->
+                        <p class="desc mb-53" data-aos="fade-up" data-i18n-html="hero.description">AO Libre es un proyecto colaborativo utilizando el open-source como bandera. <br>Todos estan invitados a participar a ser parte de la organizacion del juego dentro del server. <br> Todo nuestros recursos y codigo estan liberados bajo la licencia AGPL y pueden encontrarlos en Github.</p>
 
                         <div class="shape">
-                            <div class="item"><img src="assets/images/items/pjs-transparentes/4.png" alt="Image"></div>
-                            <div class="item"><img src="assets/images/items/pjs-transparentes/5.png" alt="Image"></div>
-                            <div class="item"><img src="assets/images/items/pjs-transparentes/6.png" alt="Image"></div>
-                            <div class="item"><img src="assets/images/items/pjs-transparentes/7.png" alt="Image"></div>
-                            <div class="item"><img src="assets/images/items/pjs-transparentes/8.png" alt="Image"></div>
-                            <div class="item"><img src="assets/images/items/pjs-transparentes/9.png" alt="Image"></div>
-                            <div class="item"><img src="assets/images/items/pjs-transparentes/10.png" alt="Image"></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/4.png" alt=""></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/5.png" alt=""></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/6.png" alt=""></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/7.png" alt=""></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/8.png" alt=""></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/9.png" alt=""></div>
+                            <div class="item"><img src="assets/images/items/pjs-transparentes/10.png" alt=""></div>
                         </div>
                     </div>
                 </div>
@@ -130,7 +153,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="block-text center">
-                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">Elige tu propia aventura</h5>
+                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000" data-i18n="speciality.subtitle">Elige tu propia aventura</h5>
                     </div>
                 </div>
             </div>
@@ -139,31 +162,31 @@
             <div class="row">
                 <div class="col-xl-3 col-md-6 col-12">
                     <div class="box-item bg-1" data-aos="fade-up" data-aos-duration="800">
-                            <img src="assets/images/items/pjs-transparentes/11.png" alt="AO Libre Character">
-                            <span class="h5">Jugar</span>
-                            <p>Podes descargarte el juego ya mismo desde <a href="https://github.com/ao-libre/ao-cliente/releases/latest" target="_blank">aqui</a> y empezar a jugar.</p>
+                            <img src="assets/images/items/pjs-transparentes/11.png" alt="">
+                            <span class="h5" data-i18n="speciality.play.title">Jugar</span>
+                            <p data-i18n-html="speciality.play.desc">Podes descargarte el juego ya mismo desde <a href="https://github.com/ao-libre/ao-cliente/releases/latest" target="_blank">aqui</a> y empezar a jugar.</p>
                         </div>
                 </div>
                 <div class="col-xl-3 col-md-6 col-12">
                     <div class="box-item bg-2 s2" data-aos="fade-up" data-aos-duration="1000">
-                            <img src="assets/images/items/pjs-transparentes/12.png" alt="AO Libre Character">
-                            <span class="h5">Montar tu servidor</span>
-                            <p>¿Queres tu propio server de Argentum Online? Es muy facil, aca te decimos como, solo 5 minutos. <a target="_blank" href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/">Click Aqui</a></p>
+                            <img src="assets/images/items/pjs-transparentes/12.png" alt="">
+                            <span class="h5" data-i18n="speciality.server.title">Montar tu servidor</span>
+                            <p data-i18n-html="speciality.server.desc">¿Queres tu propio server de Argentum Online? Es muy facil, aca te decimos como, solo 5 minutos. <a target="_blank" href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/">Click Aqui</a></p>
                         </div>
                 </div>
                 <div class="col-xl-3 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1200">
                     <div class="box-item bg-1 s2-m">
-                            <img src="assets/images/items/pjs-transparentes/13.png" alt="AO Libre Character">
-                            <span class="h5">Crea tu mundo</span>
-                            <p>¿Queres crear mapas para tu servidor de Argentum Online? World Editor es la herramienta que necesitas. Mira este <a target="_blank" href="https://www.youtube.com/watch?v=EvymQYQICsc">tutorial</a></p>
-                            <p><a href="https://github.com/ao-libre/ao-autoupdate/releases/download/v1.7/aolibre-installer-v1.7.exe">Descargar Worldeditor</a></p>
+                            <img src="assets/images/items/pjs-transparentes/13.png" alt="">
+                            <span class="h5" data-i18n="speciality.world.title">Crea tu mundo</span>
+                            <p data-i18n-html="speciality.world.desc">¿Queres crear mapas para tu servidor de Argentum Online? World Editor es la herramienta que necesitas. Mira este <a target="_blank" href="https://www.youtube.com/watch?v=EvymQYQICsc">tutorial</a></p>
+                            <p><a href="https://github.com/ao-libre/ao-autoupdate/releases/download/v1.7/aolibre-installer-v1.7.exe" data-i18n="speciality.world.download">Descargar Worldeditor</a></p>
                         </div>
                 </div>
                 <div class="col-xl-3 col-md-6 col-12" data-aos="fade-up" data-aos-duration="1400">
                     <div class="box-item bg-2 s2">
-                            <img src="assets/images/items/pjs-transparentes/14.png" alt="AO Libre Character">
-                            <span class="h5">Agregar nuevos items</span>
-                            <p>¿Queres agregar nuevos items al juego ? En este <a target="_blank" href="https://www.youtube.com/watch?v=p8Vf2jcJUFc">tutorial</a> te mostramos como.</p>
+                            <img src="assets/images/items/pjs-transparentes/14.png" alt="">
+                            <span class="h5" data-i18n="speciality.items.title">Agregar nuevos items</span>
+                            <p data-i18n-html="speciality.items.desc">¿Queres agregar nuevos items al juego ? En este <a target="_blank" href="https://www.youtube.com/watch?v=p8Vf2jcJUFc">tutorial</a> te mostramos como.</p>
                         </div>
                 </div>
             </div>
@@ -188,13 +211,13 @@
                 </div>
                 <div class="col-xl-5 col-md-12">
                     <div class="block-text pt-12">
-                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">Crypto space</h5>
-                        <h3 class="title mb-58" data-aos="fade-up" data-aos-duration="1000">₿lockchain Development</h3>
-                        <p class="fs-18 mb-33" data-aos="fade-up" data-aos-duration="1000">ARGENTUMS is a collection of 10,000 unique NFT characters inspired by Argentum Online, minted on the Ethereum blockchain. Each one has unique traits based on the game's classes, weapons and armour.</p>
-                        <p class="fs-18 line-h17 mb-41" data-aos="fade-up" data-aos-duration="1000">$AOLB is an experimental BEP-20 community token on the Binance Smart Chain. It has no utility inside the game and does not grant any in-game advantages or privileges.</p>
-                        <a href="aolb-token-crowdsale.html" class="btn-action style-2"  data-aos="fade-up" data-aos-duration="1200">Buy $AOLB</a>
-                        <a href="nfts.html" class="btn-action style-2"  data-aos="fade-up" data-aos-duration="1200">ARGENTUMS NFT more info</a>
-                        <a href="https://whitepaper.argentumonline.org" class="btn-action style-2"  data-aos="fade-up" data-aos-duration="1200">Whitepaper</a>
+                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000" data-i18n="about.subtitle">Crypto space</h5>
+                        <h3 class="title mb-58" data-aos="fade-up" data-aos-duration="1000" data-i18n="about.title">₿lockchain Development</h3>
+                        <p class="fs-18 mb-33" data-aos="fade-up" data-aos-duration="1000" data-i18n="about.nfts">ARGENTUMS es una colección de 10,000 personajes NFT únicos inspirados en Argentum Online, minteados en la blockchain de Ethereum. Cada uno tiene características únicas basadas en las clases, armas y armaduras del juego.</p>
+                        <p class="fs-18 line-h17 mb-41" data-aos="fade-up" data-aos-duration="1000" data-i18n="about.aolb">$AOLB es un token comunitario BEP-20 experimental en la Binance Smart Chain. No tiene utilidad dentro del juego y no otorga ninguna ventaja o privilegio dentro del mismo.</p>
+                        <a href="aolb-token-crowdsale.html" class="btn-action style-2" data-aos="fade-up" data-aos-duration="1200" data-i18n="about.btn.buy">Comprar $AOLB</a>
+                        <a href="nfts.html" class="btn-action style-2" data-aos="fade-up" data-aos-duration="1200" data-i18n="about.btn.nfts">Más info sobre ARGENTUMS NFT</a>
+                        <a href="https://whitepaper.argentumonline.org" class="btn-action style-2" data-aos="fade-up" data-aos-duration="1200" data-i18n="about.btn.whitepaper">Whitepaper</a>
                     </div>
                 </div>
             </div>
@@ -202,15 +225,15 @@
     </section>
     <!-- end About Us -->
 
-    <!-- Montono -->
+    <!-- Screenshots -->
     <section class="tf-section montono">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="block-text center">
                         <h1 class="heading-bg" data-aos="fade-down" data-aos-duration="1000"><span>The Game</span></h1>
-                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">Screenshots</h5>
-                        <h3 class="title mb-28" data-aos="fade-up" data-aos-duration="1000">Check real images of our <br> MMORPG</h3>
+                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000" data-i18n="screenshots.subtitle">Capturas</h5>
+                        <h3 class="title mb-28" data-aos="fade-up" data-aos-duration="1000" data-i18n-html="screenshots.title">Mirá imágenes reales de nuestro<br>MMORPG</h3>
                     </div>
                 </div>
             </div>
@@ -250,9 +273,9 @@
             </div>
         </div>
     </section>
-    <!-- end Montono -->
+    <!-- end Screenshots -->
 
-    <!-- Visions -->
+    <!-- Gameplay -->
     <section class="tf-section visions">
         <div class="container">
             <div class="row reverse">
@@ -265,250 +288,118 @@
                 </div>
                 <div class="col-xl-5 col-md-12">
                     <div class="block-text pt-12">
-                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">Gameplay</h5>
+                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000" data-i18n="gameplay.subtitle">Gameplay</h5>
                         <h3 class="title mb-37" data-aos="fade-up" data-aos-duration="1000"> </h3>
-                        <h4 class="fs-18 mb-41" data-aos="fade-up" data-aos-duration="1000">Ten viajero, acepta este ropaje, estas bebidas y manzanas. Ahora toma tus cosas y emprende viaje, un nuevo mundo te está esperando, hazte de amigos y enemigos y vive una nueva aventura en las fantásticas tierras de este mundo llamado... Argentum Online</h4>
-                        <a href="https://github.com/ao-libre/ao-cliente/releases/latest" class="btn-action style-2"  data-aos="fade-up" data-aos-duration="1200" target="_blank">Jugar Ahora</a>
+                        <h4 class="fs-18 mb-41" data-aos="fade-up" data-aos-duration="1000" data-i18n="gameplay.quote">Ten viajero, acepta este ropaje, estas bebidas y manzanas. Ahora toma tus cosas y emprende viaje, un nuevo mundo te está esperando, hazte de amigos y enemigos y vive una nueva aventura en las fantásticas tierras de este mundo llamado... Argentum Online</h4>
+                        <a href="https://github.com/ao-libre/ao-cliente/releases/latest" class="btn-action style-2" data-aos="fade-up" data-aos-duration="1200" target="_blank" data-i18n="gameplay.btn">Jugar Ahora</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- end Visions -->
+    <!-- end Gameplay -->
 
-    <!-- Counter -->
-    <!-- <section class="tf-section counter">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="counter__body" data-aos="fade-down" data-aos-duration="1000">
-                        <div class="counter">
-                            <div class="number-counter">
-                                <span class="number" data-speed="1000" data-to="100" data-inviewport="yes">100</span>K
-                            </div>
-                            <h5 class="title">Registered User</h5>    
-                        </div>
-                        <div class="counter">
-                            <div class="number-counter">
-                                <span class="number" data-speed="1000" data-to="5" data-inviewport="yes">22</span>
-                            </div>
-                            <h5 class="title">Years of development</h5>    
-                        </div>
-                        <div class="counter">
-                            <div class="number-counter">
-                                <span class="number" data-speed="1000" data-to="10" data-inviewport="yes">10</span>B
-                            </div>
-                            <h5 class="title">Yearly Trading</h5>    
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- end Counter -->
-
-
-        <!-- FAQ -->
-        <section class="tf-section faq">
-            <div id="faq" class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="block-text center">
-                            <h1 class="heading-bg" data-aos="fade-down" data-aos-duration="1000"><span>FAQ</span></h1>
-                            <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">FAQ</h5>
-                            <h3 class="title mb-28" data-aos="fade-up" data-aos-duration="1000">Frequently Aksed <br>
-                                Questions</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row flat-tabs">
-                    <div class="col-md-4">
-                        <ul class="menu-tab">
-                            <li class="item-title active">
-                                <span class="inner">AO Libre</span>
-                            </li>
-                            <li class="item-title">
-                                <span class="inner">NFT Collection</span>
-                            </li>
-                            <li class="item-title">
-                                <span class="inner">$AOLB (BEP-20)</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="content-tab">
-                            <div class="content-inner">
-                                <div class="flat-accordion">
-                                    <div class="flat-toggle">
-                                        <h5 class="toggle-title">What is AO Libre?</h5>
-                                        <div class="toggle-content">
-                                            <p class="fs-18">AO Libre is a collaborative project using open-source as a
-                                                banner. Everyone is invited to participate by making modifications to the
-                                                code, graphics, sounds, adding items, spells, mapping or being part of the
-                                                organization of the game within the server. All our resources and code are
-                                                released under the GPL license and can be found on Github.</p>
-                                            <p class="fs-22">More information in our <a href="https://whitepaper.argentumonline.org/">whitepaper</a></p>
-    
-                                        </div>
-                                    </div>
-                                    <div class="flat-toggle">
-                                        <h5 class="toggle-title">Is the Game Online?</h5>
-                                        <div class="toggle-content">
-                                            <p class="fs-18">Yes, you can download the game from <a
-                                                    href="https://github.com/ao-libre/ao-cliente/releases/latest" target="_blank">
-                                                    here</a> and play in any server either fan-maintained or the maintained
-                                                by AO Libre's staff</p>
-                                        </div>
-                                    </div>
-                                    <div class="flat-toggle">
-                                        <h5 class="toggle-title">How do I contribute to the project?</h5>
-                                        <div class="toggle-content">
-                                            <p class="fs-18">You can contribute in many ways: programming, updating guides, reporting bugs, playing on the server, creating your guild, being a game master, or simply being part of the community in the chat. All our source code is available on <a href="https://github.com/ao-libre" target="_blank">GitHub</a>.</p>
-                                        </div>
-                                    </div>
-                                    <div class="flat-toggle">
-                                        <h5 class="toggle-title">How do I run my own server?</h5>
-                                        <div class="toggle-content">
-                                            <p class="fs-18">It's very easy and takes about 5 minutes. Check out this <a href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/" target="_blank">guide on Reddit</a> for step-by-step instructions.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content-inner">
-                                <div class="flat-accordion">
-                                    <div class="flat-toggle">
-    
-    
-                                        <h5 class="toggle-title">How do I buy an ARGENTUM NFT?</h5>
-                                        <div class="toggle-content">
-                                            <p class="fs-18">First, you’ll need to have an Ethereum wallet. You can directly
-                                                create one and buy some Ethereum on platforms such as Kraken, Satoshitango
-                                                or BuenBit. Then, you’ll have to setup the
-                                                Metamask chrome extension. Finally,
-                                                you’ll be able to buy ARGENTUM NFTs directly on our website on the date
-                                                of the public sale.</p>
-                                        </div>
-                                        <h5 class="toggle-title">What is an NFT?</h5>
-                                        <div class="toggle-content">
-                                            <p class="fs-18">An NFT (Non-fungible token) is a piece of digital asset (image,
-                                                video, audio...) that lives in the blockchain. Once you buy an NFT, it
-                                                belongs to you, and no one will be able to copy or distribute your NFT
-                                                thanks to the decentralized aspect of the blockchain. You’ll then be able to
-                                                trade and sell your NFTs on NFTs marketplaces like Open Sea.</p>
-                                        </div>
-                                        <h5 class="toggle-title">NFT Collection</h5>
-                                        <div class="toggle-content">
-                                            <p class="fs-18">ARGENTUMS are 10,000 lovable characters generated Non Fungible
-                                                Tokens (NFTS) eternally written on the Ethereum blockchain. These ARGENTUMS
-                                                have varying traits that make each unique and collectible (Weapon, Helmet,
-                                                Armour and Weapon). These are the official ARGENTUMS of the AO Libre
-                                                community. Beware of scams.</p>
-                                        </div>
-    
-                                        <h5 class="toggle-title">When is the public sale</h5>
-                                        <div class="toggle-content">
-                                            <p class="fs-18">Check in the <a href="nfts">ARGENTUMS NFTs Collection section </a>.</p>
-                                        </div>
-    
-                                        <h5 class="toggle-title">How can I get an ARGENTUM?</h5>
-                                        <div class="toggle-content">
-                                            <p class="fs-18">ARGENTUMS will be available to mint directly from our website
-                                                by simply connecting your Metamask wallet. You will also be able to purchase
-                                                from our secondary market on the official ARGENTUMS OpenSea collection.
-                                                Please make sure you use the correct link - all official links can be found
-                                                on our Discord channel.</p>
-                                        </div>
-    
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="content-inner">
-                                <div class="flat-accordion">
-                                    <div class="flat-toggle">
-                                        <h5 class="toggle-title">$AOLB (Binance Smart Chain) - Official Token</h5>
-                                        <div class="toggle-content">
-                                            <p class="fs-18">
-                                                $AOLB is an experimental BEP-20 token on the Binance Smart Chain. It is a community experiment and has no utility inside the game. It does not grant any in-game advantages, items, or privileges.
-                                            </p>
-                                            <p class="fs-18">
-                                                <a href="https://argentumonline.org/aolb-token-crowdsale" target="_blank">More info about $AOLB</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end FAQ -->
-
-    <!-- Blog -->
-    <!-- <section class="tf-section blog">
-        <div class="container">
+    <!-- FAQ -->
+    <section class="tf-section faq">
+        <div id="faq" class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="block-text center">
-                        <h1 class="heading-bg" data-aos="fade-down" data-aos-duration="1000"><span>Blog</span></h1>
-                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000">From Our Blog</h5>
-                        <h3 class="title mb-28" data-aos="fade-up" data-aos-duration="1000">Read Our Recent<br>News & Articles</h3>
+                        <h1 class="heading-bg" data-aos="fade-down" data-aos-duration="1000"><span>FAQ</span></h1>
+                        <h5 class="sub-title mb-10" data-aos="fade-up" data-aos-duration="1000" data-i18n="faq.subtitle">FAQ</h5>
+                        <h3 class="title mb-28" data-aos="fade-up" data-aos-duration="1000" data-i18n-html="faq.title">Preguntas<br>Frecuentes</h3>
                     </div>
                 </div>
             </div>
-            <div class="row mt-51">
-                <div class="col-12">
-                    <div class="swiper swiper-blog">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="blog__box" data-aos="fade-up" data-aos-duration="800">
-                                    <div class="blog-img">
-                                        <a href="blog-single.html">
-                                            <img src="assets/images/blog/blog-01.jpg" alt="Monteno">
-                                        </a>
+            <div class="row flat-tabs">
+                <div class="col-md-4">
+                    <ul class="menu-tab">
+                        <li class="item-title active">
+                            <span class="inner" data-i18n="faq.tab.aolibre">AO Libre</span>
+                        </li>
+                        <li class="item-title">
+                            <span class="inner" data-i18n="faq.tab.nft">Colección NFT</span>
+                        </li>
+                        <li class="item-title">
+                            <span class="inner" data-i18n="faq.tab.aolb">$AOLB (BEP-20)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-8">
+                    <div class="content-tab">
+                        <!-- Tab 1: AO Libre -->
+                        <div class="content-inner">
+                            <div class="flat-accordion">
+                                <div class="flat-toggle">
+                                    <h5 class="toggle-title" data-i18n="faq.q1">¿Qué es AO Libre?</h5>
+                                    <div class="toggle-content">
+                                        <p class="fs-18" data-i18n="faq.a1">AO Libre es un proyecto colaborativo utilizando el open-source como bandera. Todos estan invitados a participar realizando modificaciones al código, gráficos, sonidos, agregando items, hechizos, mapeando o siendo parte de la organización del juego dentro del server. Todo nuestros recursos y código están liberados bajo la licencia GPL y pueden encontrarlos en Github.</p>
+                                        <p class="fs-22" data-i18n-html="faq.a1.more">Más información en nuestro <a href="https://whitepaper.argentumonline.org/">whitepaper</a></p>
                                     </div>
-                                    <div class="blog-content">
-                                        <a href="blog-single.html" class="category">NFT Trading</a>
-                                        <a href="blog-single.html" class="h6 title">How to buy and sale nft in a easiest way</a>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h5 class="toggle-title" data-i18n="faq.q2">¿Está el juego online?</h5>
+                                    <div class="toggle-content">
+                                        <p class="fs-18" data-i18n-html="faq.a2">Sí, podés descargar el juego desde <a href="https://github.com/ao-libre/ao-cliente/releases/latest" target="_blank">aquí</a> y jugar en cualquier servidor, ya sea mantenido por fans o por el staff de AO Libre.</p>
+                                    </div>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h5 class="toggle-title" data-i18n="faq.q3">¿Cómo contribuyo al proyecto?</h5>
+                                    <div class="toggle-content">
+                                        <p class="fs-18" data-i18n-html="faq.a3">Podés contribuir de muchas formas: programando, actualizando guías, reportando bugs, jugando en el server, creando tu clan, siendo game master, o simplemente siendo parte de la comunidad en el chat. Todo nuestro código fuente está disponible en <a href="https://github.com/ao-libre" target="_blank">GitHub</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h5 class="toggle-title" data-i18n="faq.q4">¿Cómo monto mi propio servidor?</h5>
+                                    <div class="toggle-content">
+                                        <p class="fs-18" data-i18n-html="faq.a4">Es muy fácil y lleva unos 5 minutos. Mirá esta <a href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/" target="_blank">guía en Reddit</a> para instrucciones paso a paso.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="blog__box" data-aos="fade-up" data-aos-duration="1200">
-                                    <div class="blog-img">
-                                        <a href="blog-single.html">
-                                            <img src="assets/images/blog/blog-02.jpg" alt="Monteno">
-                                        </a>
+                        </div>
+                        <!-- Tab 2: NFT Collection -->
+                        <div class="content-inner">
+                            <div class="flat-accordion">
+                                <div class="flat-toggle">
+                                    <h5 class="toggle-title" data-i18n="faq.q5">¿Cómo compro un ARGENTUM NFT?</h5>
+                                    <div class="toggle-content">
+                                        <p class="fs-18" data-i18n="faq.a5">Primero necesitás una billetera Ethereum. Podés crear una y comprar Ethereum en plataformas como Kraken, Satoshitango o BuenBit. Luego configurá la extensión Metamask. Finalmente, podrás comprar ARGENTUMS NFTs directamente en nuestro sitio.</p>
                                     </div>
-                                    <div class="blog-content">
-                                        <a href="blog-single.html" class="category">NFT Trading</a>
-                                        <a href="blog-single.html" class="h6 title">How to buy and sale nft in a easiest way</a>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h5 class="toggle-title" data-i18n="faq.q6">¿Qué es un NFT?</h5>
+                                    <div class="toggle-content">
+                                        <p class="fs-18" data-i18n="faq.a6">Un NFT (token no fungible) es un activo digital (imagen, video, audio...) que vive en la blockchain. Una vez que comprás un NFT, te pertenece y nadie puede copiarlo ni distribuirlo.</p>
+                                    </div>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h5 class="toggle-title" data-i18n="faq.q7">Colección NFT</h5>
+                                    <div class="toggle-content">
+                                        <p class="fs-18" data-i18n="faq.a7">ARGENTUMS son 10,000 personajes generados como NFTs escritos eternamente en la blockchain de Ethereum. Cada ARGENTUM tiene características únicas que lo hacen coleccionable. Estos son los ARGENTUMS oficiales de la comunidad AO Libre. Cuidado con las estafas.</p>
+                                    </div>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h5 class="toggle-title" data-i18n="faq.q8">¿Cuándo es la venta pública?</h5>
+                                    <div class="toggle-content">
+                                        <p class="fs-18" data-i18n-html="faq.a8">Verificá en la <a href="nfts.html">sección de la colección ARGENTUMS NFTs</a>.</p>
+                                    </div>
+                                </div>
+                                <div class="flat-toggle">
+                                    <h5 class="toggle-title" data-i18n="faq.q9">¿Cómo obtengo un ARGENTUM?</h5>
+                                    <div class="toggle-content">
+                                        <p class="fs-18" data-i18n="faq.a9">ARGENTUMS estarán disponibles para mintear directamente desde nuestro sitio conectando tu billetera Metamask. También podés comprar en el mercado secundario en OpenSea. Usá solo los links oficiales de nuestro canal de Discord.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="blog__box" data-aos="fade-up" data-aos-duration="1600">
-                                    <div class="blog-img">
-                                        <a href="blog-single.html">
-                                            <img src="assets/images/blog/blog-03.jpg" alt="Monteno">
-                                        </a>
-                                    </div>
-                                    <div class="blog-content">
-                                        <a href="blog-single.html" class="category">NFT Trading</a>
-                                        <a href="blog-single.html" class="h6 title">How to buy and sale nft in a easiest way</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="blog__box" data-aos="fade-up" data-aos-duration="800">
-                                    <div class="blog-img">
-                                        <a href="blog-single.html">
-                                            <img src="assets/images/blog/blog-04.jpg" alt="Monteno">
-                                        </a>
-                                    </div>
-                                    <div class="blog-content">
-                                        <a href="blog-single.html" class="category">NFT Trading</a>
-                                        <a href="blog-single.html" class="h6 title">How to buy and sale nft in a easiest way</a>
+                        </div>
+                        <!-- Tab 3: $AOLB -->
+                        <div class="content-inner">
+                            <div class="flat-accordion">
+                                <div class="flat-toggle">
+                                    <h5 class="toggle-title" data-i18n="faq.q10">$AOLB (Binance Smart Chain) - Token Oficial</h5>
+                                    <div class="toggle-content">
+                                        <p class="fs-18" data-i18n="faq.a10">$AOLB es un token BEP-20 experimental en la Binance Smart Chain. Es un experimento comunitario y no tiene utilidad dentro del juego. No otorga ventajas, items ni privilegios en el juego.</p>
+                                        <p class="fs-18" data-i18n-html="faq.a10.link"><a href="https://argentumonline.org/aolb-token-crowdsale" target="_blank">Más info sobre $AOLB</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -517,11 +408,9 @@
                 </div>
             </div>
         </div>
-    </section> -->
-    <!-- end Blog -->
+    </section>
+    <!-- end FAQ -->
 
-
-    
     <!-- Footer -->
     <footer class="footer style-2">
         <div class="container">
@@ -530,17 +419,10 @@
                     <div class="col-xl-3 col-md-6 col-12">
                         <div class="info">
                             <img src="assets/images/logo-2.png" alt="AO Libre Logo">
-                            <p class="desc fs-18">
-                                AO Libre es una organizacion sin fines de lucro, trabajamos de forma colaborativa donde mantenemos activamente juegos en forma open-source, tenemos servidores online para que cualquiera pueda entrar y jugar en nuestros mundos
-                            </p>
-
-                            <p class="desc fs-18">
-                                Se distribuye bajo los términos de la licencia GNU Affero GPL (General Public License). 
-                            </p>
-
+                            <p class="desc fs-18" data-i18n="footer.desc">AO Libre es una organizacion sin fines de lucro, trabajamos de forma colaborativa donde mantenemos activamente juegos en forma open-source, tenemos servidores online para que cualquiera pueda entrar y jugar en nuestros mundos.</p>
+                            <p class="desc fs-18" data-i18n="footer.license">Se distribuye bajo los términos de la licencia GNU Affero GPL (General Public License).</p>
                             <img src="https://www.gnu.org/graphics/agplv3-155x51.png" alt="" width="120">
-                            <a href="https://www.gnu.org/licenses/agpl.html" target="_blank">Terminos y Condiciones de la Licencia</a>
-
+                            <a href="https://www.gnu.org/licenses/agpl.html" target="_blank" data-i18n="footer.license.link">Terminos y Condiciones de la Licencia</a>
                             <ul class="social">
                                 <li><a href="https://www.facebook.com/argentumonlinelibre/"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="https://twitter.com/AOLibre"><i class="fab fa-twitter"></i></a></li>
@@ -554,36 +436,27 @@
                     </div>
                     <div class="col-xl-3 col-md-6 col-6">
                         <div class="link s1">
-                            <h5 class="title">Links</h5>
+                            <h5 class="title" data-i18n="footer.links.title">Links</h5>
                             <ul>
-                                <li><a href="https://github.com/ao-libre/ao-cliente/releases/latest" target="_blank">Descargar</a></li>
-                                <li><a href="nfts.html">ARGENTUMS NFTs Collection</a></li>
-                                <li><a href="aolb-token-crowdsale.html">Buy $AOLB from Crowdsale</a></li>
-                                <li><a href="https://github.com/ao-libre" target="_blank">Código Fuente</a></li>
-                                <li><a href="https://wiki.argentumonline.org/" target="_blank">Wiki</a></li>
-                                <li><a href="https://whitepaper.argentumonline.org/">Whitepaper</a></li>
+                                <li><a href="https://github.com/ao-libre/ao-cliente/releases/latest" target="_blank" data-i18n="footer.links.download">Descargar</a></li>
+                                <li><a href="nfts.html" data-i18n="footer.links.nfts">Colección ARGENTUMS NFTs</a></li>
+                                <li><a href="aolb-token-crowdsale.html" data-i18n="footer.links.aolb">Comprar $AOLB en Crowdsale</a></li>
+                                <li><a href="https://github.com/ao-libre" target="_blank" data-i18n="footer.links.source">Código Fuente</a></li>
+                                <li><a href="https://wiki.argentumonline.org/" target="_blank" data-i18n="footer.links.wiki">Wiki</a></li>
+                                <li><a href="https://whitepaper.argentumonline.org/" data-i18n="footer.links.whitepaper">Whitepaper</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-6">
                         <div class="link s2">
-                            <h5 class="title">Ayuda</h5>
+                            <h5 class="title" data-i18n="footer.help.title">Ayuda</h5>
                             <ul>
-                                <li><a target="_blank" href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/">Montar mi server</a></li>
-                                <li><a target="_blank" href="https://www.youtube.com/watch?v=p8Vf2jcJUFc">Indexar nuevos items</a></li>
-                                <li><a target="_blank" href="https://www.youtube.com/watch?v=EvymQYQICsc">Crear nuevos mapas</a></li>
+                                <li><a target="_blank" href="https://www.reddit.com/r/argentumonlineoficial/comments/9dow3q/como_montar_mi_propio_servidor/" data-i18n="footer.help.server">Montar mi server</a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/watch?v=p8Vf2jcJUFc" data-i18n="footer.help.items">Indexar nuevos items</a></li>
+                                <li><a target="_blank" href="https://www.youtube.com/watch?v=EvymQYQICsc" data-i18n="footer.help.maps">Crear nuevos mapas</a></li>
                             </ul>
                         </div>
                     </div>
-                    <!-- <div class="col-xl-3 col-md-6 col-12">
-                        <div class="newsletter">
-                            <h5 class="title">Newsletter</h5>
-                            <p class="fs-18">Recibe nuestras novedades por correo.</p>
-
-                            <form style="border:1px solid #ccc;padding:3px;text-align:center;" action="https://tinyletter.com/aolibre" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/aolibre', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"><p><label for="tlemail">Enter your email address</label></p><p><input type="text" style="width:140px" name="email" id="tlemail" /></p><input type="hidden" value="1" name="embed"/><input type="submit" value="Subscribe" /><p></p></form>
-                            
-                        </div>
-                    </div> -->
                 </div>
                 <div class="footer_bottom">
                     <p class="fs-16">⚔️ <span id="current-year"></span>, AO Libre </p>
@@ -595,7 +468,6 @@
         </div>
     </footer>
     <!-- end Footer -->
-    
 
     <script src="app/js/jquery.min.js"></script>
     <script src="app/js/swiper-bundle.min.js"></script>
@@ -615,6 +487,6 @@
         AOS.init();
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
-      </script>
+    </script>
 </body>
 </html>
