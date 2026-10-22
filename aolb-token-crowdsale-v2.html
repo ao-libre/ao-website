@@ -55,10 +55,13 @@
             font-size: 16px;
             line-height: 1.6;
             min-height: 100vh;
-            /* subtle particle-like noise texture */
             background-image:
-                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(240,192,64,0.07) 0%, transparent 70%),
-                radial-gradient(ellipse 60% 40% at 80% 90%, rgba(30,62,196,0.06) 0%, transparent 60%);
+                /* dark overlay so text stays readable */
+                linear-gradient(rgba(8,11,18,0.72), rgba(8,11,18,0.82)),
+                url('assets/images/fondo_preventa_nft_aolb.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         /* ── Top bar ───────────────────────────────────────────── */
