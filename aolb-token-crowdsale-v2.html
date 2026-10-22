@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$AOLB Token — AO Libre</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon-ao-libre.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//analytics.ao20.com.ar/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo -->
+
+    <style>
+        /* ── Design tokens ─────────────────────────────────────── */
+        :root {
+            --bg:        #080b12;
+            --bg-card:   #0e1220;
+            --bg-panel:  #131826;
+            --border:    rgba(240,192,64,0.18);
+            --border-hi: rgba(240,192,64,0.55);
+            --gold:      #f0c040;
+            --gold-dim:  #b88c24;
+            --red:       #c40d0d;
+            --blue:      #1e3ec4;
+            --green:     #3c9907;
+            --text:      #e8e4d8;
+            --text-muted:#8a8278;
+            --radius:    4px;
+            --font-display: 'Cinzel', serif;
+            --font-body:    'Inter', sans-serif;
+        }
+
+        /* ── Reset ─────────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 100vh;
+            /* subtle particle-like noise texture */
+            background-image:
+                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(240,192,64,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 90%, rgba(30,62,196,0.06) 0%, transparent 60%);
+        }
+
+        /* ── Top bar ───────────────────────────────────────────── */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 40px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(8,11,18,0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .topbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .topbar-logo img { height: 32px; }
+        .topbar-logo span {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+        .topbar-back {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+        .topbar-back:hover { color: var(--gold); }
+
+        /* ── Hero ──────────────────────────────────────────────── */
+        .hero {
+            text-align: center;
+            padding: 72px 24px 56px;
+        }
+        .hero-eyebrow {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--gold-dim);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+        .hero h1 .ao-r { color: var(--red); }
+        .hero h1 .ao-b { color: #4a80f5; }
+        .hero h1 .ao-g { color: var(--green); }
+        .hero h1 .ao-gold { color: var(--gold); }
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+        .badge-bep20 {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(240,192,64,0.1);
+            border: 1px solid var(--border-hi);
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 0.8rem;
+            font-family: var(--font-display);
+            letter-spacing: 0.1em;
+            color: var(--gold);
+        }
+        .badge-dot {
+            width: 7px; height: 7px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        /* ── Layout ────────────────────────────────────────────── */
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+        @media (max-width: 720px) {
+            .layout { grid-template-columns: 1fr; }
+            .topbar { padding: 16px 20px; }
+        }
+
+        /* ── Card ──────────────────────────────────────────────── */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+        }
+        .card + .card { margin-top: 16px; }
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold-dim);
+            margin-bottom: 20px;
+        }
+
+        /* ── Token stats ───────────────────────────────────────── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .stat {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 18px;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* ── AOLB logo card ────────────────────────────────────── */
+        .logo-card {
+            text-align: center;
+            padding: 32px 28px;
+        }
+        .aolb-logo {
+            width: 96px;
+            height: 96px;
+            object-fit: contain;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 0 18px rgba(240,192,64,0.35));
+            transition: filter 0.3s;
+        }
+        .aolb-logo:hover {
+            filter: drop-shadow(0 0 28px rgba(240,192,64,0.6));
+        }
+        .token-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        .token-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ── Buy widget ────────────────────────────────────────── */
+        .widget { display: flex; flex-direction: column; gap: 14px; }
+
+        /* status banner */
+        .status-bar {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 12px 16px;
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .status-bar.success { border-color: var(--green); color: #7fdc4a; }
+        .status-bar.error   { border-color: var(--red);   color: #f07070; }
+        .status-bar.info    { border-color: var(--gold-dim); color: var(--gold); }
+
+        /* address display */
+        .address-box {
+            display: none;
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 10px 14px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        /* price display */
+        .price-box {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            text-align: center;
+            min-height: 22px;
+        }
+        .price-box .price-val { color: var(--gold); font-weight: 600; }
+
+        /* quantity input */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .input-group label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+        .input-group input {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text);
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            padding: 12px 14px;
+            width: 100%;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .input-group input:focus { border-color: var(--gold-dim); }
+        .input-group input::-webkit-inner-spin-button,
+        .input-group input::-webkit-outer-spin-button { opacity: 0.4; }
+
+        /* contract address line */
+        .contract-line {
+            display: none;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        .contract-line code {
+            color: var(--text-muted);
+            font-size: 0.68rem;
+            word-break: break-all;
+        }
+
+        /* buttons */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            letter-spacing: 0.1em;
+            padding: 14px 20px;
+            text-transform: uppercase;
+            transition: opacity 0.2s, transform 0.1s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+        .btn:active { transform: scale(0.98); }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #0a0c14;
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(240,192,64,0.2);
+        }
+        .btn-primary:not(:disabled):hover {
+            opacity: 0.9;
+            box-shadow: 0 0 30px rgba(240,192,64,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-hi);
+            color: var(--gold);
+        }
+        .btn-outline:not(:disabled):hover {
+            background: rgba(240,192,64,0.07);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+        .btn-ghost:not(:disabled):hover {
+            border-color: var(--border-hi);
+            color: var(--text);
+        }
+
+        /* MetaMask icon inside button */
+        .mm-icon {
+            width: 18px; height: 18px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        /* ── Hidden ────────────────────────────────────────────── */
+        .hidden { display: none !important; }
+
+        /* ── Buy section (shown after connect) ─────────────────── */
+        #buy-section { display: none; flex-direction: column; gap: 14px; }
+
+        /* ── Info column ───────────────────────────────────────── */
+        .info-col { display: flex; flex-direction: column; gap: 16px; }
+
+        /* ── How-to card ───────────────────────────────────────── */
+        .steps { display: flex; flex-direction: column; gap: 14px; }
+        .step {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .step-num {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            color: var(--gold-dim);
+            background: rgba(240,192,64,0.08);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .step-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+        .step-text a { color: var(--gold-dim); }
+        .step-text a:hover { color: var(--gold); }
+
+        /* ── Links ─────────────────────────────────────────────── */
+        .link-list { display: flex; flex-direction: column; gap: 8px; }
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .link-item:hover { border-color: var(--border-hi); color: var(--text); }
+        .link-arrow { margin-left: auto; color: var(--gold-dim); }
+
+        /* ── Footer ────────────────────────────────────────────── */
+        footer {
+            text-align: center;
+            padding: 32px 24px;
+            border-top: 1px solid var(--border);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+        footer a { color: var(--text-muted); }
+        footer a:hover { color: var(--gold); }
+
+        /* ── Entry animation ───────────────────────────────────── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .hero          { animation: fadeUp 0.6s ease both; }
+        .layout        { animation: fadeUp 0.6s 0.1s ease both; }
+    </style>
+</head>
+<body>
+
+    <!-- Top bar -->
+    <header class="topbar">
+        <a href="index.html" class="topbar-logo">
+            <img src="assets/images/logo.png" alt="AO Libre">
+            <span>AO Libre</span>
+        </a>
+        <a href="index.html" class="topbar-back">
+            ← Back to site
+        </a>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <p class="hero-eyebrow">Binance Smart Chain · BEP-20</p>
+        <h1>
+            <span class="ao-r">A</span><span class="ao-b">O</span> <span class="ao-g">Libre</span><br>
+            <span class="ao-gold">$AOLB Token</span>
+        </h1>
+        <p class="hero-sub">An experimental community token built on the Binance Smart Chain. No in-game utility — community only.</p>
+        <span class="badge-bep20">
+            <span class="badge-dot"></span>
+            Public Sale Active
+        </span>
+    </section>
+
+    <!-- Main layout -->
+    <div class="layout">
+
+        <!-- Left column: info -->
+        <div class="info-col">
+
+            <!-- Token stats -->
+            <div class="card">
+                <p class="card-title">Token Info</p>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <p class="stat-label">Public Sale Supply</p>
+                        <p class="stat-value">5B AOLB</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat-label">Max Supply</p>
+                        <p class="stat-value">100B AOLB</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat-label">Network</p>
+                        <p class="stat-value">BSC</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat-label">Standard</p>
+                        <p class="stat-value">BEP-20</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to buy -->
+            <div class="card">
+                <p class="card-title">How to buy</p>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <p class="step-text">Install <a href="https://metamask.io" target="_blank">MetaMask</a> in your browser if you haven't already.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <p class="step-text">Add the <a href="https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain" target="_blank">Binance Smart Chain network</a> to MetaMask.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <p class="step-text">Connect your wallet using the button on the right, enter your desired quantity, and click Buy.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <p class="step-text">Use "Add $AOLB to wallet" so the token appears in your MetaMask balance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Links -->
+            <div class="card">
+                <p class="card-title">Resources</p>
+                <div class="link-list">
+                    <a href="https://whitepaper.argentumonline.org" target="_blank" class="link-item">
+                        📄 Whitepaper
+                        <span class="link-arrow">↗</span>
+                    </a>
+                    <a href="nfts.html" class="link-item">
+                        🎨 ARGENTUMS NFT Collection
+                        <span class="link-arrow">↗</span>
+                    </a>
+                    <a href="index.html" class="link-item">
+                        ⚔️ Argentum Online Libre
+                        <span class="link-arrow">↗</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right column: buy widget -->
+        <div>
+            <!-- Logo -->
+            <div class="card logo-card">
+                <img src="assets/images/ao-libre-aolb-logo.png" alt="AOLB Token" class="aolb-logo" id="aolb-logo">
+                <p class="token-name">$AOLB</p>
+                <p class="token-sub">AO Libre Token · BEP-20</p>
+            </div>
+
+            <!-- Widget -->
+            <div class="card" style="margin-top:16px;">
+                <p class="card-title">Buy $AOLB</p>
+                <div class="widget">
+
+                    <!-- Status message -->
+                    <div class="status-bar" id="status-bar">
+                        Waiting for MetaMask connection…
+                    </div>
+
+                    <!-- Connect button (shown before connect) -->
+                    <button class="btn btn-primary" id="btn-connect">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" class="mm-icon" alt="">
+                        Connect MetaMask
+                    </button>
+
+                    <!-- Add token to wallet -->
+                    <button class="btn btn-ghost" id="btn-add-token">
+                        + Add $AOLB to wallet
+                    </button>
+
+                    <!-- Buy section (shown after connect) -->
+                    <div id="buy-section">
+
+                        <!-- Address -->
+                        <div class="address-box" id="address-box"></div>
+
+                        <!-- Price -->
+                        <div class="price-box" id="price-box">Loading price…</div>
+
+                        <!-- Quantity -->
+                        <div class="input-group">
+                            <label for="quantity">Quantity (AOLB tokens)</label>
+                            <input type="number" id="quantity" value="1" min="1" step="1">
+                        </div>
+
+                        <!-- Buy button -->
+                        <button class="btn btn-primary" id="btn-buy" disabled>
+                            Buy $AOLB
+                        </button>
+
+                        <!-- Contract address -->
+                        <p class="contract-line" id="contract-line">
+                            Contract: <code>0xef7729284D0EbadFF2C27B654513426749cC9732</code>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <p style="font-size:0.72rem;color:var(--text-muted);margin-top:14px;line-height:1.5;text-align:center;">
+                $AOLB has no in-game utility and is a community experiment. Not financial advice. Always verify the contract address before transacting.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Developed by <a href="https://thehype.nz" target="_blank">The Hype</a> &amp; <a href="https://www.conreco.com.ar" target="_blank">Conreco</a>
+        &nbsp;·&nbsp;
+        <a href="index.html">AO Libre</a>
+    </footer>
+
+    <!-- Web3.js 4.x -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.16.0/web3.min.js"></script>
+
+    <script>
+    (() => {
+        'use strict';
+
+        // ── Constants ──────────────────────────────────────────
+        const CONTRACT_ADDRESS = '0xef7729284D0EbadFF2C27B654513426749cC9732';
+        const TOKEN_ADDRESS    = '0xEA17E48C988D64e92d64550C787B17281F61828e';
+        const TOKEN_IMAGE_URL  = 'https://argentumonline.org/assets/images/ao-libre-aolb-logo.png';
+        const BSC_CHAIN_ID     = '0x38'; // 56 decimal
+
+        const ABI = [
+            { inputs: [], name: 'AOLTokenPrice', outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }], stateMutability: 'view', type: 'function' },
+            { inputs: [], name: 'buy',           outputs: [],                                                         stateMutability: 'payable', type: 'function'  },
+        ];
+
+        // ── State ──────────────────────────────────────────────
+        let web3           = null;
+        let currentAccount = null;
+        let tokenPriceBN   = 0n; // BigInt (web3.js 4.x returns BigInt)
+
+        // ── DOM refs ───────────────────────────────────────────
+        const $status      = document.getElementById('status-bar');
+        const $btnConnect  = document.getElementById('btn-connect');
+        const $btnAddToken = document.getElementById('btn-add-token');
+        const $buySection  = document.getElementById('buy-section');
+        const $addressBox  = document.getElementById('address-box');
+        const $priceBox    = document.getElementById('price-box');
+        const $quantity    = document.getElementById('quantity');
+        const $btnBuy      = document.getElementById('btn-buy');
+        const $contractLine= document.getElementById('contract-line');
+        const $aolbLogo    = document.getElementById('aolb-logo');
+
+        // ── UI helpers ─────────────────────────────────────────
+        function setStatus(msg, type = '') {
+            $status.textContent = msg;
+            $status.className   = 'status-bar' + (type ? ' ' + type : '');
+        }
+
+        function showBuySection() {
+            $buySection.style.display  = 'flex';
+            $contractLine.style.display = 'block';
+            $addressBox.style.display   = 'block';
+        }
+
+        // ── MetaMask detection ────────────────────────────────
+        function hasMetaMask() {
+            return typeof window.ethereum !== 'undefined';
+        }
+
+        // ── Switch / add BSC network ──────────────────────────
+        async function ensureBSC() {
+            try {
+                await window.ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: BSC_CHAIN_ID }],
+                });
+            } catch (err) {
+                // 4902 = chain not added yet
+                if (err.code === 4902) {
+                    await window.ethereum.request({
+                        method: 'wallet_addEthereumChain',
+                        params: [{
+                            chainId: BSC_CHAIN_ID,
+                            chainName: 'Binance Smart Chain',
+                            nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
+                            rpcUrls: ['https://bsc-dataseed.binance.org/'],
+                            blockExplorerUrls: ['https://bscscan.com'],
+                        }],
+                    });
+                } else {
+                    throw err;
+                }
+            }
+        }
+
+        // ── Init web3 ─────────────────────────────────────────
+        async function initWeb3() {
+            if (web3) return;
+            web3 = new Web3(window.ethereum);
+        }
+
+        // ── Fetch token price ─────────────────────────────────
+        async function fetchTokenPrice() {
+            try {
+                const contract = new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
+                tokenPriceBN   = await contract.methods.AOLTokenPrice().call(); // BigInt
+                const bnbPrice = web3.utils.fromWei(tokenPriceBN.toString(), 'ether');
+                $priceBox.innerHTML = `Price: <span class="price-val">${parseFloat(bnbPrice).toFixed(8)} BNB</span> per AOLB`;
+                $btnBuy.disabled = false;
+            } catch (e) {
+                $priceBox.textContent = 'Could not fetch price — wrong network?';
+                setStatus('Make sure you are on Binance Smart Chain.', 'error');
+                $btnBuy.disabled = true;
+            }
+        }
+
+        // ── Connect ───────────────────────────────────────────
+        async function connect() {
+            if (!hasMetaMask()) {
+                setStatus('MetaMask not found. Install it first.', 'error');
+                return;
+            }
+
+            setStatus('Connecting…', 'info');
+            $btnConnect.disabled = true;
+
+            try {
+                await ensureBSC();
+                await initWeb3();
+
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                currentAccount = accounts[0];
+
+                $addressBox.textContent = `Connected: ${currentAccount}`;
+                $aolbLogo.style.filter  = 'drop-shadow(0 0 28px rgba(240,192,64,0.6))';
+                $btnConnect.classList.add('hidden');
+
+                setStatus('Wallet connected.', 'success');
+                showBuySection();
+                await fetchTokenPrice();
+
+            } catch (err) {
+                $btnConnect.disabled = false;
+                if (err.code === 4001) {
+                    setStatus('Connection rejected.', 'error');
+                } else {
+                    setStatus(err.message || 'Connection failed.', 'error');
+                }
+            }
+        }
+
+        // ── Buy ────────────────────────────────────────────────
+        async function buy() {
+            const qty = BigInt(Math.floor(Number($quantity.value)));
+            if (qty <= 0n) { setStatus('Enter a valid quantity.', 'error'); return; }
+
+            const totalValueBN = tokenPriceBN * qty; // BigInt × BigInt = BigInt
+
+            $btnBuy.disabled = true;
+            setStatus('Confirm the transaction in MetaMask…', 'info');
+
+            try {
+                const contract = new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
+
+                // estimateGas returns BigInt in 4.x — add 20% buffer
+                const gasEstimate = await contract.methods.buy().estimateGas({
+                    from:  currentAccount,
+                    value: totalValueBN,
+                });
+                const gasWithBuffer = gasEstimate * 12n / 10n;
+
+                await contract.methods.buy().send({
+                    from:  currentAccount,
+                    value: totalValueBN,
+                    gas:   gasWithBuffer,
+                });
+
+                setStatus(`Purchased ${qty.toString()} AOLB tokens!`, 'success');
+            } catch (err) {
+                setStatus(err.message || 'Transaction failed.', 'error');
+            } finally {
+                $btnBuy.disabled = false;
+            }
+        }
+
+        // ── Add token to MetaMask ─────────────────────────────
+        async function addTokenToWallet() {
+            if (!hasMetaMask()) { setStatus('MetaMask not found.', 'error'); return; }
+            try {
+                await window.ethereum.request({
+                    method: 'wallet_watchAsset',
+                    params: {
+                        type: 'ERC20',
+                        options: {
+                            address:  TOKEN_ADDRESS,
+                            symbol:   'AOLB',
+                            decimals: 18,
+                            image:    TOKEN_IMAGE_URL,
+                        },
+                    },
+                });
+            } catch (err) {
+                setStatus(err.message || 'Could not add token.', 'error');
+            }
+        }
+
+        // ── Account / chain change listeners ─────────────────
+        if (hasMetaMask()) {
+            window.ethereum.on('accountsChanged', (accounts) => {
+                currentAccount = accounts[0] ?? null;
+                if (!currentAccount) {
+                    location.reload();
+                } else {
+                    $addressBox.textContent = `Connected: ${currentAccount}`;
+                }
+            });
+            window.ethereum.on('chainChanged', () => location.reload());
+        } else {
+            setStatus('MetaMask not detected. Install it to buy.', 'error');
+            $btnConnect.disabled = true;
+        }
+
+        // ── Event listeners ───────────────────────────────────
+        $btnConnect .addEventListener('click', connect);
+        $btnBuy     .addEventListener('click', buy);
+        $btnAddToken.addEventListener('click', addTokenToWallet);
+
+    })();
+    </script>
+
+</body>
+</html>
